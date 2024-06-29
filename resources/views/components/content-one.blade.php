@@ -1,4 +1,4 @@
-<div class="bg-cover p-0 lg:px-20 py-8" style="background-image: url('{{ asset($bgimage) }}')">
+<div class="bg-cover p-0 lg:px-20 py-8 bg-center" style="background-image: url('{{ asset($bgimage) }}')">
     <x-card-carousel />
 
     <div class="grid grid-cols-1 md:grid-cols-2 justify-items-center pt-28">
@@ -45,8 +45,8 @@
                 </div>
             </div>
             <div class="flex flex-wrap gap-2 mt-2">
-                <button class="px-3 py-2 rounded-lg text-darkblue bg-accent">Search property</button>
-                <button class="px-3 py-2 rounded-lg text-darkblue bg-accent">Contact Us</button>
+                <button class="px-3 py-2 rounded-lg text-darkblue bg-accent active:translate-y-[1px] active:bg-yellow-400">Search property</button>
+                <button class="px-3 py-2 rounded-lg text-darkblue bg-accent active:translate-y-[1px] active:bg-yellow-400">Contact Us</button>
             </div>
         </div>
     </div>

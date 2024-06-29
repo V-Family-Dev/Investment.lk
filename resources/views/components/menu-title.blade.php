@@ -21,8 +21,8 @@
     <div class="px-20 custom-470:px-2 py-10 flex flex-col w-full bg-center bg-cover"
         style="background-image: url('{{ asset($bgimage) }}')">
         <span class="text-accent text-sm custom-470:ml-4">Seamless Living</span>
-        <span class="text-black text-4xl md:text-6xl font-bold custom-470:ml-4">Make Future With Investment </span>
-        <span class="text-black text-4xl md:text-6xl font-bold custom-470:ml-4"> Be a Top Grade Investor </span>
+        <span class="text-primary text-4xl md:text-6xl font-bold custom-470:ml-4">Make Future With Investment </span>
+        <span class="text-primary text-4xl md:text-6xl font-bold custom-470:ml-4"> Be a Top Grade Investor </span>
         <form action="#" class="w-full mt-4">
             <div class="flex justify-center gap-4 bg-primary max-w-80 p-2 rounded-tl-3xl rounded-tr-3xl relative pb-4">
                 <div>
