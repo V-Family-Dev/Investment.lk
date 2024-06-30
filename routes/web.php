@@ -31,9 +31,3 @@ Route::get('/Home4', function () {
 Route::get('/AboutUs', function () {
     return view('about_us');
 });
-Route::get('/ContactUs', function () {
-    return view('contact_us');
-});
-Route::get('/FAQ', function () {
-    return view('faq');
-});
