@@ -14,5 +14,6 @@
         <x-headerbar />
         <h1>Test</h1>
         <x-property/>
+        <x-property/>
     </body>
 </html>
