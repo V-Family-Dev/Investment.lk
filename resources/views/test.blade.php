@@ -13,7 +13,7 @@
             background-position: center;
         }
     </style>
-    <title>Property Details</title>
+    <title>Property Listing</title>
 </head>
 <body>
     <x-headerbar />
