@@ -37,3 +37,6 @@ Route::get('/ContactUs', function () {
 Route::get('/FAQ', function () {
     return view('faq');
 });
+Route::get('/OurAgents', function () {
+    return view('our_agents');
+});
