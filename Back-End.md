@@ -729,6 +729,5 @@ This documentation provides a comprehensive guide for setting up the backend for
  types of listings and their specific details efficiently, ensuring data integrity and minimizing redundancy.
 
 For any further customization or detailed implementation, please refer to Laravel's official documentation or consult with the development team.
-```
 
 This documentation covers the database schema, models, controllers, and API routes with detailed explanations and code examples. It should serve as a comprehensive guide for the backend development of the Investment Lanka project.
