@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
     <style>
         body {
-            background-image: url('https://s3-alpha-sig.figma.com/img/c6a9/8988/69ea407511b0acd5a8f97fa435a017a6?Expires=1721001600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fQ0eV4cPVpmW2ACaMGtYfvGK~9YhCcowZ2LzD6W1YKP9ahGFVKrEWmXhoYs9tTUcR2jikzZK-BBPSnnevqUoaxsGPjD6zOqthdcZHdIpNJRg836S-XP-xaFgQ5N4h7~clCzjw7EVgfIfghsLi27K0KCi9LBafafym7SLWae9KDfgHenxybkezXYryT9qew-8vLl8Nqd2I~jW8nClESMbRCDDMpQVjbRvwV8ji-WhKMUf6sisl9qVDUyUwhb7S4-Ablz8lgxs7Nxa0RM45HL0qtcuZDNxfkMb14yNlyyrjSP9~uzqSh~bqpD5f-dN5PbTcDq2oCui6Ahp-CnUD6ikug__');
+            background-image: url('{{ asset('images/property/anju/propertylistBackground.png') }}');
             background-size: cover;
             background-position: center;
         }
@@ -17,27 +17,52 @@
 </head>
 <body>
     <x-headerbar />
-    <x-title-area title="Property Listing" subtitle="Home - Property Listing" image="https://www.figma.com/file/xveSGNDTJ4mvvJNpZX1sky/image/9d7c1ce912cd1cf65458486e3504befe5b99f45c" />
+    <x-title-area
+        title="Property Listing"
+        subtitle="Home - Property Listing"
+        image="{{ asset('images/property/anju/propertyHeader.png') }}"
+    />
 
     <!-- Property grid container -->
-    <div class="grid grid-cols-4 gap-x-8 gap-y-8 p-4">
-        <!-- Assuming x-property generates multiple property items here -->
-        <x-property />
-        <x-property />
-        <x-property />
-        <x-property />
-        <x-property />
-        <x-property />
-        <x-property />
-        <x-property />
-        <x-property />
-        <x-property />
-        <x-property />
-        <x-property />
-        <x-property />
-        <x-property />
-        <x-property />
-        <x-property />
+    <div class="flex flex-wrap items-center justify-center min-h-screen bg-gray-100 p-4">
+        @for ($i = 0; $i < 16; $i++)
+            <div class="w-full max-w-[387.5px] h-auto bg-[#F9FCFF] p-4 rounded-lg shadow-md m-2">
+                <div class="relative w-full h-auto bg-[#F9FCFF] p-4 rounded-lg shadow-md flex items-center justify-center overflow-hidden">
+                    <img id="crud-photo"
+                        src="{{ asset('images/property/anju/Imageproperty001.png') }}"
+                        alt="Uploaded Photo"
+                        class="w-full h-auto object-contain">
+
+                    <div class="absolute bottom-0 left-0 p-2 bg-[#ECBD00] bg-opacity-75 rounded-tr-lg hover:bg-opacity-90 transition duration-200">
+                        <p class="text-white font-bold">$17,000</p>
+                    </div>
+                </div>
+                <div class="space-y-4 mt-4">
+                    <div>
+                        <p class="text-[#000000] font-bold text-lg sm:text-xl">Regal Ridge Estates</p>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <img id="location" src="{{ asset('images/icons/location.png') }}" class="w-[14.4px] h-[18px]">
+                        <p class="text-black text-sm sm:text-base">1000 W Redondo Beach Blvd, Gardena, CA</p>
+                    </div>
+                    <div class="flex flex-wrap justify-between w-full mt-2">
+                        <div class="flex items-center space-x-2">
+                            <img id="Beds" src="{{ asset('images/icons/bed.png') }}" class="w-[14.4px] h-[18px]">
+                            <p class="text-black text-sm sm:text-base">Beds</p>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <img id="baths" src="{{ asset('images/icons/bathtub.png') }}" class="w-[14.4px] h-[18px]">
+                            <p class="text-black text-sm sm:text-base">Baths</p>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <img id="area" src="{{ asset('images/icons/fullscreen.png') }}" class="w-[14.4px] h-[18px]">
+                            <p class="text-black text-sm sm:text-base">1642sq</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endfor
     </div>
+    <x-footer bgimage='images/building/build8.png' />
 </body>
 </html>
