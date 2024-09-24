@@ -20,6 +20,12 @@ export default {
             screens: {
                 'custom-900': { 'max': '900px' },
                 'custom-470': { 'max': '470px' },
+                'max-sm': { 'max': '640px' },    // max-width for small screens
+                'max-md': { 'max': '768px' },    // max-width for medium screens
+                'max-lg': { 'max': '1024px' },   // max-width for large screens
+                'max-xl': { 'max': '1280px' },   // max-width for extra-large screens
+                'max-2xl': { 'max': '1536px' },  // max-width for 2XL screens
+        // Add your custom min-width breakpoints below if needed
               },
         },
     },

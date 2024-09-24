@@ -17,6 +17,15 @@ Route::get('/', function () {
     return view('login');
 });
 
+Route::get('/propertyList', function () {
+    return view('propertyList');
+});
+
+Route::get('/propertyDetail', function () {
+    return view('propertyDetail');
+});
+
+
 Route::get('/test', function () {
     return view('test');
 });
