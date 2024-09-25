@@ -45,9 +45,8 @@
         </div>
 
         <!-- Section 4 -->
-        <div class="w-full bg-white p-6 rounded-lg shadow-md">
-            <h2 class="text-2xl font-bold mb-4">Photos</h2>
-            <p class="text-lg">Gallery of images showcasing the property.</p>
+        <div class="w-full h-[10%]">
+            <x-section4/>
         </div>
 
         <!-- Section 5 -->
