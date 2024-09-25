@@ -27,7 +27,7 @@
 </header>
 
 <!-- Details Section -->
-<main class="flex-grow flex items-center justify-center">
+<main class="flex-grow flex flex-col items-center justify-center">
     <div class="flex flex-col gap-[140px] w-full max-w">
         <!-- Section 1 -->
         <div class="w-[85%]  mx-auto">
@@ -49,24 +49,30 @@
             <x-section4/>
         </div>
 
-        <!-- Section 5 -->
-        <div class="w-full bg-white p-6 rounded-lg shadow-md">
-            <h2 class="text-2xl font-bold mb-4">Pricing</h2>
-            <p class="text-lg">Information about the price and any available financing options.</p>
-        </div>
-
-        <!-- Section 6 -->
-        <div class="w-full bg-white p-6 rounded-lg shadow-md">
-            <h2 class="text-2xl font-bold mb-4">Contact Information</h2>
-            <p class="text-lg">Details on how to get in touch for more information or to schedule a visit.</p>
-        </div>
-
-        <!-- Section 7 -->
-        <div class="w-full bg-white p-6 rounded-lg shadow-md">
-            <h2 class="text-2xl font-bold mb-4">Reviews</h2>
-            <p class="text-lg">User reviews and testimonials about the property.</p>
-        </div>
     </div>
+
+   <div class=" flex flex-col w-full max-w mt-0">
+
+     <!-- Section 5 -->
+     <div class="w-full h-[10%]">
+        <x-section5/>
+     </div>
+
+    <!-- Section 6 -->
+    <div class="w-full bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold mb-4">Contact Information</h2>
+        <p class="text-lg">Details on how to get in touch for more information or to schedule a visit.</p>
+    </div>
+
+    <!-- Section 7 -->
+    <div class="w-full bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold mb-4">Reviews</h2>
+        <p class="text-lg">User reviews and testimonials about the property.</p>
+    </div>
+
+   </div>
+
+
 </main>
 
 
