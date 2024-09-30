@@ -96,3 +96,13 @@ Route::get('/categories', function () {
 Route::get('/forms', function () {
     return view('forms');
 });
+
+
+Route::get('/luxury-house-sale', function () {
+    return view('luxury-house-sale');
+});
+
+
+Route::get('/apartment-sale', function () {
+    return view('apartment-sale');
+});
