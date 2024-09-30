@@ -134,3 +134,6 @@ Route::get('/industrial-vehicle-sale', function () {
     return view('industrial-vehicle-sale');
 });
 
+Route::get('/land-sale', function () {
+    return view('land-sale');
+});
