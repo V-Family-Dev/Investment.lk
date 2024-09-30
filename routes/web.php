@@ -106,3 +106,7 @@ Route::get('/luxury-house-sale', function () {
 Route::get('/apartment-sale', function () {
     return view('apartment-sale');
 });
+
+Route::get('/room-rental', function () {
+    return view('room-rental');
+});
