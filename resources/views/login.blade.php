@@ -14,7 +14,7 @@
     <x-headerbar />
     <x-title-area title="Login" subtitle="Home - Login" image="images/building/build1.jpg" />
 
-    <div class="bg-gray-100 flex items-center justify-center min-h-screen bg-secondary py-16">
+    <div class="flex items-center justify-center min-h-screen bg-secondary py-16">
         <div class="bg-primary p-8 rounded-lg shadow-xl w-full max-w-md">
             <h3 class="text-center text-accent text-sm font-bold">WELCOME HOME</h3>
             <h1 class="text-center text-2xl font-bold mt-2">Sign In to Your Account.</h1>

@@ -13,22 +13,32 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/* Route::get('/', function () {
+    return view('welcome');
+}); */
 Route::get('/', function () {
     return view('login');
 });
 
-Route::get('/propertyList', function () {
-    return view('propertyList');
+Route::get('/Home2', function () {
+    return view('home2');
 });
-
-Route::get('/propertyDetail', function () {
-    return view('propertyDetail');
+Route::get('/Home3', function () {
+    return view('home3');
 });
-
-Route::get('/gallery', function () {
-    return view('gallery');
+Route::get('/Home4', function () {
+    return view('home4');
 });
+Route::get('/AboutUs', function () {
+    return view('about_us');
+});
+Route::get('/ContactUs', function () {
+    return view('contact_us');
+});
+Route::get('/FAQ', function () {
+    return view('faq');
+});
+Route::get('/OurAgents', function () {
+    return view('our_agents');
 
-Route::get('/test', function () {
-    return view('test');
 });
