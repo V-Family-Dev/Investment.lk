@@ -1,3 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Reddit+Sans+Condensed:wght@200..900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@keyframes slide-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@layer utilities {
+    .paused {
+        animation-play-state: paused;
+    }
+}
+
+* {
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}

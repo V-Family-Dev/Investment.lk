@@ -44,7 +44,8 @@
             </ul>
 
             <div class="login hidden md:flex items-center">
-                <i class="fa fa-sign-in text-accent" aria-hidden="true"></i>
+                {{-- <i class="fa fa-sign-in text-accent" aria-hidden="true"></i> --}}
+                <img src="{{ asset('images/icons/loginicon.png') }}" alt="" class="h-4 w-4">
                 <a href="#" class="ml-2 login-link">Login/Register</a>
             </div>
         </div>
