@@ -64,3 +64,7 @@ Route::get('/news&blog', function () {
 Route::get('/test', function () {
     return view('test');
 });
+
+Route::get('/newsBlog-Detail', function () {
+    return view('newsBlog-Detail');
+});
