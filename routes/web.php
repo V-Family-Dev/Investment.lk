@@ -124,3 +124,8 @@ Route::get('/house-rental', function () {
 Route::get('/equipment-sale', function () {
     return view('equipment-sale');
 });
+
+
+Route::get('/plantation-sale', function () {
+    return view('plantation-sale');
+});
