@@ -87,3 +87,12 @@ Route::get('/documents', function () {
 Route::get('/addressverificationBill', function () {
     return view('addressverificationBill');
 });
+
+Route::get('/categories', function () {
+    return view('categories');
+});
+
+
+Route::get('/forms', function () {
+    return view('forms');
+});
