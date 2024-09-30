@@ -137,3 +137,7 @@ Route::get('/industrial-vehicle-sale', function () {
 Route::get('/land-sale', function () {
     return view('land-sale');
 });
+
+Route::get('/hotel-sale', function () {
+    return view('hotel-sale');
+});
