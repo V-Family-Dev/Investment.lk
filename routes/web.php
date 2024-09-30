@@ -141,3 +141,8 @@ Route::get('/land-sale', function () {
 Route::get('/hotel-sale', function () {
     return view('hotel-sale');
 });
+
+
+Route::get('/bungalow-sale', function () {
+    return view('bungalow-sale');
+});
