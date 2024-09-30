@@ -110,3 +110,7 @@ Route::get('/apartment-sale', function () {
 Route::get('/room-rental', function () {
     return view('room-rental');
 });
+
+Route::get('/apartment-rental', function () {
+    return view('apartment-rental');
+});
