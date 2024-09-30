@@ -129,3 +129,8 @@ Route::get('/equipment-sale', function () {
 Route::get('/plantation-sale', function () {
     return view('plantation-sale');
 });
+
+Route::get('/industrial-vehicle-sale', function () {
+    return view('industrial-vehicle-sale');
+});
+
