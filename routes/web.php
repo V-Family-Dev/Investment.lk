@@ -68,3 +68,13 @@ Route::get('/test', function () {
 Route::get('/newsBlog-Detail', function () {
     return view('newsBlog-Detail');
 });
+
+
+Route::get('/signin', function () {
+    return view('signin');
+});
+
+
+Route::get('/otp', function () {
+    return view('otp');
+});
