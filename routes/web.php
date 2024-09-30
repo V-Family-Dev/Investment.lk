@@ -114,3 +114,8 @@ Route::get('/room-rental', function () {
 Route::get('/apartment-rental', function () {
     return view('apartment-rental');
 });
+
+
+Route::get('/house-rental', function () {
+    return view('house-rental');
+});
