@@ -83,3 +83,7 @@ Route::get('/otp', function () {
 Route::get('/documents', function () {
     return view('documents');
 });
+
+Route::get('/addressverificationBill', function () {
+    return view('addressverificationBill');
+});
