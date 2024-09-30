@@ -39,6 +39,24 @@ Route::get('/FAQ', function () {
     return view('faq');
 });
 
+
+
+
+
+
+//meka mokekwath allana epooooooooo
+Route::get('/gallery', function () {
+    return view('gallery');
+});
+
+
+Route::get('/propertyDetail', function () {
+    return view('propertyDetail');
+});
+
+Route::get('/propertyList', function () {
+    return view('propertyList');
+});
 Route::get('/news&blog', function () {
     return view('news&blog');
 });
