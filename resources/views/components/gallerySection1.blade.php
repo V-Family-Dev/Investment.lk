@@ -4,7 +4,7 @@
         <p class=" flex text-[#ECBD00] text-[15px] font-bold items-center justify-center">Visual Delight</p>
         <p class=" flex text-[39px] font-bold items-center justify-center">Dive into the Gallery Experience</p>
     </div>
-    <div class=" mt-[60px]">
+    <div class=" flex mt-[60px] justify-center items-center ">
         <div class=" w-[791px] h-[70px] flex justify-center">
 
             <div class=" flex w-[174px] h-[70px] bg-white rounded-[24px] ">
