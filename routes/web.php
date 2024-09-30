@@ -29,6 +29,10 @@ Route::get('/gallery', function () {
     return view('gallery');
 });
 
+Route::get('/news&blog', function () {
+    return view('news&blog');
+});
+
 Route::get('/test', function () {
     return view('test');
 });
