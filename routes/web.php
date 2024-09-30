@@ -78,3 +78,8 @@ Route::get('/signin', function () {
 Route::get('/otp', function () {
     return view('otp');
 });
+
+
+Route::get('/documents', function () {
+    return view('documents');
+});

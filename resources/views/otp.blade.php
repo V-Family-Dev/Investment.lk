@@ -70,7 +70,7 @@
             <button id="resend-otp"
                 class="px-4 py-2 bg-secondary text-black font-semibold rounded-lg hover-bg-darkaccent transition duration-300">Resend
                 OTP</button>
-            <button
+            <button id="verify-otp"
                 class="px-4 py-2 bg-accent text-white font-semibold rounded-lg hover-bg-darkaccent transition duration-300">Verify
                 OTP</button>
         </div>
@@ -81,6 +81,7 @@
         let time = 120;
         const countdownEl = document.getElementById('countdown');
         const resendButton = document.getElementById('resend-otp');
+        const verifyButton = document.getElementById('verify-otp');
         resendButton.disabled = true;
 
         const countdown = setInterval(() => {
@@ -102,6 +103,11 @@
             resendButton.disabled = true;
             time = 120;
             countdown(); // Restart countdown
+        });
+
+        // Navigate to documents.blade.php page on Verify OTP click
+        verifyButton.addEventListener('click', () => {
+            window.location.href = '{{ url("documents") }}'; // Adjust the URL as needed
         });
     </script>
 </body>
