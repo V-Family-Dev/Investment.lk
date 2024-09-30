@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('login');
 });
+
 Route::get('/Home2', function () {
     return view('home2');
 });
@@ -39,4 +40,5 @@ Route::get('/FAQ', function () {
 });
 Route::get('/OurAgents', function () {
     return view('our_agents');
+
 });

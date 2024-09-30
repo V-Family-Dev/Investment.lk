@@ -18,6 +18,7 @@ export default {
                 gray: "rgba(134, 140, 146, 1)",
             },
             screens: {
+
                 "custom-900": { max: "900px" },
                 "custom-470": { max: "470px" },
             },
@@ -30,6 +31,7 @@ export default {
                     to: { transform: "translateX(-100%)" },
                 },
             },
+
         },
     },
     plugins: [],
