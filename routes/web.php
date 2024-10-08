@@ -146,3 +146,9 @@ Route::get('/hotel-sale', function () {
 Route::get('/bungalow-sale', function () {
     return view('bungalow-sale');
 });
+
+// admin panel routes
+Route::get('/admin/dashboard', function () {
+    return view('adminPanel.admin.dashboard');
+});
+// admin panel routes

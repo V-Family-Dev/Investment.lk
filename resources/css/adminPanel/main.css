@@ -1,5 +1,16 @@
 .sidebar{
     width: 100%;
     max-width: 300px;
-    background-color: aqua;
+}
+.accordion-button{
+    --bs-accordion-active-bg: white;
+    --bs-accordion-btn-bg: white;
+    --bs-accordion-btn-focus-box-shadow:none;
+}
+
+.accordion-body{
+    background-color: white;
+}
+.accordion{
+    --bs-accordion-border-color:none;
 }
