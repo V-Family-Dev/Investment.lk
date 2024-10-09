@@ -14,3 +14,34 @@
 .accordion{
     --bs-accordion-border-color:none;
 }
+.sidebar .accordion-body a{
+    color: rgb(92, 103, 134);
+    text-decoration: none;
+    margin-left: 2rem;
+    padding-block: 0.3rem;
+    display: block;
+}
+.sidebar .accordion-body a::before{
+    font-family: "Font Awesome 6 Free";
+    content: "\f192";
+    padding-right: 1rem;
+    font-weight: 900;
+    font-size: 10px;
+    color: rgba(92, 103, 134, 0.311);
+}
+.sidebar .accordion-body a:hover{
+    color: rgb(0, 68, 255);
+}
+.sidebar .accordion-body {
+    padding-block: 0px;
+}
+.bg-light{
+    background-color: rgb(246, 248, 255)!important;
+}
+
+.main-container{
+    padding-top: 70px !important;
+}
+.header-bar{
+    height: 70px!important;
+}
