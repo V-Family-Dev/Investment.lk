@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +14,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/* Route::get('/', function () {
-    return view('welcome');
-}); */
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+
+// Route::middleware('auth')->group(function () {
+//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+// });
+
+// require __DIR__.'/auth.php';
+
+
+
+
 Route::get('/', function () {
     return view('login');
 });
@@ -125,7 +142,6 @@ Route::get('/equipment-sale', function () {
     return view('equipment-sale');
 });
 
-
 Route::get('/plantation-sale', function () {
     return view('plantation-sale');
 });
@@ -142,7 +158,12 @@ Route::get('/hotel-sale', function () {
     return view('hotel-sale');
 });
 
-
 Route::get('/bungalow-sale', function () {
     return view('bungalow-sale');
 });
+
+// admin panel routes
+Route::get('/admin/dashboard', function () {
+    return view('adminPanel.admin.dashboard');
+});
+// admin panel routes
