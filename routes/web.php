@@ -125,7 +125,6 @@ Route::get('/equipment-sale', function () {
     return view('equipment-sale');
 });
 
-
 Route::get('/plantation-sale', function () {
     return view('plantation-sale');
 });
@@ -141,7 +140,6 @@ Route::get('/land-sale', function () {
 Route::get('/hotel-sale', function () {
     return view('hotel-sale');
 });
-
 
 Route::get('/bungalow-sale', function () {
     return view('bungalow-sale');

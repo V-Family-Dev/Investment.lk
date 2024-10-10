@@ -59,10 +59,16 @@
             </div>
         </div>
         <div class="overflow-y-scroll overflow-x-hidden vh-100 flex-fill position-relative main-container">
-            <div class="position-fixed top-0 left-0 bg-white shadow-sm w-100 header-bar d-flex align-items-center px-3">
-                <div>
-                    <img width="50" height="50" src="{{ asset('public/images/person/zak.png') }}" alt="">
-                </div>
+            <div class="position-fixed top-50 left-0  shadow-sm w-100 header-bar px-3 bg-success">
+                ddf
+                <!-- <div class="d-flex justify-content-between align-items-center w-50">
+                    <div>
+                        admin - dashboard
+                    </div>
+                    <div>
+                        <img width="50" height="50" src="{{ asset('images/person/zak.png') }}" alt="">
+                    </div>
+                </div> -->
             </div>
 
             <div>
