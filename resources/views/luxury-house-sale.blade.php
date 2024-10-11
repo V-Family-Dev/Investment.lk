@@ -29,17 +29,19 @@
     <main class="flex-grow flex flex-col items-center justify-center p-[105px]">
         <div class="container mx-auto my-8 p-8 bg-white rounded-lg shadow-lg">
             <h2 class="text-2xl font-bold text-black mb-4">Luxury House Sale Form</h2>
-            <form class="space-y-4">
-                <input type="text" placeholder="Title" class="w-full p-3 border border-gray-300 rounded" required>
-                <input type="text" placeholder="Location / Address" class="w-full p-3 border border-gray-300 rounded" required>
-                <input type="number" placeholder="Bedrooms" class="w-full p-3 border border-gray-300 rounded" required>
-                <input type="number" placeholder="Bathrooms" class="w-full p-3 border border-gray-300 rounded" required>
-                <input type="text" placeholder="House Size" class="w-full p-3 border border-gray-300 rounded" required>
-                <input type="text" placeholder="Land Size" class="w-full p-3 border border-gray-300 rounded" required>
-                <input type="number" placeholder="Price" class="w-full p-3 border border-gray-300 rounded" required>
-                <textarea placeholder="Description" class="w-full p-3 border border-gray-300 rounded" required></textarea>
-                <input type="file" class="w-full border border-gray-300 rounded" multiple>
-                <input type="text" placeholder="Contact Details" class="w-full p-3 border border-gray-300 rounded" required>
+            <form class="space-y-4" action="{{ route('luxury-houses.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+
+                <input type="text" name="title" placeholder="Title" class="w-full p-3 border border-gray-300 rounded" required>
+                <input type="text" name="location" placeholder="Location / Address" class="w-full p-3 border border-gray-300 rounded" required>
+                <input type="number" name="bedrooms" placeholder="Bedrooms" class="w-full p-3 border border-gray-300 rounded" required>
+                <input type="number" name="bathrooms" placeholder="Bathrooms" class="w-full p-3 border border-gray-300 rounded" required>
+                <input type="text" name="house_size" placeholder="House Size" class="w-full p-3 border border-gray-300 rounded" required>
+                <input type="text" name="land_size" placeholder="Land Size" class="w-full p-3 border border-gray-300 rounded" required>
+                <input type="number" name="price" placeholder="Price" class="w-full p-3 border border-gray-300 rounded" required>
+                <textarea placeholder="Description" name="description" class="w-full p-3 border border-gray-300 rounded" required></textarea>
+                <input type="file" name="image[]" class="w-full border border-gray-300 rounded" multiple>
+                <input type="text" name="contact_details" placeholder="Contact Details" class="w-full p-3 border border-gray-300 rounded" required>
                 <button type="submit" class="w-full p-3 bg-yellow-500 text-white rounded">Submit</button>
             </form>
         </div>

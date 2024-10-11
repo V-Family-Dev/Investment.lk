@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\ApartmentSaleController;
+use App\Http\Controllers\LuxuryHouseSaleController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FactorySaleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +17,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/brz', function () {
+    return view('welcome');
+});
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
@@ -167,3 +170,37 @@ Route::get('/admin/dashboard', function () {
     return view('adminPanel.admin.dashboard');
 });
 // admin panel routes
+
+
+
+
+
+
+
+// Routes for factory sales
+Route::get('/factory-sale', [FactorySaleController::class, 'index'])->name('factory-sales.index');
+Route::get('/factory-sales/create', [FactorySaleController::class, 'create'])->name('factory-sales.create');
+Route::post('/factorysale', [FactorySaleController::class, 'store'])->name('factory.store');
+Route::get('/factory-sales/{id}', [FactorySaleController::class, 'show'])->name('factory-sales.show');
+Route::get('/factory-sales/{id}/edit', [FactorySaleController::class, 'edit'])->name('factory-sales.edit');
+Route::put('/factory-sales/{factorySale}', [FactorySaleController::class, 'update'])->name('factory-sales.update');
+Route::delete('/factory-sales/{id}', [FactorySaleController::class, 'destroy'])->name('factory-sales.destroy');
+
+
+// Routes for apartment sales 
+Route::get('/apartment', [ApartmentSaleController::class, 'index'])->name('apartment-sales.index');
+Route::get('/apartment-sales/create', [ApartmentSaleController::class, 'create'])->name('apartment-sales.create');
+Route::post('/apartment-sales', [ApartmentSaleController::class, 'store'])->name('apartment-sales.store');
+Route::get('/apartment-sales/{id}', [ApartmentSaleController::class, 'show'])->name('apartment-sales.show');
+Route::get('/apartment-sales/{id}/edit', [ApartmentSaleController::class, 'edit'])->name('apartment-sales.edit');
+Route::put('/apartment-sales/{id}', [ApartmentSaleController::class, 'update'])->name('apartment-sales.update');
+Route::delete('/apartment-sales/{id}', [ApartmentSaleController::class, 'destroy'])->name('apartment-sales.destroy');
+
+//Routes for luxury_houses sales 
+Route::get('/luxury-house', [LuxuryHouseSaleController::class, 'index']); // Read: List all houses
+Route::get('/luxury-houses/create', [LuxuryHouseSaleController::class, 'create']); // Create: Show form
+Route::post('/luxury-houses', [LuxuryHouseSaleController::class, 'store'])->name('luxury-houses.store'); // Create: Store new house
+Route::get('/luxury-houses/{id}/edit', [LuxuryHouseSaleController::class, 'edit']); // Update: Show edit form
+Route::post('/luxury-houses/{id}/update', [LuxuryHouseSaleController::class, 'update']); // Update: Save changes
+Route::post('/luxury-houses/{id}/delete', [LuxuryHouseSaleController::class, 'destroy']); // Delete: Remove a house
+Route::get('/luxury-houses/{id}', [LuxuryHouseSaleController::class, 'show']); // Read: Show single house
