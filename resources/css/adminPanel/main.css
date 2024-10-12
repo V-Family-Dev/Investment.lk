@@ -36,12 +36,16 @@
     padding-block: 0px;
 }
 .bg-light{
-    background-color: rgb(246, 248, 255)!important;
+    background-color: #eaf0f5!important;
 }
 
 .main-container{
-    padding-top: 70px !important;
 }
+
 .header-bar{
     height: 70px!important;
+}
+
+input{
+    background-color: #e8f0fe !important;
 }
