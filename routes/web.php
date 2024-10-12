@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\ApartmentSaleController;
+use App\Http\Controllers\ColoniaStyleBungalowSaleController;
+use App\Http\Controllers\HotelSaleController;
+use App\Http\Controllers\LandSaleController;
 use App\Http\Controllers\LuxuryHouseSaleController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -153,9 +156,9 @@ Route::get('/industrial-vehicle-sale', function () {
     return view('industrial-vehicle-sale');
 });
 
-Route::get('/land-sale', function () {
-    return view('land-sale');
-});
+// Route::get('/land-sale', function () {
+//     return view('land-sale');
+// });
 
 Route::get('/hotel-sale', function () {
     return view('hotel-sale');
@@ -204,3 +207,29 @@ Route::get('/luxury-houses/{id}/edit', [LuxuryHouseSaleController::class, 'edit'
 Route::post('/luxury-houses/{id}/update', [LuxuryHouseSaleController::class, 'update']); // Update: Save changes
 Route::post('/luxury-houses/{id}/delete', [LuxuryHouseSaleController::class, 'destroy']); // Delete: Remove a house
 Route::get('/luxury-houses/{id}', [LuxuryHouseSaleController::class, 'show']); // Read: Show single house
+
+
+Route::get('colonia-style-bungalow-sales', [ColoniaStyleBungalowSaleController::class, 'index'])->name('colonia_sales.index');
+Route::get('colonia-style-bungalow-sales/create', [ColoniaStyleBungalowSaleController::class, 'create'])->name('colonia_sales.create');
+Route::post('bungalow-sales', [ColoniaStyleBungalowSaleController::class, 'store'])->name('colonia_sales.store');
+Route::get('colonia-style-bungalow-sales/{id}', [ColoniaStyleBungalowSaleController::class, 'show'])->name('colonia_sales.show');
+Route::get('colonia-style-bungalow-sales/{id}/edit', [ColoniaStyleBungalowSaleController::class, 'edit'])->name('colonia_sales.edit');
+Route::put('colonia-style-bungalow-sales/{id}', [ColoniaStyleBungalowSaleController::class, 'update'])->name('colonia_sales.update');
+Route::delete('colonia-style-bungalow-sales/{id}', [ColoniaStyleBungalowSaleController::class, 'destroy'])->name('colonia_sales.destroy');
+
+Route::get('hotel', [HotelSaleController::class, 'index'])->name('hotel_sales.index'); // View all hotel sales
+Route::get('hotel-sales/create', [HotelSaleController::class, 'create'])->name('hotel_sales.create'); // Show create form
+Route::post('hotel-sales', [HotelSaleController::class, 'store'])->name('hotel_sales.store'); // Store new sale
+Route::get('hotel-sales/{id}', [HotelSaleController::class, 'show'])->name('hotel_sales.show'); // Show single sale
+Route::get('hotel-sales/{id}/edit', [HotelSaleController::class, 'edit'])->name('hotel_sales.edit'); // Show edit form
+Route::put('hotel-sales/{id}', [HotelSaleController::class, 'update'])->name('hotel_sales.update'); // Update sale
+Route::delete('hotel-sales/{id}', [HotelSaleController::class, 'destroy'])->name('hotel_sales.destroy'); // Delete sale
+
+
+Route::get('land', [LandSaleController::class, 'index'])->name('land_sales.index'); // View all land sales
+Route::get('land-sales/create', [LandSaleController::class, 'create'])->name('land_sales.create'); // Show create form
+Route::post('landsales', [LandSaleController::class, 'store'])->name('land_sales_tore'); // Store new sale
+Route::get('land-sales/{id}', [LandSaleController::class, 'show'])->name('land_sales.show'); // Show single sale
+Route::get('land-sales/{id}/edit', [LandSaleController::class, 'edit'])->name('land_sales.edit'); // Show edit form
+Route::put('land-sales/{id}', [LandSaleController::class, 'update'])->name('land_sales.update'); // Update sale
+Route::delete('land-sales/{id}', [LandSaleController::class, 'destroy'])->name('land_sales.destroy'); // Delete sale

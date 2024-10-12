@@ -22,10 +22,8 @@ class LuxuryHouseSaleController extends Controller
         return view('luxury_houses.create');
     }
 
-    // Store a newly created house in the database
     public function store(Request $request)
     {
-        // Validate the form input
         $validated = $request->validate([
             'title' => 'required|string',
             'bedrooms' => 'required|integer',
@@ -40,45 +38,35 @@ class LuxuryHouseSaleController extends Controller
             'category_name' => 'string',
         ]);
 
-        // Initialize an empty array to store the image paths
         $imagePaths = [];
 
-        // Handle image uploads
         if ($request->hasFile('image')) {
             $images = $request->file('image');
             Log::info('Images array: ', ['image' => $images]);
             foreach ($request->file('image') as $image) {
-                // Store the image and get the path
                 $imagePath = $image->store('luxury__house__sales', 'public');
-                $imagePaths[] = $imagePath; // Add the image path to the array
+                $imagePaths[] = $imagePath; 
             }
         }
 
-        // Convert the array of image paths into a comma-separated string
         $imagePathsString = implode(',', $imagePaths);
 
-        // Add image_path to the validated data
         $validated['image_path'] = $imagePathsString;
 
-        // Save the house details along with the image paths
         $luxuryHouse = Luxury_House_Sale::create($validated);
         $categoryName = $luxuryHouse->category_name?? 'luxhs';;
         $userId = auth()->id() ?? 1;
-        // Save the data in the property_manages table
         $Property_manage= Property_manage::create([
             'category_name' => $categoryName,
-            'property_id' => $luxuryHouse->id, // Use the ID of the newly created house
-            'user_id' => $userId, // Assuming you're using authentication to get the current user
-        //     // 'status' => 'pending', // Set initial status for the property management
-        //     // 'ads_payment_id' => null, // You can fill this later
-        //     // 'ads_payment_status' => 'pending', // Example default value
-        //     // 'active_or_not' => 1, // Assuming 1 is active and 0 is inactive
+            'property_id' => $luxuryHouse->id, 
+            'user_id' => $userId, 
+       
         ]);
 
 
 
         // return redirect('/luxury-houses')->with('success', 'House added successfully with images!');
-        return $Property_manage;
+        return $luxuryHouse;
     }
 
 

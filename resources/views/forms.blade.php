@@ -41,7 +41,7 @@
                     required>
                 <textarea name="description" placeholder="Description" class="w-full p-3 border border-gray-300 rounded"
                     required></textarea>
-                <input type="file" name="image" class="w-full border border-gray-300 rounded">
+                <input type="file" name="image[]" class="w-full border border-gray-300 rounded" multiple>
                 <input type="text" name="contact_details" placeholder="Contact Details"
                     class="w-full p-3 border border-gray-300 rounded" required>
                 <button type="submit" class="w-full p-3 bg-yellow-500 text-white rounded">Submit</button>
