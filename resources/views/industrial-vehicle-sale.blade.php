@@ -29,24 +29,25 @@
     <main class="flex-grow flex flex-col items-center justify-center p-[105px]">
         <div class="container mx-auto my-8 p-8 bg-white rounded-lg shadow-lg">
             <h2 class="text-2xl font-bold text-black mb-4">Industrial Vehicle / Machine Sale Form</h2>
-            <form class="space-y-4">
-                <input type="text" placeholder="Vehicle Name" class="w-full p-3 border border-gray-300 rounded" required>
-                <input type="text" placeholder="Brand" class="w-full p-3 border border-gray-300 rounded" required>
-                <input type="text" placeholder="Location" class="w-full p-3 border border-gray-300 rounded" required>
-                <input type="text" placeholder="Condition" class="w-full p-3 border border-gray-300 rounded" required>
-                <input type="number" placeholder="Price" class="w-full p-3 border border-gray-300 rounded" required>
+            <form class="space-y-4" action="{{ route('vehical_store') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <input type="text" name="vehical_name" placeholder="Vehicle Name" class="w-full p-3 border border-gray-300 rounded" required>
+                <input type="text" name="brand" placeholder="Brand" class="w-full p-3 border border-gray-300 rounded" required>
+                <input type="text" name="location" placeholder="Location" class="w-full p-3 border border-gray-300 rounded" required>
+                <input type="text" name="condtion" placeholder="Condition" class="w-full p-3 border border-gray-300 rounded" required>
+                <input type="number" name="price" placeholder="Price" class="w-full p-3 border border-gray-300 rounded" required>
                 <input type="text" placeholder="Contact Details" class="w-full p-3 border border-gray-300 rounded" required>
-                <input type="text" placeholder="Model" class="w-full p-3 border border-gray-300 rounded" required>
-                <input type="text" placeholder="Year of Manufacture" class="w-full p-3 border border-gray-300 rounded" required>
-                <input type="text" placeholder="Fuel Type" class="w-full p-3 border border-gray-300 rounded" required>
-                <input type="text" placeholder="Mileage" class="w-full p-3 border border-gray-300 rounded" required>
-                <textarea placeholder="Description" class="w-full p-3 border border-gray-300 rounded" required></textarea>
-                <input type="text" placeholder="Color" class="w-full p-3 border border-gray-300 rounded" required>
-                <input type="file" class="w-full border border-gray-300 rounded" multiple>
-                <input type="text" placeholder="Engine Capacity" class="w-full p-3 border border-gray-300 rounded" required>
-                <input type="text" placeholder="Body Type" class="w-full p-3 border border-gray-300 rounded" required>
-                <input type="text" placeholder="Trim / Edition" class="w-full p-3 border border-gray-300 rounded" required>
-                <input type="text" placeholder="Transmission" class="w-full p-3 border border-gray-300 rounded" required>
+                <input type="text" name="model" placeholder="Model" class="w-full p-3 border border-gray-300 rounded" required>
+                <input type="text" name="year" placeholder="Year of Manufacture" class="w-full p-3 border border-gray-300 rounded" required>
+                <input type="text" name="fual_type" placeholder="Fuel Type" class="w-full p-3 border border-gray-300 rounded" required>
+                <input type="text" name="mileage" placeholder="Mileage" class="w-full p-3 border border-gray-300 rounded" required>
+                <textarea name="description" placeholder="Description" class="w-full p-3 border border-gray-300 rounded" required></textarea>
+                <input type="text" name="color" placeholder="Color" class="w-full p-3 border border-gray-300 rounded" required>
+                <input type="file" name="image[]" class="w-full border border-gray-300 rounded" multiple>
+                <input type="text" name="engine_capacity" placeholder="Engine Capacity" class="w-full p-3 border border-gray-300 rounded" required>
+                <input type="text" name="bodytype" placeholder="Body Type" class="w-full p-3 border border-gray-300 rounded" required>
+                <input type="text" name="edition" placeholder="Trim / Edition" class="w-full p-3 border border-gray-300 rounded" required>
+                <input type="text" name="transmisson" placeholder="Transmission" class="w-full p-3 border border-gray-300 rounded" required>
                 <button type="submit" class="w-full p-3 bg-yellow-500 text-white rounded">Submit</button>
             </form>
         </div>

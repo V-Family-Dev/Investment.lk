@@ -1,11 +1,17 @@
 <?php
 
+use App\Http\Controllers\ApartmentRentalController;
 use App\Http\Controllers\ApartmentSaleController;
 use App\Http\Controllers\ColoniaStyleBungalowSaleController;
+use App\Http\Controllers\EquipmentSaleController;
 use App\Http\Controllers\HotelSaleController;
+use App\Http\Controllers\HouseRentalController;
+use App\Http\Controllers\IndustrialVehicalController;
 use App\Http\Controllers\LandSaleController;
 use App\Http\Controllers\LuxuryHouseSaleController;
+use App\Http\Controllers\PlantationSaleController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RoomRentalController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FactorySaleController;
 
@@ -156,9 +162,9 @@ Route::get('/industrial-vehicle-sale', function () {
     return view('industrial-vehicle-sale');
 });
 
-// Route::get('/land-sale', function () {
-//     return view('land-sale');
-// });
+Route::get('/land-sale', function () {
+    return view('land-sale');
+});
 
 Route::get('/hotel-sale', function () {
     return view('hotel-sale');
@@ -187,7 +193,7 @@ Route::post('/factorysale', [FactorySaleController::class, 'store'])->name('fact
 Route::get('/factory-sales/{id}', [FactorySaleController::class, 'show'])->name('factory-sales.show');
 Route::get('/factory-sales/{id}/edit', [FactorySaleController::class, 'edit'])->name('factory-sales.edit');
 Route::put('/factory-sales/{factorySale}', [FactorySaleController::class, 'update'])->name('factory-sales.update');
-Route::delete('/factory-sales/{id}', [FactorySaleController::class, 'destroy'])->name('factory-sales.destroy');
+Route::delete('/factory-sales-delete/{id}', [FactorySaleController::class, 'destroy'])->name('factory-sales.destroy');
 
 
 // Routes for apartment sales 
@@ -233,3 +239,56 @@ Route::get('land-sales/{id}', [LandSaleController::class, 'show'])->name('land_s
 Route::get('land-sales/{id}/edit', [LandSaleController::class, 'edit'])->name('land_sales.edit'); // Show edit form
 Route::put('land-sales/{id}', [LandSaleController::class, 'update'])->name('land_sales.update'); // Update sale
 Route::delete('land-sales/{id}', [LandSaleController::class, 'destroy'])->name('land_sales.destroy'); // Delete sale
+
+Route::get('industrial_vehicles', [IndustrialVehicalController::class, 'index']);
+Route::get('industrial_vehicles/create', [IndustrialVehicalController::class, 'create']);
+Route::post('industrial_vehicles/store', [IndustrialVehicalController::class, 'store'])->name('vehical_store'); ;
+Route::get('industrial_vehicles/{id}', [IndustrialVehicalController::class, 'show']);
+Route::get('industrial_vehicles/{id}/edit', [IndustrialVehicalController::class, 'edit']);
+Route::put('industrial_vehicles/{id}', [IndustrialVehicalController::class, 'update']);
+Route::delete('industrial_vehicles/{id}', [IndustrialVehicalController::class, 'destroy']);
+
+
+Route::get('/plantation_sales', [PlantationSaleController::class, 'index'])->name('plantation_sales.index'); // Read all
+Route::get('/plantation_sales/create', [PlantationSaleController::class, 'create'])->name('plantation_sales.create'); // Form for create
+Route::post('/plantation_sales', [PlantationSaleController::class, 'store'])->name('plantation_sales.store'); // Save new
+Route::get('/plantation_sales/{id}', [PlantationSaleController::class, 'show'])->name('plantation_sales.show'); // View single record
+Route::get('/plantation_sales/{id}/edit', [PlantationSaleController::class, 'edit'])->name('plantation_sales.edit'); // Form for edit
+Route::put('/plantation_sales/{id}', [PlantationSaleController::class, 'update'])->name('plantation_sales.update'); // Update
+Route::delete('/plantation_sales/{id}', [PlantationSaleController::class, 'destroy'])->name('plantation_sales.destroy'); // Delete
+
+
+// Display a listing of the equipment sales (Read All)
+Route::get('/equipment_sales', [EquipmentSaleController::class, 'index'])->name('equipment_sales.index');
+Route::get('/equipment_sales/create', [EquipmentSaleController::class, 'create'])->name('equipment_sales.create');
+Route::post('/equipment_sales_store', [EquipmentSaleController::class, 'store'])->name('equipment_sales.store');
+Route::get('/equipment_sales/{equipment_sale}', [EquipmentSaleController::class, 'show'])->name('equipment_sales.show');
+Route::get('/equipment_sales/{equipment_sale}/edit', [EquipmentSaleController::class, 'edit'])->name('equipment_sales.edit');
+Route::put('/equipment_sales/{equipment_sale}', [EquipmentSaleController::class, 'update'])->name('equipment_sales.update');
+Route::delete('/equipment_sales/{equipment_sale}', [EquipmentSaleController::class, 'destroy'])->name('equipment_sales.destroy');
+
+
+Route::get('apartment-rental_show', [ApartmentRentalController::class, 'index'])->name('apartment-rentals.index');
+Route::get('apartment_rentals_create', [ApartmentRentalController::class, 'create'])->name('apartment-rentals.create');
+Route::post('apartment_rentals_store', [ApartmentRentalController::class, 'store'])->name('apartment-rentals.store');
+Route::get('apartment-rentals/{apartmentRental}', [ApartmentRentalController::class, 'show'])->name('apartment-rentals.show');
+Route::get('apartment-rentals/{apartmentRental}/edit', [ApartmentRentalController::class, 'edit'])->name('apartment-rentals.edit');
+Route::put('apartment-rentals/{apartmentRental}', [ApartmentRentalController::class, 'update'])->name('apartment-rentals.update');
+Route::delete('apartment/{apartmentRental}', [ApartmentRentalController::class, 'destroy'])->name('apartment-rentals.destroy'); 
+
+Route::get('house_rentals', [HouseRentalController::class, 'index'])->name('house-rentals.index');
+Route::get('house_rentals_create', [HouseRentalController::class, 'create'])->name('house-rentals.create');
+Route::post('house_rentals', [HouseRentalController::class, 'store'])->name('house-rentals.store');
+Route::get('house-rentals/{id}', [HouseRentalController::class, 'show'])->name('house-rentals.show');
+Route::get('house-rentals/{id}/edit', [HouseRentalController::class, 'edit'])->name('house-rentals.edit');
+Route::put('house-rentals/{id}', [HouseRentalController::class, 'update'])->name('house-rentals.update');
+Route::delete('house-rentals/{id}', [HouseRentalController::class, 'destroy'])->name('house-rentals.destroy');
+
+
+Route::get('room_rentals', [RoomRentalController::class, 'index'])->name('room_rentals.index');
+Route::get('room_rentals_create', [RoomRentalController::class, 'create'])->name('room_rentals.create');
+Route::post('room_rentals_store', [RoomRentalController::class, 'store'])->name('room_rentals.store');
+Route::get('room_rentals/{id}', [RoomRentalController::class, 'show'])->name('room_rentals.show');
+Route::get('room_rentals/{id}/edit', [RoomRentalController::class, 'edit'])->name('room_rentals.edit');
+Route::put('room_rentals/{id}', [RoomRentalController::class, 'update'])->name('room_rentals.update');
+Route::delete('room_rentals/{id}', [RoomRentalController::class, 'destroy'])->name('room_rentals.destroy');

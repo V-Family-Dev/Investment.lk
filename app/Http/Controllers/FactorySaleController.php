@@ -52,11 +52,6 @@ class FactorySaleController extends Controller
 
         $validated['image_path'] = $imagePathsString;
 
-
-
-
-
-
         $fac = FactorySale::create($validated);
         $categoryName = $fac->category_name ?? 'fcs';
         $userId = auth()->id() ?? 1;
@@ -80,7 +75,8 @@ class FactorySaleController extends Controller
     public function show($id)
     {
         $factorySale = FactorySale::findOrFail($id);
-        return view('factory_sales.show', compact('factorySale'));
+        // return view('factory_sales.show', compact('factorySale'));
+        return  $factorySale;
     }
 
     // Show the form for editing the specified resource (Update)
