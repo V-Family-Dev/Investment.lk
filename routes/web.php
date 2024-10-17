@@ -166,4 +166,8 @@ Route::get('/bungalow-sale', function () {
 Route::get('/admin/dashboard', function () {
     return view('adminPanel.admin.dashboard');
 });
+
+Route::get('/admin/user-list', function () {
+    return view('adminPanel.admin.userList');
+});
 // admin panel routes

@@ -15,7 +15,7 @@
 
 
         <div class=" mt-[3.24%]">
-            <div class=" w-[791px] h-[70px] flex justify-center">
+            <div class="w-full  md:w-[791px] h-[70px] flex flex-wrap justify-center">
 
                 <div class=" flex w-[174px] h-[70px] bg-white rounded-[24px] ">
                     <div class=" bg-[#868C92] w-[46px] h-[46px] rounded-[18px] mt-[12px] ml-[12px] mb-[12px]"></div>
@@ -49,15 +49,15 @@
     </div>
 
 
-    <div class=" flex mt-[60px] items-center">
+    <div class=" flex gap-5 flex-col md:flex-row mt-[60px] items-center">
 
-        <div class=" items-center w-[66%] h-auto">
+        <div class=" items-center w-full md:w-[66%] h-auto">
 
             <img class=" w-full" src="{{ asset('images/property/anju/section3photo.png') }}" alt="section 3 photo">
 
         </div>
 
-        <div class=" ml-[2%] w-[45%] h-auto bg-white rounded-[45px] p-5">
+        <div class=" ml-[2%] w-full md:w-[45%]  h-auto bg-white rounded-[45px] p-5">
 
             <div>
                 <p class=" text-[20px] font-bold ml-1">Ground floor</p>
@@ -94,7 +94,7 @@
 
             </div>
             <div class=" mt-[24px]">
-                <button class=" flex justify-center m-auto items-center bg-[#9CCEF7] text-[#ffff] rounded-[24px] w-[400px] h-[40px]">View 3d Model</button>
+                <button class=" flex justify-center m-auto items-center bg-[#9CCEF7] text-[#ffff] rounded-[24px] w-full h-[40px]">View 3d Model</button>
             </div>
 
         </div>
