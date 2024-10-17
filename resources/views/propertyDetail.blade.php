@@ -13,7 +13,7 @@
             background-position: center;
         }
     </style>
-    <title>Property Detail</title>
+    <title>Property Detail</title> 
 </head>
 <body class="flex flex-col min-h-screen">
     <!-- Header Section -->
@@ -40,7 +40,7 @@
         </div>
 
         <!-- Section 3 -->
-        <div class="w-full h-[10%]">
+        <div class="w-full flex justify-center">
             <x-section3/>
         </div>
 

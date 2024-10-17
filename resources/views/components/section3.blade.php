@@ -1,4 +1,4 @@
-<div class=" w-[79%] h-auto ml-[10.2%]">
+<div class=" w-[75%]"> 
 
 
     <div class=" flex flex-col items-center">
@@ -15,7 +15,7 @@
 
 
         <div class=" mt-[3.24%]">
-            <div class="w-full  md:w-[791px] h-[70px] flex flex-wrap justify-center">
+            <div class="w-full  md:w-[791px] gap-6 flex flex-wrap justify-center">
 
                 <div class=" flex w-[174px] h-[70px] bg-white rounded-[24px] ">
                     <div class=" bg-[#868C92] w-[46px] h-[46px] rounded-[18px] mt-[12px] ml-[12px] mb-[12px]"></div>
@@ -49,15 +49,13 @@
     </div>
 
 
-    <div class=" flex gap-5 flex-col md:flex-row mt-[60px] items-center">
+    <div class="flex gap-5 flex-col md:flex-row mt-[60px] items-center ">
 
-        <div class=" items-center w-full md:w-[66%] h-auto">
-
-            <img class=" w-full" src="{{ asset('images/property/anju/section3photo.png') }}" alt="section 3 photo">
-
+        <div class="self-stretch grow w-full ">
+            <img class="w-full h-full object-cover md:rounded-[45px] rounded-[25px]"  src="{{ asset('images/property/anju/section3photo.png') }}" alt="section 3 photo">
         </div>
 
-        <div class=" ml-[2%] w-full md:w-[45%]  h-auto bg-white rounded-[45px] p-5">
+        <div class=" md:basis-1/2 lg:1/4  h-auto bg-white rounded-[25px] md:rounded-[45px] p-5">
 
             <div>
                 <p class=" text-[20px] font-bold ml-1">Ground floor</p>
