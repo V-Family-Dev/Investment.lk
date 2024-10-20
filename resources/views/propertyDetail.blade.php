@@ -30,12 +30,12 @@
 <main class="flex-grow flex flex-col items-center justify-center">
     <div class="flex flex-col gap-[140px] w-full max-w">
         <!-- Section 1 -->
-        <div class="w-[85%]  mx-auto">
+        <div class="w-[90%] lg:w-[75%]  mx-auto">
             <x-section1/>
         </div>
 
         <!-- Section 2 -->
-        <div class="w-full h-[10%]">
+        <div class="w-full">
             <x-section2/>
         </div>
 
@@ -45,7 +45,7 @@
         </div>
 
         <!-- Section 4 -->
-        <div class="w-full h-[10%]">
+        <div class="w-full">
             <x-section4/>
         </div>
 
@@ -54,17 +54,17 @@
    <div class=" flex flex-col w-full max-w mt-0">
 
      <!-- Section 5 -->
-     <div class="w-full h-[10%]">
+     <div class="w-full">
         <x-section5/>
      </div>
 
     <!-- Section 6 -->
-    <div class="w-full h-[10%]">
+    <div class="w-full ">
         <x-section6/>
     </div>
 
     <!-- Section 7 -->
-    <div class="w-full h-[10%]">
+    <div class="w-full">
         <x-section7/>
     </div>
 

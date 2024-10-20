@@ -1,4 +1,4 @@
-<div class=" w-[75%]"> 
+<div class=" w-[90%] lg:w-[75%]"> 
 
 
     <div class=" flex flex-col items-center">

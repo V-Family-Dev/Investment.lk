@@ -1,17 +1,17 @@
 <!-- Sub-component 1 -->
-<div style="width: calc(65% * 1082px); height: 1082px; position: relative;">
+<div style="">
     <div class="relative bg-transparent shadow-md">
         <!-- Full-size photo -->
         <img src="{{ asset('images/property/anju/Section01.png') }}" alt="Full-size photo" class="w-full h-auto">
 
         <!-- Play button image centered over the photo -->
-        <a href="URL_TO_LINK" class="absolute inset-0 flex items-center justify-center">
+        <a href="URL_TO_LINK" class=" inset-0 flex items-center justify-center absolute top-0 left-0">
             <img src="{{ asset('images/property/anju/playbuttone.png') }}" alt="Play Button">
         </a>
     </div>
 
     <!-- Sub-component 2 with Horizontal Photos -->
-    <div class="bg-transparent p-6 " style="position: absolute; top: calc(40%); left: 0; width: 100%; z-index: 10;">
+    <div class="bg-transparent py-6 " style="">
         <!-- Horizontal Photos -->
         <div class="flex gap-4 mt-5">
             <!-- Photo 1 -->
@@ -34,7 +34,7 @@
     </div>
 
     <!-- Container for horizontal layout -->
-<div class="bg-transparent p-6 mb-4 rounded-lg  flex gap-4" style="position: absolute; top: calc(60%); left: 0; width: 100%; z-index: 10;">
+<div class="bg-transparent py-6 mb-4 rounded-lg  flex flex-col md:flex-row gap-4" style="">
 
     <!-- Sub-component 1 -->
     <div class="flex-1 p-6 rounded-lg" style="background: linear-gradient(90deg, #FFD800 0%, #998200 100%);">
@@ -55,7 +55,7 @@
 
 
     <!-- Sub-component 4 -->
-    <div class="bg-transparent p-6 rounded-lg " style="position: absolute; top: calc(70%); left: 0; width: 100%; z-index: 10;">
+    <div class="bg-transparent py-6 rounded-lg  w-full" style="">
         <h1 class="text-5xl font-semibold leading-tight text-left" style="font-family: Jost;">Elysian Palms Retreat</h1>
         <p>Duis imperdiet purus eget tortor ornare, quis malesuada dui pharetra. In quis mauris facilisis, pulvinar felis ac, molestie ligula. Mauris lacus massa, facilisis ac lacus ac, condimentum vulputate est. Vestibulum sit amet felis eu dui accumsan lacinia eget sed orci. Cras et ipsum lorem. Morbi velit magna, malesuada non mattis sed, iaculis id urna. Nam mattis, purus ac rutrum rutrum, felis ipsum dictum massa, et pharetra metus nibh et arcu. Maecenas quis laoreet sapien. Morbi sit amet accumsan lorem. Sed sed justo eget elit scelerisque iaculis ut quis erat. Sed eu laoreet diam, vitae vehicula tellus. Nulla at nibh elit. Ut accumsan, diam eget lacinia ultricies, nibh massa condimentum felis, maximus sollicitudin erat est nec massa. Aenean sit amet ultricies sem.</p>
     </div>

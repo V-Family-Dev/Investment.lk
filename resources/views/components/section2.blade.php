@@ -27,17 +27,17 @@
 
 
     <!-- Sub-component 2 with two lines of text -->
-    <div class="mt-[53.45px] w-[90%] h-[38.7%]">
+    <div class="mt-[53.45px] w-[90%]">
 
-        <div class="flex w-[100%] h-[46.14%] p-2">
+        <div class="flex gap-4 w-[100%] flex-col md:flex-row  mb-4">
 
-            <div class=" flex h-[100%] w-[32.1%] m-0 p-[12px] bg-[#F9FCFF]">
+            <div class="bais-full md:basis-1/3 flex h-[100%]  m-0 p-[12px] bg-[#F9FCFF]">
 
                 <div class=" flex w-[66%] h-[61.56%] justify-center  m-auto flex-col">
 
-                    <div class="relative flex justify-start w-full md:w-[48%] h-auto md:h-[59%] items-center">
+                    <div class="relative flex justify-start w-full md:w-[48%] h-auto md:h-[59%] items-end">
                         <p class="text-[24px] md:text-[36px] font-bold bg-transparent outline-black outline-5">01</p>
-                        <p class="absolute bottom-0 font-bold right-0 text-[14px] md:text-[17px]">Search</p>
+                        <p class="font-bold right-0 text-[14px] md:text-[17px] ms-4">Search</p>
                     </div>
 
 
@@ -67,11 +67,11 @@
                 </div>
 
             </div>
-            <div class=" ml-[22.5px] flex h-[100%] w-[32.1%] m-0 p-[12px] bg-[#F9FCFF]">
+            <div class="bais-full md:basis-1/3 flex h-[100%]  m-0 p-[12px] bg-[#F9FCFF]">
 
                 <div class=" flex w-[66%] h-[61.56%] justify-center  m-auto flex-col">
 
-                    <div class="relative flex justify-start w-full md:w-[48%] h-auto md:h-[59%] items-center">
+                    <div class="relative flex justify-start w-full md:w-[48%] h-auto md:h-[59%] items-end">
                         <p class="text-[24px] md:text-[36px] font-bold bg-transparent outline-black outline-5">02</p>
                         <p class="absolute bottom-0 font-bold right-0 text-[14px] md:text-[17px]">Search</p>
                     </div>
@@ -101,13 +101,11 @@
                 </div>
 
             </div>
-
-
-            <div class=" ml-[22.5px] flex h-[100%] w-[32.1%] m-0 p-[12px] bg-[#F9FCFF]">
+            <div class="bais-full md:basis-1/3 flex h-[100%]  m-0 p-[12px] bg-[#F9FCFF]">
 
                 <div class=" flex w-[66%] h-[61.56%] justify-center  m-auto flex-col">
 
-                    <div class="relative flex justify-start w-full md:w-[48%] h-auto md:h-[59%] items-center">
+                    <div class="relative flex justify-start w-full md:w-[48%] h-auto md:h-[59%] items-end">
                         <p class="text-[24px] md:text-[36px] font-bold bg-transparent outline-black outline-5">03</p>
                         <p class="absolute bottom-0 font-bold right-0 text-[14px] md:text-[17px]">Search</p>
                     </div>
@@ -144,13 +142,13 @@
 
 
 
-        <div class="flex w-[100%] h-[46.14%] p-2">
+        <div class="flex gap-4 w-[100%] flex-col md:flex-row ">
 
-            <div class=" flex h-[100%] w-[32.1%] m-0 p-[12px] bg-[#F9FCFF]">
+            <div class="bais-full md:basis-1/3 flex h-[100%]  m-0 p-[12px] bg-[#F9FCFF]">
 
                 <div class=" flex w-[66%] h-[61.56%] justify-center  m-auto flex-col">
 
-                    <div class="relative flex justify-start w-full md:w-[48%] h-auto md:h-[59%] items-center">
+                    <div class="relative flex justify-start w-full md:w-[48%] h-auto md:h-[59%] items-end">
                         <p class="text-[24px] md:text-[36px] font-bold bg-transparent outline-black outline-5">04</p>
                         <p class="absolute bottom-0 font-bold right-0 text-[14px] md:text-[17px]">Search</p>
                     </div>
@@ -182,11 +180,11 @@
                 </div>
 
             </div>
-            <div class=" ml-[22.5px] flex h-[100%] w-[32.1%] m-0 p-[12px] bg-[#F9FCFF]">
+            <div class="bais-full md:basis-1/3 flex h-[100%]  m-0 p-[12px] bg-[#F9FCFF]">
 
                 <div class=" flex w-[66%] h-[61.56%] justify-center  m-auto flex-col">
 
-                    <div class="relative flex justify-start w-full md:w-[48%] h-auto md:h-[59%] items-center">
+                    <div class="relative flex justify-start w-full md:w-[48%] h-auto md:h-[59%] items-end">
                         <p class="text-[24px] md:text-[36px] font-bold bg-transparent outline-black outline-5">05</p>
                         <p class="absolute bottom-0 font-bold right-0 text-[14px] md:text-[17px]">Search</p>
                     </div>
@@ -218,13 +216,11 @@
                 </div>
 
             </div>
-
-
-            <div class=" ml-[22.5px] flex h-[100%] w-[32.1%] m-0 p-[12px] bg-[#F9FCFF]">
+            <div class="bais-full md:basis-1/3 flex h-[100%]  m-0 p-[12px] bg-[#F9FCFF]">
 
                 <div class=" flex w-[66%] h-[61.56%] justify-center  m-auto flex-col">
 
-                    <div class="relative flex justify-start w-full md:w-[48%] h-auto md:h-[59%] items-center">
+                    <div class="relative flex justify-start w-full md:w-[48%] h-auto md:h-[59%] items-end">
                         <p class="text-[24px] md:text-[36px] font-bold bg-transparent outline-black outline-5">06</p>
                         <p class="absolute bottom-0 font-bold right-0 text-[14px] md:text-[17px]">Search</p>
                     </div>

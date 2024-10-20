@@ -1,6 +1,6 @@
 <div class="flex flex-col w-screen">
     <div class=" flex relative w-full ">
-        <video autoplay muted loop id="myVideo" class="absolute top-0 left-0 w-full h-auto object-cover">
+        <video autoplay muted loop id="myVideo" class="w-full h-auto object-cover">
             <source src="/images/property/anju/Architecture Buildings Royalty Free Stock Footage No Copyright Video.mp4" type="video/mp4">
             Your browser does not support HTML5 video.
         </video>
