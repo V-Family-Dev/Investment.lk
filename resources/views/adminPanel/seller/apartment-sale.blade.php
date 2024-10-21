@@ -38,7 +38,7 @@
                 <input type="text" placeholder="Size"name="size" class="w-full p-3 border border-gray-300 rounded" required>
                 <input type="number" placeholder="Price"name="price" class="w-full p-3 border border-gray-300 rounded" required>
                 <textarea placeholder="Description"name="description" class="w-full p-3 border border-gray-300 rounded" required></textarea>
-                <input type="file"name="image" class="w-full border border-gray-300 rounded" multiple>
+                <input type="file"name="image[]" class="w-full border border-gray-300 rounded" multiple>
                 <input type="text" placeholder="Contact Details"name="contact_details" class="w-full p-3 border border-gray-300 rounded" required>
                 <button type="submit" class="w-full p-3 bg-yellow-500 text-white rounded">Submit</button>
             </form>

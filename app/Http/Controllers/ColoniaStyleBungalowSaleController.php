@@ -6,18 +6,20 @@ use App\Models\Colonia_Style_Bungalow_Sale;
 use App\Models\Property_manage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Storage;
 class ColoniaStyleBungalowSaleController extends Controller
 {
     public function index()
     {
         $sales = Colonia_Style_Bungalow_Sale::all();
-        return view('colonia_sales.index', compact('sales'));
+        return $sales;
+        // return view('colonia_sales.index', compact('sales'));
     }
 
     // Show form to create a new sale
     public function create()
     {
-        return view('bungalow-sale');
+        return view('adminPanel.seller.bungalow-sale');
     }
 
     // Store a new sale in the database
@@ -74,39 +76,70 @@ class ColoniaStyleBungalowSaleController extends Controller
     // Show form to edit a sale
     public function edit($id)
     {
-        $sale = Colonia_Style_Bungalow_Sale::findOrFail($id);
-        return view('colonia_sales.edit', compact('sale'));
+        $bungalow_sale = Colonia_Style_Bungalow_Sale::findOrFail($id);
+        return view('adminPanel/seller/update/update-bungalow-sale', compact('bungalow_sale'));
     }
 
     // Update a sale
-    public function update(Request $request, $id)
+    public function update(Request $request, Colonia_Style_Bungalow_Sale $Colonia_Style_Bungalow_Sale)
     {
+        Log::info('Request Data:', $request->all());
+    
         $validatedData = $request->validate([
-            'title' => 'required|string',
-            'bedrooms' => 'required|string',
-            'bathrooms' => 'required|string',
-            'location' => 'required|string',
-            'house_size' => 'required|string',
-            'land_size' => 'required|string',
+            'title' => 'required|string|max:255',
+            'bedrooms' => 'required|integer',
+            'bathrooms' => 'required|integer',
+            'location' => 'required|string|max:255',
+            'house_size' => 'required|integer',
+            'land_size' => 'required|integer',
             'price' => 'required|numeric',
-            'description' => 'required|string',
-            'image_path' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-            'contact_details' => 'required|string',
+            'description' => 'nullable|string',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'contact_details' => 'nullable|string|max:255',
         ]);
-
-        $sale = Colonia_Style_Bungalow_Sale::findOrFail($id);
-
-        // Handle file upload if new image is uploaded
-        if ($request->hasFile('image_path')) {
-            $fileName = time() . '.' . $request->file('image_path')->getClientOriginalExtension();
-            $filePath = $request->file('image_path')->storeAs('uploads', $fileName, 'public');
-            $validatedData['image_path'] = '/storage/' . $filePath;
+    
+        if($validatedData){
+            Log::info('Request Data valid');
         }
-
-        $sale->update($validatedData);
-
-        return redirect()->route('colonia_sales.index');
+    
+        if ($request->hasFile('image')) {
+            if ($Colonia_Style_Bungalow_Sale->image_path) {
+                $oldImages = explode(',', $Colonia_Style_Bungalow_Sale->image_path);
+                foreach ($oldImages as $oldImage) {
+                    Storage::delete('public/' . $oldImage);
+                }
+            }
+    
+            $imagePaths = [];
+            foreach ($request->file('image') as $image) {
+                $imagePath = $image->store('bungalowsales', 'public');
+                $imagePaths[] = $imagePath; 
+            }
+    
+            $imagePathsString = implode(',', $imagePaths);
+            $Colonia_Style_Bungalow_Sale->update([
+                'image_path' => $imagePathsString,
+            ]);
+        }
+    
+        $Colonia_Style_Bungalow_Sale->update([
+            'title' => $request->title,
+            'bedrooms' => $request->bedrooms,
+            'bathrooms' => $request->bathrooms,
+            'location' => $request->location,
+            'house_size' => $request->house_size,
+            'land_size' => $request->land_size,
+            'price' => $request->price,
+            'description' => $request->description,
+            'contact_details' => $request->contact_details,
+        ]);
+        // return $Colonia_Style_Bungalow_Sale;
+    
+        return redirect()->route('colonia_sales.index')->with('success', 'Colonia Style Bungalow Sale updated successfully.');
     }
+    
+
+
 
     // Delete a sale
     public function destroy($id)

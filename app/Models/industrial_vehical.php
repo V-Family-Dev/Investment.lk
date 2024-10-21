@@ -28,5 +28,6 @@ class industrial_vehical extends Model
         'bodytype',
         'edition',
         'transmisson',
+        'contact_details',
     ];
 }

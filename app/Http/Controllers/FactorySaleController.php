@@ -19,7 +19,7 @@ class FactorySaleController extends Controller
 
     public function create()
     {
-        return view('forms');
+        return view('adminPanel/seller/forms');
     }
 
     public function store(Request $request)
@@ -64,9 +64,9 @@ class FactorySaleController extends Controller
         ]);
 
 
-       
-        
-        return  $fac;
+
+
+        return $fac;
         // return redirect()->route('factory-sales.index')->with('success', 'Factory sale created successfully.');
     }
 
@@ -76,18 +76,22 @@ class FactorySaleController extends Controller
     {
         $factorySale = FactorySale::findOrFail($id);
         // return view('factory_sales.show', compact('factorySale'));
-        return  $factorySale;
+        return $factorySale;
     }
 
     // Show the form for editing the specified resource (Update)
     public function edit($id)
     {
         $factorySale = FactorySale::findOrFail($id);
-        return view('factory_sales.edit', compact('factorySale'));
+        return view('adminPanel/seller/update/update-factory', compact('factorySale'));
+
     }
 
     public function update(Request $request, FactorySale $factorySale)
     {
+        Log::info('Request Data:', $request->all());
+        Log::info('Request Data form database:'. $factorySale->imagePaths);
+
         // Validate the request including optional image upload
         $request->validate([
             'title' => 'required|string|max:255',
@@ -96,27 +100,34 @@ class FactorySaleController extends Controller
             'size' => 'required|string|max:255',
             'price' => 'required|numeric',
             'description' => 'required|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Image validation (optional)
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'contact_details' => 'required|string|max:255',
         ]);
 
-        // Handle the image upload
+       
         if ($request->hasFile('image')) {
-            $image = $request->file('image');
-
-            // Save the image in the 'property/factorysale' directory
-            $imagePath = $image->store('property/factorysale', 'public'); // Store in 'public/property/factorysale'
-
-            // Optionally, delete the old image
+            // Delete the old images if they exist
             if ($factorySale->image_path) {
-                Storage::delete('public/' . $factorySale->image_path);
+                $oldImages = explode(',', $factorySale->image_path); 
+                foreach ($oldImages as $oldImage) {
+                    Storage::delete('public/' . $oldImage);
+                }
             }
 
-            // Update the FactorySale with the new image path
+            // Upload new images
+            $imagePaths = [];
+            foreach ($request->file('image') as $image) {
+                $imagePath = $image->store('factorysale', 'public');
+                $imagePaths[] = $imagePath; // Add the new image path to the array
+            }
+
+            $imagePathsString = implode(',', $imagePaths);
+
             $factorySale->update([
-                'image_path' => $imagePath,
+                'image_path' => $imagePathsString,
             ]);
         }
+
 
         // Update the rest of the FactorySale details
         $factorySale->update([

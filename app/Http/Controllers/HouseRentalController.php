@@ -5,21 +5,22 @@ namespace App\Http\Controllers;
 use App\Models\House_rental;
 use App\Models\Property_manage;
 use Illuminate\Http\Request;
-
+use Storage;
 class HouseRentalController extends Controller
 {
-    
+
     // Display a listing of the house rentals
     public function index()
     {
         $houseRentals = House_rental::all();
-        return view('house_rentals.index', compact('houseRentals'));
+        // return view('house_rentals.index', compact('houseRentals'));
+        return $houseRentals;
     }
 
     // Show the form for creating a new house rental
     public function create()
     {
-        return view('house-rental');
+        return view('adminPanel/seller/house-rental');
     }
 
     // Store a newly created house rental in the database
@@ -28,7 +29,7 @@ class HouseRentalController extends Controller
         $validated = $request->validate([
             'title' => 'required',
             'location' => 'required',
-            'rent_price' => 'required|numeric',
+            'rent_price' => 'required|numeric|min:0|max:9999999999',
             'size' => 'required',
             'features' => 'required',
             'description' => 'required',
@@ -41,7 +42,7 @@ class HouseRentalController extends Controller
             $images = $request->file('image');
             foreach ($request->file('image') as $image) {
                 $imagePath = $image->store('house_rental', 'public');
-                $imagePaths[] = $imagePath; 
+                $imagePaths[] = $imagePath;
             }
         }
 
@@ -75,32 +76,49 @@ class HouseRentalController extends Controller
     public function edit($id)
     {
         $houseRental = House_rental::findOrFail($id);
-        return view('house_rentals.edit', compact('houseRental'));
+        return view('adminPanel/seller/update/update-house-rental', compact('houseRental'));
     }
 
     // Update the specified house rental in the database
-    public function update(Request $request, $id)
+    public function update(Request $request, House_rental $houseRental)
     {
+
+
+        // Validate the request, including optional image upload
         $request->validate([
-            'title' => 'required',
-            'location' => 'required',
-            'rent_price' => 'required|numeric',
-            'size' => 'required',
-            'features' => 'required',
-            'description' => 'required',
-            'image_path' => 'image',
-            'contact_details' => 'required',
+            'title' => 'required|string|max:255',
+            'location' => 'required|string|max:255',
+            'rent_price' => 'required|numeric|min:0|max:9999999999',
+            'size' => 'required|string|max:255',
+            'features' => 'required|string',
+            'description' => 'required|string',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'contact_details' => 'required|string|max:255',
         ]);
 
-        $houseRental = House_rental::findOrFail($id);
+        // Handle image upload if new images are provided
+        if ($request->hasFile('images')) {
+            // If existing images exist, delete them
+            if ($houseRental->image_path) {
+                $oldImages = explode(',', $houseRental->image_path);
+                foreach ($oldImages as $oldImage) {
+                    Storage::delete('public/' . $oldImage);
+                }
+            }
 
-        // If a new image is uploaded, replace the old one
-        if ($request->hasFile('image_path')) {
-            $imagePath = $request->file('image_path')->store('images', 'public');
-        } else {
-            $imagePath = $houseRental->image_path;
+            // Upload the new images
+            $imagePaths = [];
+            foreach ($request->file('images') as $image) {
+                $imagePath = $image->store('house_rental', 'public');
+                $imagePaths[] = $imagePath;
+            }
+
+            // Update the `image_path` field with the new image paths
+            $imagePathsString = implode(',', $imagePaths);
+            $houseRental->update(['image_path' => $imagePathsString]);
         }
 
+        // Update the rest of the HouseRental details
         $houseRental->update([
             'title' => $request->title,
             'location' => $request->location,
@@ -108,12 +126,14 @@ class HouseRentalController extends Controller
             'size' => $request->size,
             'features' => $request->features,
             'description' => $request->description,
-            'image_path' => $imagePath,
             'contact_details' => $request->contact_details,
         ]);
 
+        // Redirect back with success message
         return redirect()->route('house-rentals.index')->with('success', 'House rental updated successfully.');
+        // return $houseRental;
     }
+
 
     // Remove the specified house rental from the database
     public function destroy($id)

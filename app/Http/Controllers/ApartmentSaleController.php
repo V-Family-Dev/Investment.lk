@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Property_manage;
 use Storage;
 
 use App\Models\ApartmentSale;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class ApartmentSaleController extends Controller
 {
@@ -13,19 +15,20 @@ class ApartmentSaleController extends Controller
     public function index()
     {
         $apartments = ApartmentSale::all();
-        return view('apartment_sales.index', compact('apartments'));
+        // return view('apartment_sales.index', compact('apartments'));
+        return $apartments;
     }
 
     // Show the form for creating a new apartment sale
     public function create()
     {
-        return view('apartment_sales.create');
+        return view('adminPanel/seller/apartment-sale');
     }
 
     // Store a newly created apartment sale in the database
     public function store(Request $request)
     {
-        $request->validate([
+        $validated  = $request->validate([
             'title' => 'required|string|max:255',
             'bedrooms' => 'required|string|max:255',
             'bathrooms' => 'required|string|max:255',
@@ -33,30 +36,40 @@ class ApartmentSaleController extends Controller
             'size' => 'required|string|max:255',
             'price' => 'required|numeric',
             'description' => 'required|string',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'contact_details' => 'required|string|max:255',
         ]);
 
-        $imagePath = null;
 
+        $imagePaths = [];
         if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imagePath = $image->store('apartment_sales', 'public'); // Store in 'public/apartment_sales'
+            $images = $request->file('image');
+            Log::info('Images array: ', ['image' => $images]);
+            foreach ($request->file('image') as $image) {
+                $imagePath = $image->store('apartment_sales', 'public');
+                $imagePaths[] = $imagePath;
+            }
         }
 
-        // Create a new apartment sale
-        $ap = ApartmentSale::create([
-            'title' => $request->title,
-            'bedrooms' => $request->bedrooms,
-            'bathrooms' => $request->bathrooms,
-            'location' => $request->location,
-            'size' => $request->size,
-            'price' => $request->price,
-            'description' => $request->description,
-            'image_path' => $imagePath,
-            'contact_details' => $request->contact_details,
+
+        $imagePathsString = implode(',', $imagePaths);
+        $validated['image_path'] = $imagePathsString;
+
+        $aprtment = ApartmentSale::create($validated);
+        $categoryName = $aprtment->category_name ?? 'apts';
+        $userId = auth()->id() ?? 1;
+
+        $Property_manage = Property_manage::create([
+            'category_name' => $categoryName,
+            'property_id' => $aprtment->id,
+            'user_id' => $userId,
+
         ]);
-return $ap;
+
+
+
+
+        return $aprtment;
         // return redirect()->route('apartment-sales.index')->with('success', 'Apartment sale created successfully.');
     }
 
@@ -70,16 +83,17 @@ return $ap;
     // Show the form for editing an existing apartment sale
     public function edit($id)
     {
-        $apartment = ApartmentSale::findOrFail($id);
-        return view('apartment_sales.edit', compact('apartment'));
+        $apartment_sale = ApartmentSale::findOrFail($id);
+        return view('adminPanel/seller/update/update-apartment-sale', compact('apartment_sale'));
     }
 
-    // Update the specified apartment sale in the database
-    public function update(Request $request, $id)
-    {
-        $apartment = ApartmentSale::findOrFail($id);
 
-        $request->validate([
+    public function update(Request $request, ApartmentSale $apartment_sale)
+    {
+        Log::info('Request Data:', $request->all());
+       
+        // Validate the request including optional image upload
+         $request->validate([
             'title' => 'required|string|max:255',
             'bedrooms' => 'required|string|max:255',
             'bathrooms' => 'required|string|max:255',
@@ -87,24 +101,36 @@ return $ap;
             'size' => 'required|string|max:255',
             'price' => 'required|numeric',
             'description' => 'required|string',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'contact_details' => 'required|string|max:255',
         ]);
+        // Check for image updates
+        if ($request->hasFile('images')) {
+            if ($apartment_sale->image_path) {
+                Log::info('image deleted');
+                $oldImages = explode(',', $apartment_sale->image_path);
 
-        $imagePath = $apartment->image_path;
-
-        if ($request->hasFile('image')) {
-            // Delete old image if exists
-            if ($imagePath) {
-                Storage::delete('public/' . $imagePath);
+                foreach ($oldImages as $oldImage) {
+                    Storage::delete('public/' . $oldImage);
+                }
             }
+    
+            // Upload new images
+            $imagePaths = [];
+            foreach ($request->file('images') as $image) {
+                $imagePath = $image->store('apartment_sales', 'public');
+                $imagePaths[] = $imagePath; // Add new image path to the array
+            }
+            $imagePathsString = implode(',', $imagePaths);
+            // Update the image path
+            $apartment_sale->update([
+                'image_path' => $imagePathsString,
+            ]);
 
-            // Store new image
-            $image = $request->file('image');
-            $imagePath = $image->store('apartment_sales', 'public');
         }
-
-       $ap = $apartment->update([
+       
+        // Update the rest of the ApartmentSale details
+        $apartment_sale->update([
             'title' => $request->title,
             'bedrooms' => $request->bedrooms,
             'bathrooms' => $request->bathrooms,
@@ -112,13 +138,13 @@ return $ap;
             'size' => $request->size,
             'price' => $request->price,
             'description' => $request->description,
-            'image_path' => $imagePath,
             'contact_details' => $request->contact_details,
         ]);
-return  $ap;
+      
+        return $apartment_sale;
         // return redirect()->route('apartment-sales.index')->with('success', 'Apartment sale updated successfully.');
     }
-
+    
     // Delete the specified apartment sale
     public function destroy($id)
     {

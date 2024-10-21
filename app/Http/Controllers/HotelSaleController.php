@@ -6,20 +6,21 @@ use Illuminate\Support\Facades\Log;
 use App\Models\hotel_sale;
 use App\Models\Property_manage;
 use Illuminate\Http\Request;
-
+use Storage;
 class HotelSaleController extends Controller
 {
     // Show all hotel sales
     public function index()
     {
         $sales = hotel_sale::all();
-        return view('hotel_sales.index', compact('sales'));
+        return $sales;
+        // return view('adminPanel.seller.update.hotel-sale', compact('sales'));
     }
 
     // Show form to create a new hotel sale
     public function create()
     {
-        return view('hotel-sale');
+        return view('adminPanel.seller.hotel-sale');
     }
 
     // Store new hotel sale in the database
@@ -76,38 +77,72 @@ class HotelSaleController extends Controller
     // Show form to edit an existing hotel sale
     public function edit($id)
     {
-        $sale = hotel_sale::findOrFail($id);
-        return view('hotel_sales.edit', compact('sale'));
+        $hotel_sale = hotel_sale::findOrFail($id);
+        return view('adminPanel.seller.update.update-hotel-sale', compact('hotel_sale'));
     }
 
     // Update an existing hotel sale
-    public function update(Request $request, $id)
+
+    public function update(Request $request, hotel_sale $hotelSale)
     {
-        $validatedData = $request->validate([
-            'title' => 'required|string',
-            'property_type' => 'required|string',
-            'size' => 'required|string',
-            'location' => 'required|string',
-            'property_features' => 'required|string',
+        // Log request data and existing image paths from the database
+        Log::info('Request Data:', $request->all());
+        Log::info('Existing Image Paths from Database: ' . $hotelSale->image_path);
+    
+        // Validate the request with optional image uploads
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'property_type' => 'required|string|max:255',
+            'location' => 'required|string|max:255',
+            'size' => 'required|string|max:255',
             'price' => 'required|numeric',
             'description' => 'required|string',
-            'image_path' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-            'contact_details' => 'required|string',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'contact_details' => 'required|string|max:255',
         ]);
-
-        $sale = hotel_sale::findOrFail($id);
-
-        if ($request->hasFile('image_path')) {
-            $fileName = time() . '.' . $request->file('image_path')->getClientOriginalExtension();
-            $filePath = $request->file('image_path')->storeAs('uploads', $fileName, 'public');
-            $validatedData['image_path'] = '/storage/' . $filePath;
+    
+        // Handle image upload if new images are provided
+        if ($request->hasFile('images')) {
+            // Delete old images if they exist
+            if ($hotelSale->image_path) {
+                $oldImages = explode(',', $hotelSale->image_path);
+                foreach ($oldImages as $oldImage) {
+                    Storage::delete('public/' . $oldImage);
+                }
+            }
+    
+            // Upload new images
+            $imagePaths = [];
+            foreach ($request->file('images') as $image) {
+                $imagePath = $image->store('hotel_sales', 'public');  // Store in 'factorysale' folder
+                $imagePaths[] = $imagePath;  // Collect the new image paths
+            }
+    
+            $imagePathsString = implode(',', $imagePaths);  // Convert array to string
+    
+            // Update the image paths in the database
+            $hotelSale->update([
+                'image_path' => $imagePathsString,
+            ]);
         }
-
-        $sale->update($validatedData);
-
-        return redirect()->route('hotel_sales.index');
+    
+        // Update other hotel sale details
+        $hotelSale->update([
+            'title' => $request->title,
+            'property_type' => $request->property_type,
+            'location' => $request->location,
+            'size' => $request->size,
+            'price' => $request->price,
+            'description' => $request->description,
+            'contact_details' => $request->contact_details,
+        ]);
+    
+        // Redirect with success message
+        // return redirect()->route('hotel_sales.index')->with('success', 'Hotel sale updated successfully.');
+        return $hotelSale;
     }
-
+    
+   
     // Delete a hotel sale
     public function destroy($id)
     {
