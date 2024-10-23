@@ -30,6 +30,8 @@ return new class extends Migration
             $table->string('bodytype');
             $table->string('edition');
             $table->string('transmisson');
+            $table->text('contact_details');
+            $table->string('status')->default('1');
             $table->timestamps();
         });
     }

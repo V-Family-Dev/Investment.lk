@@ -22,6 +22,7 @@ return new class extends Migration
             $table->text('description');
             $table->text('image_path')->nullable();
             $table->string('contact_details');
+            $table->string('status')->default('1');
             $table->timestamps();
         });
     }

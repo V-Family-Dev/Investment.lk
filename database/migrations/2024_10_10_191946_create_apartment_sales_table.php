@@ -23,6 +23,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('image_path'); // For storing the image path
             $table->string('contact_details');
+            $table->string('status')->default('1');
             $table->timestamps();
         });
     }

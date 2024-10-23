@@ -150,6 +150,7 @@ class FactorySaleController extends Controller
         $factorySale = FactorySale::findOrFail($id);
         $factorySale->delete();
 
-        return redirect()->route('factory-sales.index')->with('success', 'Factory sale deleted successfully.');
+        // return redirect()->route('factory-sales.index')->with('success', 'Factory sale deleted successfully.');
+        return $factorySale;
     }
 }

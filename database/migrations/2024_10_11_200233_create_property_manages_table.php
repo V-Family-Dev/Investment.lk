@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('status')->default('pending');
             $table->string('ads_payment_id')->nullable();
             $table->string('ads_payment_status')->default('not paid')->nullable();
-            $table->string('active_or_not')->default('1');;
+            $table->string('active_or_not')->default('1');
             $table->timestamps();
         });
     }
