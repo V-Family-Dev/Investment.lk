@@ -150,12 +150,12 @@ class ApartmentSaleController extends Controller
     {
         $apartment = ApartmentSale::findOrFail($id);
 
-        // Delete the image file if exists
-        if ($apartment->image_path) {
-            Storage::delete('public/' . $apartment->image_path);
-        }
+        // // Delete the image file if exists
+        // if ($apartment->image_path) {
+        //     Storage::delete('public/' . $apartment->image_path);
+        // }
 
-        $apartment->delete();
+        $apartment->update(['status' => 0]);
 
         return redirect()->route('apartment-sales.index')->with('success', 'Apartment sale deleted successfully.');
     }

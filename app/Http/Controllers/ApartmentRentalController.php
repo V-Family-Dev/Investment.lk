@@ -141,7 +141,7 @@ class ApartmentRentalController extends Controller
     // Remove the specified apartment rental from storage
     public function destroy(Apartment_rental $apartmentRental)
     {
-        $apartmentRental->delete();
+        $apartmentRental->update(['status' => 0]);
 
         return back()->with('success', 'Apartment rental deleted successfully.');
     }

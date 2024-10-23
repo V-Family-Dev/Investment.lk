@@ -62,7 +62,7 @@ class ColoniaStyleBungalowSaleController extends Controller
             'user_id' => $userId,
 
         ]);
-        return $Property_manage;
+        return $bungalow;
         // return redirect()->route('colonia_sales.index');
     }
 
@@ -145,7 +145,7 @@ class ColoniaStyleBungalowSaleController extends Controller
     public function destroy($id)
     {
         $sale = Colonia_Style_Bungalow_Sale::findOrFail($id);
-        $sale->delete();
+        $sale->update(['status' => 0]);
 
         return redirect()->route('colonia_sales.index');
     }

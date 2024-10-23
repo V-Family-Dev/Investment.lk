@@ -113,14 +113,7 @@ class RoomRentalController extends Controller
         return redirect()->route('room_rentals.index')->with('success', 'Room rental updated successfully.');
     }
 
-    // Delete a room rental
-    public function destroy($id)
-    {
-        $roomRental = Room_rental::findOrFail($id);
-        $roomRental->delete();
-
-        return redirect()->route('room_rentals.index')->with('success', 'Room rental deleted successfully.');
-    }
+   
 
     // Show a single room rental
     public function show($id)
@@ -128,4 +121,12 @@ class RoomRentalController extends Controller
         $roomRental = Room_rental::findOrFail($id);
         return view('room_rentals.show', compact('roomRental'));
     }
+     // Delete a room rental
+     public function destroy($id)
+     {
+         $roomRental = Room_rental::findOrFail($id);
+         $roomRental->update(['status' => 0]);
+ 
+         return redirect()->route('room_rentals.index')->with('success', 'Room rental deleted successfully.');
+     }
 }

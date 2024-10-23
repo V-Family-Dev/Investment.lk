@@ -32,7 +32,7 @@ class HotelSaleController extends Controller
             'size' => 'required|string',
             'location' => 'required|string',
             'property_features' => 'required|string',
-            'price' => 'required|numeric',
+            'price' => 'required|numeric|min:0|max:9999999999',
             'description' => 'required|string',
             'images.*' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'contact_details' => 'required|string',
@@ -147,7 +147,7 @@ class HotelSaleController extends Controller
     public function destroy($id)
     {
         $sale = hotel_sale::findOrFail($id);
-        $sale->delete();
+        $sale->update(['status' => 0]);
 
         return redirect()->route('hotel_sales.index');
     }

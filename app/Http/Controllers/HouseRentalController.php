@@ -139,7 +139,8 @@ class HouseRentalController extends Controller
     public function destroy($id)
     {
         $houseRental = House_rental::findOrFail($id);
-        $houseRental->delete();
+        $houseRental->update(['status' => 0]);
+
 
         return redirect()->route('house-rentals.index')->with('success', 'House rental deleted successfully.');
     }

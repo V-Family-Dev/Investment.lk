@@ -210,7 +210,7 @@ Route::get('/luxury-houses/{id}', [LuxuryHouseSaleController::class, 'show'])->n
 
 
 Route::get('colonia-style-bungalow-sales', [ColoniaStyleBungalowSaleController::class, 'index'])->name('colonia_sales.index');
-Route::get('colonia-style-bungalow-sales/create', [ColoniaStyleBungalowSaleController::class, 'create'])->name('colonia_sales.create');
+Route::get('bungalow-sales/create', [ColoniaStyleBungalowSaleController::class, 'create'])->name('colonia_sales.create');
 Route::post('bungalow-sales', [ColoniaStyleBungalowSaleController::class, 'store'])->name('colonia_sales.store');
 Route::get('colonia-style-bungalow-sales/{id}', [ColoniaStyleBungalowSaleController::class, 'show'])->name('colonia_sales.show');
 Route::get('colonia-style-bungalow-sales/{id}/edit', [ColoniaStyleBungalowSaleController::class, 'edit'])->name('colonia_sales.edit');

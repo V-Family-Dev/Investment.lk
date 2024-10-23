@@ -145,7 +145,7 @@ class EquipmentSaleController extends Controller
     // Remove the specified equipment sale from storage
     public function destroy(Equipment_Sale $equipment_sale)
     {
-        $equipment_sale->delete();
+        $equipment_sale->update(['status' => 0]);
 
         return redirect()->route('equipment_sales.index')->with('success', 'Equipment Sale Deleted Successfully');
     }

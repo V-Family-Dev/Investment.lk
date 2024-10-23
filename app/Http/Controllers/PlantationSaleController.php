@@ -27,10 +27,10 @@ class PlantationSaleController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'plantation_type' => 'required|string|max:255',
-            'size' => 'required',
+            'size' => 'required|string',
             'location' => 'required|string|max:255',
             'price' => 'required|numeric',
-            'description' => 'required|string|max:255',
+            'description' => 'required|string|max:15000',
             'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'contact_details' => 'required',
         ]);
@@ -149,7 +149,8 @@ class PlantationSaleController extends Controller
     public function destroy($id)
     {
         $sale = Plantation_sale::findOrFail($id);
-        $sale->delete();
+        $sale->update(['status' => 0]);
+
 
         return redirect()->route('plantation_sales.index')->with('success', 'Plantation sale deleted successfully!');
     }

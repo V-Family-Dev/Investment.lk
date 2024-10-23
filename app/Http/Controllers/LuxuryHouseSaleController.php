@@ -31,9 +31,9 @@ class LuxuryHouseSaleController extends Controller
             'bedrooms' => 'required|integer',
             'bathrooms' => 'required|integer',
             'location' => 'required|string',
-            'house_size' => 'required|integer',
-            'land_size' => 'required|integer',
-            'price' => 'required|numeric',
+            'house_size' => 'required|string',
+            'land_size' => 'required|string',
+            'price' => 'required|numeric|min:0|max:9999999999',
             'description' => 'nullable|string',
             'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Validate multiple images
             'contact_details' => 'nullable|string',
@@ -57,7 +57,7 @@ class LuxuryHouseSaleController extends Controller
 
         $luxuryHouse = Luxury_House_Sale::create($validated);
         $categoryName = $luxuryHouse->category_name ?? 'luxhs';
-        ;
+        
         $userId = auth()->id() ?? 1;
         $Property_manage = Property_manage::create([
             'category_name' => $categoryName,
@@ -159,7 +159,8 @@ class LuxuryHouseSaleController extends Controller
     public function destroy($id)
     {
         $house = Luxury_House_Sale::findOrFail($id);
-        $house->delete();
+        $house->update(['status' => 0]);
+
 
         return redirect('/luxury-houses')->with('success', 'House deleted successfully!');
     }

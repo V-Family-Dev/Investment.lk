@@ -16,6 +16,20 @@
     <title>Property Detail</title>
 </head>
 <body class="flex flex-col w-full min-h-screen">
+@if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        @if (session('msg'))
+            <div class="alert alert-success">
+                {{ session('msg') }}
+            </div>
+        @endif
     <!-- Header Section -->
     <header class="flex-shrink-0 ">
         <x-headerbar />

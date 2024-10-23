@@ -145,7 +145,8 @@ class LandSaleController extends Controller
    public function destroy($id)
    {
        $sale = Land_sale::findOrFail($id);
-       $sale->delete();
+       $sale->update(['status' => 0]);
+
 
        return redirect()->route('land_sales.index');
    }

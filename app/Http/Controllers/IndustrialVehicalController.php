@@ -33,18 +33,18 @@ class IndustrialVehicalController extends Controller
             'brand' => 'required|string|max:255',
             'location' => 'required|string|max:255',
             'condtion' => 'required|string|max:255',
-            'price' => 'required|numeric',
-            'description' => 'required|string|max:255',
+            'price' => 'required|string|min:0|max:9999999999',
+            'description' => 'required|string|max:1000',
             'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'model' => 'required|string|max:255',
-            'year' => 'required',
+            'year' => 'required|digits:4',
             'fual_type' => 'required|string|max:255',
-            'mileage' => 'required',
-            'color' => 'required|string|max:255',
-            'engine_capacity' => 'required',
+            'mileage' => 'required|string|min:0|max:1000000',
+            'color' => 'required|string|max:50',
+            'engine_capacity' => 'required|string|min:0|max:10000',
             'bodytype' => 'required|string|max:255',
-            'edition' => 'required',
-            'transmisson' => 'required',
+            'edition' => 'required|string|max:255',
+            'transmisson' => 'required|string|max:255',
             'contact_details' => 'required|string|max:255',
 
         ]);
@@ -64,11 +64,6 @@ class IndustrialVehicalController extends Controller
         $imagePathsString = implode(',', $imagePaths);
 
         $validated['image_path'] = $imagePathsString;
-
-
-
-
-
 
         $vehical = industrial_vehical::create($validated);
         $categoryName = $fac->category_name ?? 'vehs';
@@ -190,7 +185,7 @@ class IndustrialVehicalController extends Controller
      */
     public function destroy(industrial_vehical $industrial_vehicle)
     {
-        $industrial_vehicle->delete();
+        $industrial_vehicle->update(['status' => 0]);
 
         return redirect()->route('industrial_vehicles.index')
             ->with('success', 'Vehicle deleted successfully.');
