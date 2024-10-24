@@ -114,14 +114,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="w-full">
-                    <label for="last-name" class="block text-sm font-medium text-black">Upload Document</label>
-                    <div class="flex items-center file-select w-full p-3 rounded-lg border border-accent bg-yellow-100 focus:outline-none focus:ring-2 focus:ring-accent focus-border-darkaccent">
-                            <input type="file" id="document" placeholder="" class="hidden">
-                            <i class="fa fa-folder-open" aria-hidden="true"></i>
-                            <span class="ps-3 flex-fill text-slate-500 truncate clip">Select file</span>
-                    </div>
-                </div>
                 <button type="submit"
                     class="w-full p-3 bg-accent text-white rounded-lg font-semibold hover-bg-darkaccent transition duration-300">Create
                     Account</button>
