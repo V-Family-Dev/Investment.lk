@@ -29,16 +29,17 @@
     <main class="flex-grow flex flex-col items-center justify-center p-[105px]">
     <div class="container mx-auto my-8 p-8 bg-white rounded-lg shadow-lg">
         <h2 class="text-2xl font-bold text-black mb-4">Hotel Sale Form</h2>
-        <form class="space-y-4">
-            <input type="text" placeholder="Title" class="w-full p-3 border border-gray-300 rounded" required>
-            <input type="text" placeholder="Property Type" class="w-full p-3 border border-gray-300 rounded" required>
-            <input type="text" placeholder="Size" class="w-full p-3 border border-gray-300 rounded" required>
-            <input type="text" placeholder="Location" class="w-full p-3 border border-gray-300 rounded" required>
-            <textarea placeholder="Property Features" class="w-full p-3 border border-gray-300 rounded"></textarea>
-            <input type="number" placeholder="Price" class="w-full p-3 border border-gray-300 rounded" required>
-            <textarea placeholder="Description" class="w-full p-3 border border-gray-300 rounded" required></textarea>
-            <input type="file" class="w-full border border-gray-300 rounded" multiple>
-            <input type="text" placeholder="Contact Details" class="w-full p-3 border border-gray-300 rounded" required>
+        <form class="space-y-4" action="{{ url('hotel-sales') }}" method="POST" enctype="multipart/form-data">
+        @csrf
+            <input type="text" name="title"placeholder="Title" class="w-full p-3 border border-gray-300 rounded" required>
+            <input type="text" name="property_type"placeholder="Property Type" class="w-full p-3 border border-gray-300 rounded" required>
+            <input type="text"name="size" placeholder="Size" class="w-full p-3 border border-gray-300 rounded" required>
+            <input type="text"name="location" placeholder="Location" class="w-full p-3 border border-gray-300 rounded" required>
+            <textarea name="property_features"placeholder="Property Features" class="w-full p-3 border border-gray-300 rounded"></textarea>
+            <input type="number"name="price" placeholder="Price" class="w-full p-3 border border-gray-300 rounded" required>
+            <textarea name="description"placeholder="Description" class="w-full p-3 border border-gray-300 rounded" required></textarea>
+            <input name="image[]"type="file" class="w-full border border-gray-300 rounded" multiple>
+            <input name="contact_details"type="text" placeholder="Contact Details" class="w-full p-3 border border-gray-300 rounded" required>
             <button type="submit" class="w-full p-3 bg-yellow-500 text-white rounded">Submit</button>
         </form>
     </div>
