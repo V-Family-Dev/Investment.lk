@@ -186,7 +186,7 @@ Route::get('/admin/user-list', function () {
 Route::get('/admin/profile', function () {
     return view('adminPanel.profile');
 });
-// admin panel routes
+
 
 
 // Routes for factory sales
