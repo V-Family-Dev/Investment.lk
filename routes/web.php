@@ -182,6 +182,10 @@ Route::get('/admin/dashboard', function () {
 Route::get('/admin/user-list', function () {
     return view('adminPanel.admin.userList');
 });
+
+Route::get('/admin/profile', function () {
+    return view('adminPanel.profile');
+});
 // admin panel routes
 
 

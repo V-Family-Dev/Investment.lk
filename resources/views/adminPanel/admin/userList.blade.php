@@ -11,7 +11,7 @@
             <div class="overflow-y-scroll overflow-x-hidden flex-fill">
                 <div class="bg-white p-4 rounded-4 shadow m-5">
                     <div class="fs-6 text-secondary">title</div>
-                    <div class="fs-5">title title</div>
+                    <div class="fs-3 fw-semibold">title title</div>
 
                     <div>
                         <div class="mb-3">

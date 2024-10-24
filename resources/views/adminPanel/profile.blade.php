@@ -10,22 +10,24 @@
             <x-adminpanelcomponents.header-bar path="admin / dashboard" />
             <div class="overflow-y-scroll overflow-x-hidden flex-fill">
                 <div class="bg-white p-4 rounded-4 shadow m-5">
-                    <div class="fs-6 text-secondary">title</div>
-                    <div class="fs-3 fw-semibold">title title</div>
+                    <div class="d-flex">
+                        <img width="150" height="150" class="object-fit-cover rounded-3 d-block" src="{{ asset('images/plant1.png') }}" alt="">
+                        <div>
+                            <div>Name Name</div>
+                            <div>
+                                <div>Admin</div>
+                                <div>admin@sampplemail.com</div>
+                            </div>
+                        </div>
+                    </div>
 
                     <div>
-                        <form action="">
-                            <div class="mb-3">
-                                <label for="" class="form-label">Name</label>
-                                <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder=""/>
+                        <div class="d-flex">
+                            <div>
+                                Profile Details
                             </div>
-                            <div class="d-flex justify-content-end w-full">
-                                <button class="btn btn-warning">
-                                    Submit
-                                </button>
-                            </div>
-                        </form>
-                        
+                            <button class="btn btn-primary">Edit</button>
+                        </div>
                     </div>
                 </div>
             </div>
