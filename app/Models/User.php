@@ -25,6 +25,9 @@ class User extends Authenticatable
         'address',
         'phonenumber',
         'email',
+        'front_fide_if_card',
+        'back_fide_if_card',
+        'status',
         'password',
     ];
 

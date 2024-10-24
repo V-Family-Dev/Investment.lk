@@ -4,8 +4,8 @@
         <p class=" flex text-[10px] font-bold text-[#ECBD00]">Property Partners</p>
         <p class=" flex text-[39px] font-bold">Meet Our Expert Agents.</p>
     </div>
-    <div class=" flex mt-[40px] justify-center">
-        <div class=" flex flex-col">
+    <div class=" flex flex-wrap gap-5 mt-[40px] justify-center">
+        <div class=" flex flex-col ml-[30px]">
             <div>
                 <img class=" w-[205px] h-[205px] border-4 border-[#f6f6f5] rounded-[100px]" src="{{ asset('images/person/leon.png') }}" alt="person photo">
             </div>

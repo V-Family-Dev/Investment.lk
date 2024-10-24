@@ -75,6 +75,7 @@
                             class="w-full p-3 rounded-lg border border-accent bg-yellow-100 focus:outline-none focus:ring-2 focus:ring-accent focus-border-darkaccent">
                     </div>
                 </div>
+
                 <div>
                     <label for="email" class="block text-sm font-medium text-black">Email</label>
                     <input type="email" id="email" placeholder="Enter your email"
@@ -95,6 +96,24 @@
                     <input type="text" id="phone" placeholder="Enter your phone number"
                         class="w-full p-3 rounded-lg border border-accent bg-yellow-100 focus:outline-none focus:ring-2 focus:ring-accent focus-border-darkaccent">
                 </div>
+                <div class="flex space-x-4">
+                    <div class="w-1/2">
+                        <label for="first-name" class="block text-sm font-medium text-black">Front Side of ID Card</label>
+                        <div class="flex items-center file-select w-full p-3 rounded-lg border border-accent bg-yellow-100 focus:outline-none focus:ring-2 focus:ring-accent focus-border-darkaccent">
+                            <input type="file" id="nic_front" placeholder="" class="hidden">
+                            <i class="fa fa-folder-open" aria-hidden="true"></i>
+                            <span class="ps-3 flex-fill text-slate-500 truncate clip">Select file</span>
+                        </div>
+                    </div>
+                    <div class="w-1/2">
+                        <label for="last-name" class="block text-sm font-medium text-black">Back Side of ID Card</label>
+                        <div class="flex items-center file-select w-full p-3 rounded-lg border border-accent bg-yellow-100 focus:outline-none focus:ring-2 focus:ring-accent focus-border-darkaccent">
+                            <input type="file" id="nic_back" placeholder="" class="hidden">
+                            <i class="fa fa-folder-open" aria-hidden="true"></i>
+                            <span class="ps-3 flex-fill text-slate-500 truncate clip">Select file</span>
+                        </div>
+                    </div>
+                </div>
                 <button type="submit"
                     class="w-full p-3 bg-accent text-white rounded-lg font-semibold hover-bg-darkaccent transition duration-300">Create
                     Account</button>
@@ -108,6 +127,18 @@
     <footer class="mt-[119px]">
         <x-footer bgimage='images/building/build8.png' />
     </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+        $('.file-select').on('click', function(){
+            const input = this.querySelector('input[type=file]');
+            input.click();
+            $(input).on('change', function(){
+                $(this).parent().find('span').text(this.files[0].name);
+                console.log(this.files[0].name);
+            });
+        });
+    </script>
 
 </body>
 

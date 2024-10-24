@@ -5,7 +5,7 @@
         <p class=" flex text-[39px] font-bold items-center justify-center">Dive into the Gallery Experience</p>
     </div>
     <div class=" flex mt-[60px] justify-center items-center ">
-        <div class=" w-[791px] h-[70px] flex justify-center">
+        <div class="flex flex-wrap gap-5  flex justify-center">
 
             <div class=" flex w-[174px] h-[70px] bg-white rounded-[24px] ">
                 <div class=" bg-[#868C92] w-[46px] h-[46px] rounded-[18px] mt-[12px] ml-[12px] mb-[12px]"></div>
