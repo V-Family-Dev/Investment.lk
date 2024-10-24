@@ -114,6 +114,16 @@
                         </div>
                     </div>
                 </div>
+                <div>
+                    <label for="password" class="block text-sm font-medium text-black">Password</label>
+                    <input type="password" id="id-number" placeholder="Password"
+                        class="w-full p-3 rounded-lg border border-accent bg-yellow-100 focus:outline-none focus:ring-2 focus:ring-accent focus-border-darkaccent">
+                </div>
+                <div>
+                    <label for="confirm_password" class="block text-sm font-medium text-black">Confirm Password</label>
+                    <input type="password" id="id-number" placeholder="Confirm password"
+                        class="w-full p-3 rounded-lg border border-accent bg-yellow-100 focus:outline-none focus:ring-2 focus:ring-accent focus-border-darkaccent">
+                </div>
                 <button type="submit"
                     class="w-full p-3 bg-accent text-white rounded-lg font-semibold hover-bg-darkaccent transition duration-300">Create
                     Account</button>
