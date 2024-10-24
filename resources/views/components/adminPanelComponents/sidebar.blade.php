@@ -9,7 +9,7 @@
                         User Management
                     </button>
                     </h2>
-                    <div id="collapse1" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                    <div id="collapse1" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                        <a href="">User add</a>
                        <a href="">User list</a>
@@ -22,7 +22,7 @@
                         Property Management
                     </button>
                     </h2>
-                    <div id="collapse2" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                    <div id="collapse2" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                         <a href="">Property add</a>
                         <a href="">Property list</a>
@@ -35,7 +35,7 @@
                         User Payment Management
                     </button>
                     </h2>
-                    <div id="collapse3" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                    <div id="collapse3" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                         <a href="">User Payment add</a>
                         <a href="">User Payment list</a>
