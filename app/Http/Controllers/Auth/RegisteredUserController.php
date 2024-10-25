@@ -41,8 +41,11 @@ class RegisteredUserController extends Controller
         'phonenumber' => ['required', 'string', 'max:15'],
         'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
         'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        'front_fide_if_card' => ['nullable', 'image', 'mimes:jpg,jpeg,png', 'max:2048'],
-        'back_fide_if_card' => ['nullable', 'image', 'mimes:jpg,jpeg,png', 'max:2048'],
+        // 'front_fide_if_card' => ['nullable', 'image', 'mimes:jpg,jpeg,png', 'max:2048'],
+        'front_fide_if_card' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'back_fide_if_card' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
+        // 'back_fide_if_card' => ['nullable', 'image', 'mimes:jpg,jpeg,png', 'max:2048'],
+        
     ]);
 
     // Handle image uploads
@@ -50,11 +53,11 @@ class RegisteredUserController extends Controller
     $backCardPath = null;
 
     if ($request->hasFile('front_fide_if_card')) {
-        $frontCardPath = $request->file('front_fide_if_card')->store('cards/front', 'public');
+        $frontCardPath = $request->file('front_fide_if_card')->store('Document/user_nic/front', 'public');
     }
 
     if ($request->hasFile('back_fide_if_card')) {
-        $backCardPath = $request->file('back_fide_if_card')->store('cards/back', 'public');
+        $backCardPath = $request->file('back_fide_if_card')->store('Document/user_nic/back', 'public');
     }
 
     // Create the user
@@ -84,6 +87,6 @@ class RegisteredUserController extends Controller
     //     'message' => 'User registered successfully!',
     //     'user' => $user
     // ], 201);
-}
 
+}
 }

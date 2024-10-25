@@ -31,7 +31,7 @@ Route::get('/brz', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('/adminPanel/admin/dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -186,7 +186,7 @@ Route::get('/admin/user-list', function () {
 Route::get('/admin/profile', function () {
     return view('adminPanel.profile');
 });
-// admin panel routes
+
 
 
 // Routes for factory sales
