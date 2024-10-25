@@ -46,6 +46,12 @@
     padding-block: 1rem !important;
 }
 
+.main-content{
+    max-width: 1000px;
+    width: 100%;
+    margin-left:   calc(50% - min(100%, 1000px) / 2) ;
+}
+
 input{
     background-color: #e8f0fe !important;
 }

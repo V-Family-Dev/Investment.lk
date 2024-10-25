@@ -8,16 +8,15 @@
         <x-adminpanelcomponents.sidebar />
         <div class="overflow-x-hidden vh-100 flex-fill position-relative main-container d-flex flex-column">
             <x-adminpanelcomponents.header-bar path="admin / dashboard" />
-            <div class="overflow-y-scroll overflow-x-hidden flex-fill main-content-container py-5">
-                <div class="bg-white p-5 rounded-4 shadow  main-content">
+            <div class="overflow-y-scroll overflow-x-hidden flex-fill">
+                <div class="bg-white p-4 rounded-4 shadow m-5">
                     <div class="d-flex">
                         <img width="150" height="150" class="object-fit-cover rounded-3 d-block shadow" src="{{ asset('images/plant1.png') }}" alt="">
-                        <div class="ms-4">
+                        <div class="ms-3">
                             <div class="fw-semibold fs-4">Name Name</div>
                             <div class="mt-3 text-secondary">
                                 <div class="d-flex align-items-center"><i class="col-1 fa-solid fa-user"></i><span class="ms-3" >Admin</span></div>
                                 <div class="d-flex align-items-center"><i class="col-1 fa-solid fa-envelope"></i><span class="ms-3">admin@samplmail.com</span></div>
-                                <div class="d-flex align-items-center"><i class="col-1 fa-solid fa-map-location-dot"></i><span class="ms-3">SF, Bay Area</span></div>
                             </div>
                         </div>
                         <div class="ms-auto">
