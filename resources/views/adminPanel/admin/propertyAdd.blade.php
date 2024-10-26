@@ -14,7 +14,6 @@
                     <div class="fs-3 fw-semibold">title title</div>
 
                     <div>
-                        <form action="">
                             <div class="mb-3">
                                 <label for="" class="form-label">Type</label>
                                 <select name="" id="type" class="form-select">
@@ -34,10 +33,9 @@
                                     
                                 </select>
                             </div>
-                        </form>
                         <!-- factory add -->
-                        <form data-form-id="1" style="display:none" action="http://127.0.0.1:8000/" method="POST" enctype="multipart/form-data">
-                            <input type="hidden" name="_token" value="5oLzkqIxCyQsdJAkyC5dj88uUkelusTj94HIB4kO" autocomplete="off">   
+                        <form data-form-id="1" style="display:none" action="{{ url('factorysale') }}" method="POST" enctype="multipart/form-data">
+                            @csrf 
                             <div class="row">
                                 <div class="mb-3 col">
                                     <label for="" class="form-label">Title</label>
@@ -85,8 +83,8 @@
 
 
                         <!-- apartment add -->
-                        <form data-form-id="2" style="display:none" action="http://127.0.0.1:8000/" method="POST" enctype="multipart/form-data">
-                            <input type="hidden" name="_token" value="5oLzkqIxCyQsdJAkyC5dj88uUkelusTj94HIB4kO" autocomplete="off">   
+                        <form data-form-id="2" style="display:none" action="{{ url('apartment-sales') }}" method="POST" enctype="multipart/form-data">
+                            @csrf 
                             <div class="mb-3">
                                 <label for="" class="form-label">Title</label>
                                 <input type="text" name="title" placeholder="Title" class="form-control" required="">
@@ -137,7 +135,7 @@
                         </form>
 
                         <!-- luxury houses -->
-                        <form data-form-id="3" style="display:none" action="{{ url('luxury-houses') }}" method="POST" enctype="multipart/form-data">
+                        <form data-form-id="3" style="display:none" action="{{ route('luxury-houses.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
                                 <label for="" class="form-label">Title</label>
@@ -349,7 +347,7 @@
                         </form>
 
                         <!-- industrial_vehicles/store -->
-                        <form data-form-id="7" style="display:none" action="{{ url('industrial_vehicles/store') }}" method="POST" enctype="multipart/form-data">
+                        <form data-form-id="7" style="display:none" action="{{ route('vehical.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="mb-3 col">
@@ -437,7 +435,7 @@
                         </form>
 
                         <!-- plantation_sales/store -->
-                        <form data-form-id="8" style="display:none" action="{{ url('plantation_sales/store') }}" method="POST" enctype="multipart/form-data">
+                        <form data-form-id="8" style="display:none" action="{{ route('plantation_sales.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
                                 <label for="" class="form-label">Title</label>
@@ -484,7 +482,7 @@
 
 
                         <!-- equipment_sales/store -->
-                        <form data-form-id="9" style="display:none" action="{{ url('equipment_sales/store') }}" method="POST" enctype="multipart/form-data">
+                        <form data-form-id="9" style="display:none" action="{{ url('equipment_sales_store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="mb-3 col">
@@ -526,7 +524,7 @@
                         </form>
 
                         <!-- apartment_rentals_store -->
-                        <form data-form-id="10" style="display:none" action="{{ url('apartment_rentals_store') }}" method="POST" enctype="multipart/form-data">
+                        <form data-form-id="10" style="display:none" action="{{ route('apartment-rentals.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
                                 <label for="" class="form-label">Title</label>
@@ -572,7 +570,7 @@
                         </form>
 
                         <!-- house_rentals_store -->
-                        <form data-form-id="11" style="display:none" action="{{ url('house_rentals_store') }}" method="POST" enctype="multipart/form-data">
+                        <form data-form-id="11" style="display:none" action="{{ route('house-rentals.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
                                 <label for="" class="form-label">Title</label>
@@ -619,7 +617,7 @@
 
 
                         <!-- room_rentals_store -->
-                        <form data-form-id="12" style="display:none" action="{{ url('room_rentals_store') }}" method="POST" enctype="multipart/form-data">
+                        <form data-form-id="12" style="display:none" action="{{ route('room_rentals.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
                                 <label for="" class="form-label">Title</label>
