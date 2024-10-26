@@ -51,7 +51,7 @@ class ApartmentRentalController extends Controller
 
         $apartment = Apartment_rental::create($validated);
         $categoryName = $apartment->category_name ?? 'apren';
-        $userId = auth()->id() ?? 1;
+        $userId = auth()->id();
 
         $Property_manage = Property_manage::create([
             'category_name' => $categoryName,

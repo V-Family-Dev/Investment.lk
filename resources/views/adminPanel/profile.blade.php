@@ -13,11 +13,12 @@
                     <div class="d-flex">
                         <img width="180" height="180" class="object-fit-cover rounded-3 d-block shadow" src="{{ asset('images/plant1.png') }}" alt="">
                         <div class="ms-4">
-                            <div class="fw-semibold fs-4">Name Name</div>
+                            <div class="fw-semibold fs-4">{{ Auth::user()->firstname ?? 'unknown' }} 
+                            {{ Auth::user()->lastname ?? 'unknown' }}</div>
                             <div class="mt-3 text-secondary">
-                                <div class="d-flex align-items-center"><i class="col-1 fa-solid fa-user"></i><span class="ms-3" >Admin</span></div>
-                                <div class="d-flex align-items-center"><i class="col-1 fa-solid fa-envelope"></i><span class="ms-3">admin@samplmail.com</span></div>
-                                <div class="d-flex align-items-center"><i class="col-1 fa-solid fa-map-location-dot"></i><span class="ms-3">SF, Bay Area</span></div>
+                                <div class="d-flex align-items-center"><i class="col-1 fa-solid fa-user"></i><span class="ms-3" >{{ Auth::user()->usertype ?? 'unknown' }} </span></div>
+                                <div class="d-flex align-items-center"><i class="col-1 fa-solid fa-envelope"></i><span class="ms-3">{{ Auth::user()->email ?? 'unknown' }}</span></div>
+                                <div class="d-flex align-items-center"><i class="col-1 fa-solid fa-map-location-dot"></i><span class="ms-3">{{ Auth::user()->address ?? 'unknown' }}</span></div>
                             </div>
                         </div>
                         <div class="ms-auto">
@@ -33,27 +34,27 @@
                             <div>
                                 <div class="row mb-3 mt-3">
                                     <div class="col-4 text-secondary">First name</div>
-                                    <div class="col-8 fw-semibold">Name Name</div>
+                                    <div class="col-8 fw-semibold">{{ Auth::user()->firstname ?? 'unknown' }}</div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-4 text-secondary">Last Name</div>
-                                    <div class="col-8 fw-semibold">Name Name</div>
+                                    <div class="col-8 fw-semibold">{{ Auth::user()->lastname ?? 'unknown' }}</div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-4 text-secondary">Email</div>
-                                    <div class="col-8 fw-semibold">namename@example.com</div>
+                                    <div class="col-8 fw-semibold">{{ Auth::user()->email ?? 'unknown' }}</div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-4 text-secondary">ID number</div>
-                                    <div class="col-8 fw-semibold">20005689755</div>
+                                    <div class="col-8 fw-semibold">{{ Auth::user()->idnumber ?? 'unknown' }}</div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-4 text-secondary">Address</div>
-                                    <div class="col-8 fw-semibold">SF, Bay Area</div>
+                                    <div class="col-8 fw-semibold">{{ Auth::user()->address ?? 'unknown' }}</div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-4 text-secondary">Phone number</div>
-                                    <div class="col-8 fw-semibold">+94 75 68 525</div>
+                                    <div class="col-8 fw-semibold">{{ Auth::user()->phonenumber ?? 'unknown' }}</div>
                                 </div>
                             </div>
                         </div>
