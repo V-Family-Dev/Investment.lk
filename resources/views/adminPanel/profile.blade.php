@@ -11,7 +11,7 @@
             <div class="overflow-y-scroll overflow-x-hidden flex-fill main-content-container py-5">
                 <div class="bg-white p-5 rounded-4 shadow  main-content">
                     <div class="d-flex">
-                        <img width="150" height="150" class="object-fit-cover rounded-3 d-block shadow" src="{{ asset('images/plant1.png') }}" alt="">
+                        <img width="180" height="180" class="object-fit-cover rounded-3 d-block shadow" src="{{ asset('images/plant1.png') }}" alt="">
                         <div class="ms-4">
                             <div class="fw-semibold fs-4">Name Name</div>
                             <div class="mt-3 text-secondary">

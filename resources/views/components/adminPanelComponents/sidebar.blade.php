@@ -2,6 +2,8 @@
             <div class="p-4 fs-4 fw-bold">
             Investment Lanka
             </div>
+            <a href="/admin/dashboard">Dashboard</a>
+            <a href="/admin/profile">Profile</a>
             <div class="accordion" >
                 <div class="accordion-item">
                     <h2 class="accordion-header">
@@ -12,7 +14,7 @@
                     <div id="collapse1" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                        <a href="">User add</a>
-                       <a href="">User list</a>
+                       <a href="/admin/user-list">User list</a>
                     </div>
                     </div>
                 </div>

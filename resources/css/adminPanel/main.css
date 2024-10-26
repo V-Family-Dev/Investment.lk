@@ -13,6 +13,7 @@
 }
 .accordion{
     --bs-accordion-border-color:none;
+    --bs-accordion-btn-padding-y:0.7rem
 }
 .sidebar .accordion-body a{
     color: rgb(92, 103, 134);
@@ -20,6 +21,17 @@
     margin-left: 2rem;
     padding-block: 0.3rem;
     display: block;
+}
+.accordion-button{
+    color: #052c65 !important;
+    font-weight: 500;
+}
+.sidebar a{
+    color: #052c65 !important;
+    text-decoration: none;
+    padding: 0.6rem 1.25rem !important;
+    display: block;
+    font-weight: 500;
 }
 .sidebar .accordion-body a::before{
     font-family: "Font Awesome 6 Free";
@@ -62,4 +74,7 @@ input{
     --bs-btn-font-size:0.8rem;
     --bs-btn-font-weight:400;
     box-shadow: var(--bs-box-shadow)!important;
+}
+table.table.dataTable.table-striped > tbody > tr:nth-of-type(2n+1) > * {
+    --dt-row-stripe:#ffffff;
 }
