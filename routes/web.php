@@ -297,3 +297,6 @@ Route::delete('room_rentals/{id}', [RoomRentalController::class, 'destroy'])->na
 
 Route::get('/property_manages', [PropertyManageController::class, 'index'])->name('property_manages.index');
 Route::delete('/property_manages/{id}', [PropertyManageController::class, 'destroy'])->name('property_manages.destroy');
+
+Route::get('/ad-details/{property_id}/{category_name}', [PropertyManageController::class, 'showpropertyDetails'])->name('ad.details');
+
