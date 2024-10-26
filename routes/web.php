@@ -14,6 +14,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoomRentalController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FactorySaleController;
+use App\Http\Controllers\PropertyManageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -290,3 +291,9 @@ Route::get('room_rentals/{id}', [RoomRentalController::class, 'show'])->name('ro
 Route::get('room_rentals/{id}/edit', [RoomRentalController::class, 'edit'])->name('room_rentals.edit');
 Route::put('room_rentals/{roomRental}', [RoomRentalController::class, 'update'])->name('room_rentals.update');
 Route::delete('room_rentals/{id}', [RoomRentalController::class, 'destroy'])->name('room_rentals.destroy');
+
+
+
+
+Route::get('/property_manages', [PropertyManageController::class, 'index'])->name('property_manages.index');
+Route::delete('/property_manages/{id}', [PropertyManageController::class, 'destroy'])->name('property_manages.destroy');

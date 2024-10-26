@@ -19,4 +19,9 @@ class Property_manage extends Model
         'ads_payment_status',
         'active_or_not'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }
