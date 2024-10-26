@@ -26,7 +26,7 @@
                     </h2>
                     <div id="collapse2" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        <a href="">Property add</a>
+                        <a href="/admin/propertyAdd">Property add</a>
                         <a href="">Property list</a>
                     </div>
                     </div>

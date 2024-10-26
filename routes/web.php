@@ -178,6 +178,9 @@ Route::get('/bungalow-sale', function () {
 Route::get('/admin/dashboard', function () {
     return view('adminPanel.admin.dashboard');
 });
+Route::get('/admin/propertyAdd', function () {
+    return view('adminPanel.admin.propertyAdd');
+});
 
 Route::get('/admin/user-list', function () {
     return view('adminPanel.admin.userList');
@@ -186,6 +189,7 @@ Route::get('/admin/user-list', function () {
 Route::get('/admin/profile', function () {
     return view('adminPanel.profile');
 });
+// admin panel routes
 
 
 
