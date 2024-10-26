@@ -7,11 +7,11 @@
     <div class="vh-100 vw-100 bg-light d-flex overflow-hidden">
         <x-adminpanelcomponents.sidebar />
         <div class="overflow-x-hidden vh-100 flex-fill position-relative main-container d-flex flex-column">
-            <x-adminpanelcomponents.header-bar path="admin / dashboard" />
+            <x-adminpanelcomponents.header-bar path="Admin / Property manage / Property add" />
             <div class="overflow-y-scroll overflow-x-hidden flex-fill main-content-container py-5">
                 <div class="bg-white p-5 rounded-4 shadow  main-content">
-                    <div class="fs-6 text-secondary">title</div>
-                    <div class="fs-3 fw-semibold">title title</div>
+                    <div class="fs-6 text-secondary">Property manage</div>
+                    <div class="fs-3 fw-semibold mb-4">Add property</div>
 
                     <div>
                             <div class="mb-3">
