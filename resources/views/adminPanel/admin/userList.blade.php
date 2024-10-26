@@ -8,8 +8,8 @@
         <x-adminpanelcomponents.sidebar />
         <div class="overflow-x-hidden vh-100 flex-fill position-relative main-container d-flex flex-column">
             <x-adminpanelcomponents.header-bar path="User management / User list" />
-            <div class="overflow-y-scroll overflow-x-hidden flex-fill">
-                <div class="bg-white p-4 rounded-4 shadow m-5">
+            <div class="overflow-y-scroll overflow-x-hidden flex-fill py-5">
+                <div class="bg-white p-5 rounded-4 shadow  main-content">
                     <div class="fs-6 text-secondary">title</div>
                     <div class="fs-3 fw-semibold">title title</div>
 
