@@ -47,7 +47,7 @@
                                             class="btn btn-info">View Details</a>
                                         </td> -->
                                         <td>
-                                            <button class="btn btn-info " data-id="{{ $propertyManage->property_id }}" data-category="{{ $propertyManage->category_name }}">
+                                            <button class="btn btn-info view-details-btn" onclick="showDetails({{ $propertyManage->property_id }}, '{{ $propertyManage->category_name }}')"  data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                 <i class="fa-solid fa-eye"></i>
                                             </button>
                                         </td>
@@ -67,12 +67,78 @@
         </div>
     </div>
 
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary">
+        Launch demo modal
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Property details</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="property-modal-body">
+            ...
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+        </div>
+    </div>
+    </div>
+
 
     <x-adminpanelcomponents.script-tags />
     <script>
         $(document).ready(function(){
             $('#example').DataTable();
         });
+
+        function showDetails(propertyId, categoryName) {
+
+                $.ajax({
+                    url: `/ad-details/${propertyId}/${categoryName}`,
+                    type: 'GET',
+                    success: function (data) {
+                        console.log("🚀 ~ showDetails ~ data:", data)
+
+                        if (data.error) {
+                            alert('Error fetching ad details');
+                            return;
+                        }
+
+                        $("#property-modal-body").html("");
+                        let content = "";
+
+                        // Loop through each property
+                        $.each(data, function (key, value) {
+                            let valueHtml = value ? value : 'N/A';
+
+                            if (key === 'image_path' && value.includes(',')) {
+                                // Handle multiple images
+                                const images = value.split(',');
+                                content+=`<p><strong>Images:</strong></p>`;
+                                $.each(images, function (index, image) {
+                                    content+=`<img src="/storage/${image.trim()}" alt="Image" class="img-fluid mb-2" style="max-width: 100%; height: auto;">`;
+                                });
+                            } else if (key === 'image_path') {
+                                // Single image case
+                                content+=`<p><strong>Image:</strong> <img src="/storage/${value}" alt="Image" class="img-fluid" style="max-width: 100%; height: auto;"></p>`;
+                            } else {
+                                content+= `<div class="d-flex mb-3"><div class="col-4 text-secondary"><strong>${key.replace('_', ' ')}</strong></div><div class="fw-bold me-1">:</div><div class="flex-fill"> ${valueHtml}</div></div>`;
+                            }
+                        });
+
+                        $("#property-modal-body").html(content);
+                    },
+                    error: function (error) {
+                        console.error('Error:', error);
+                    }
+                });
+        }
     </script>
 </body>
 </html>

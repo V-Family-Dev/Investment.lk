@@ -140,6 +140,14 @@ table.dataTable thead > tr > th{
     border:none;
 }
 
+/*modal*/
+.modal-header {
+    border-bottom: none;
+}
+.modal-footer {
+    border-top: none;
+}
+
 /*widths*/
 .min-width-5{
     min-width: 5px !important;
