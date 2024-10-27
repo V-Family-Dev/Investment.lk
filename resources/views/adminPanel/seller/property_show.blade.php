@@ -86,9 +86,9 @@
                         <td>{{ $propertyManage->ads_payment_status }}</td>
                         <td>{{ $propertyManage->active_or_not ? 'Active' : 'Inactive' }}</td>
                         <!-- <td>
-                            <a href="{{ route('ad.details', ['property_id' => $propertyManage->property_id, 'category_name' => $propertyManage->category_name]) }}"
-                               class="btn btn-info">View Details</a>
-                        </td> -->
+                                <a href="{{ route('ad.details', ['property_id' => $propertyManage->property_id, 'category_name' => $propertyManage->category_name]) }}"
+                                   class="btn btn-info">View Details</a>
+                            </td> -->
                         <td><button class="btn btn-info view-details-btn" data-id="{{ $propertyManage->property_id }}"
                                 data-category="{{ $propertyManage->category_name }}">View Details</button></td>
 

@@ -100,14 +100,14 @@ Route::get('/newsBlog-Detail', function () {
 });
 
 
-Route::get('/signin', function () {
-    return view('signin');
-});
+// Route::get('/signin', function () {
+//     return view('signin');
+// });
 
 
-Route::get('/otp', function () {
-    return view('otp');
-});
+// Route::get('/otp', function () {
+//     return view('otp');
+// });
 
 
 Route::get('/documents', function () {
@@ -302,3 +302,4 @@ Route::get('/ad-details/{property_id}/{category_name}', [PropertyManageControlle
 
 Route::get('/property-showtoseller', [PropertyManageController::class, 'showpropertytoseller'])->middleware('auth');
 Route::post('/property/status/update', [PropertyManageController::class, 'updateStatus'])->name('property.status.update');
+Route::post('/property/active/update', [PropertyManageController::class, 'updateActiveStatusofad'])->name('property.active.update');

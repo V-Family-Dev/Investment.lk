@@ -63,7 +63,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Category Name</th>
-                    <th>Property ID</th>
+                    <!-- <th>Property ID</th> -->
                     <th>User Name</th>
                     <th>Status</th>
                     <th>Ads Payment ID</th>
@@ -92,11 +92,19 @@
 
                         <td>{{ $propertyManage->ads_payment_id }}</td>
                         <td>{{ $propertyManage->ads_payment_status }}</td>
-                        <td>{{ $propertyManage->active_or_not ? 'Active' : 'Inactive' }}</td>
+                        <!-- <td>{{ $propertyManage->active_or_not ? 'Active' : 'Inactive' }}</td> -->
+                        <td>
+                            <button
+                                class="btn btn-active-toggle {{ $propertyManage->active_or_not ? 'btn-success' : 'btn-danger' }}"
+                                data-id="{{ $propertyManage->id }}" data-active="{{ $propertyManage->active_or_not }}">
+                                {{ $propertyManage->active_or_not ? 'Active' : 'Deleted' }}
+                            </button>
+                        </td>
+
                         <!-- <td>
-                                <a href="{{ route('ad.details', ['property_id' => $propertyManage->property_id, 'category_name' => $propertyManage->category_name]) }}"
-                                   class="btn btn-info">View Details</a>
-                            </td> -->
+                                        <a href="{{ route('ad.details', ['property_id' => $propertyManage->property_id, 'category_name' => $propertyManage->category_name]) }}"
+                                           class="btn btn-info">View Details</a>
+                                    </td> -->
                         <td><button class="btn btn-info view-details-btn" data-id="{{ $propertyManage->property_id }}"
                                 data-category="{{ $propertyManage->category_name }}">View Details</button></td>
 
@@ -180,34 +188,64 @@
 
 
 
-        $(document).on('click', '.btn-status-toggle', function() {
-    var button = $(this);
-    var propertyId = button.data('id');
-    var newStatus = button.data('status') === 'pending' ? 'active' : 'pending';
+        $(document).on('click', '.btn-status-toggle', function () {
+            var button = $(this);
+            var propertyId = button.data('id');
+            var newStatus = button.data('status') === 'pending' ? 'active' : 'pending';
 
-    $.ajax({
-        url: '{{ route("property.status.update") }}',
-        method: 'POST',
-        data: {
-            _token: '{{ csrf_token() }}',
-            id: propertyId,
-            status: newStatus
-        },
-        success: function(response) {
-            // Update button text and color based on new status
-            if (response.status === 'active') {
-                button.removeClass('btn-warning').addClass('btn-success').text('Active');
-                button.data('status', 'active');
-            } else {
-                button.removeClass('btn-success').addClass('btn-warning').text('Pending');
-                button.data('status', 'pending');
-            }
-        },
-        error: function(xhr) {
-            alert('Failed to update status');
-        }
-    });
-});
+            $.ajax({
+                url: '{{ route("property.status.update") }}',
+                method: 'POST',
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    id: propertyId,
+                    status: newStatus
+                },
+                success: function (response) {
+                    // Update button text and color based on new status
+                    if (response.status === 'active') {
+                        button.removeClass('btn-warning').addClass('btn-success').text('Active');
+                        button.data('status', 'active');
+                    } else {
+                        button.removeClass('btn-success').addClass('btn-warning').text('Pending');
+                        button.data('status', 'pending');
+                    }
+                },
+                error: function (xhr) {
+                    alert('Failed to update status');
+                }
+            });
+        });
+
+
+        $(document).on('click', '.btn-active-toggle', function () {
+            var button = $(this);
+            var propertyId = button.data('id');
+            var newActiveStatus = button.data('active') === 1 ? 0 : 1;
+
+            $.ajax({
+                url: '{{ route("property.active.update") }}',
+                method: 'POST',
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    id: propertyId,
+                    active_or_not: newActiveStatus
+                },
+                success: function (response) {
+                    // Update button text and color based on new active status
+                    if (response.active_or_not === 1) {
+                        button.removeClass('btn-danger').addClass('btn-success').text('Active');
+                        button.data('active', 1);
+                    } else {
+                        button.removeClass('btn-success').addClass('btn-danger').text('Deleted');
+                        button.data('active', 0);
+                    }
+                },
+                error: function (xhr) {
+                    alert('Failed to update active status');
+                }
+            });
+        });
     </script>
 
 
