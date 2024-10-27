@@ -179,9 +179,15 @@ Route::get('/bungalow-sale', function () {
 Route::get('/admin/dashboard', function () {
     return view('adminPanel.admin.dashboard');
 });
+
 Route::get('/admin/propertyAdd', function () {
     return view('adminPanel.admin.propertyAdd');
 });
+
+// Route::get('/admin/propertyList', function () {
+//     return view('adminPanel.admin.propertyList');
+// });
+Route::get('/admin/propertyList', [PropertyManageController::class, 'index'])->name('adminPanel.admin.propertyList');
 
 Route::get('/admin/user-list', function () {
     return view('adminPanel.admin.userList');

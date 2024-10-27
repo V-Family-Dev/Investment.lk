@@ -80,7 +80,7 @@
                         <td>{{ $propertyManage->id }}</td>
                         <td>{{ $propertyManage->category_name }}</td>
                         <td>{{ $propertyManage->property_id }}</td>
-                        <td>{{ $propertyManage->user->firstname }} {{ $propertyManage->user->lastname }}</td>
+                        <td>{{ $propertyManage->user->firstname ?? 'unknown' }} {{ $propertyManage->user->lastname ?? 'unknown' }}</td>
                         <td>{{ $propertyManage->status == 'pending' ? 'Pending' : 'Active' }}</td>
                         <td>{{ $propertyManage->ads_payment_id }}</td>
                         <td>{{ $propertyManage->ads_payment_status }}</td>
