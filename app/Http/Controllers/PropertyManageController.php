@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\Property_manage;
 use Illuminate\Http\Request;
@@ -13,6 +14,14 @@ class PropertyManageController extends Controller
     $propertyManages = Property_manage::with('user')->get();
     return view('adminPanel.admin.property_manages', compact('propertyManages'));
 }
+
+public function showpropertytoseller()
+{
+    $userId = Auth::id(); // Get the current signed-in user's ID
+    $propertyManages = Property_manage::where('user_id', $userId)->get(); // Filter properties by user ID
+    return view('adminPanel.seller.property_show', compact('propertyManages'));
+}
+
 
 public function showpropertyDetails($property_id, $category_name)
     {
@@ -41,9 +50,27 @@ public function showpropertyDetails($property_id, $category_name)
         if (!$adDetails) {
             abort(404, 'Ad not found');
         }
-
+        $selectedData = [
+            'id' => $adDetails->id,
+            'title' => $adDetails->title,
+            'description' => $adDetails->description,
+            'price' => $adDetails->price,
+            'location' => $adDetails->location,
+            // Add any other specific fields you need
+        ];
+        
+        return response()->json($selectedData);
         // return view('adminPanel.admin.ad-details', compact('adDetails', 'category_name'));
-        return response()->json($adDetails);
+        
     }
+    public function updateStatus(Request $request)
+{
+    $propertyManage = Property_manage::findOrFail($request->id);
+    $propertyManage->status = $request->status;
+    $propertyManage->save();
+
+    return response()->json(['status' => $propertyManage->status]);
+}
+
 
 }

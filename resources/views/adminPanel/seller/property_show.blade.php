@@ -8,7 +8,7 @@
     @vite('resources/css/app.css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
 
-    <title>Sign Up</title>
+    <title>sellers property</title>
 
     <style>
         body {
@@ -79,24 +79,16 @@
                     <tr>
                         <td>{{ $propertyManage->id }}</td>
                         <td>{{ $propertyManage->category_name }}</td>
-                        <!-- <td>{{ $propertyManage->property_id }}</td> -->
+                        <td>{{ $propertyManage->property_id }}</td>
                         <td>{{ $propertyManage->user->firstname }} {{ $propertyManage->user->lastname }}</td>
-                        <!-- <td>{{ $propertyManage->status == 'pending' ? 'Pending' : 'Active' }}</td> -->
-                        <td>
-                            <button
-                                class="btn btn-status-toggle {{ $propertyManage->status == 'pending' ? 'btn-warning' : 'btn-success' }}"
-                                data-id="{{ $propertyManage->id }}" data-status="{{ $propertyManage->status }}">
-                                {{ $propertyManage->status == 'pending' ? 'Pending' : 'Active' }}
-                            </button>
-                        </td>
-
+                        <td>{{ $propertyManage->status == 'pending' ? 'Pending' : 'Active' }}</td>
                         <td>{{ $propertyManage->ads_payment_id }}</td>
                         <td>{{ $propertyManage->ads_payment_status }}</td>
                         <td>{{ $propertyManage->active_or_not ? 'Active' : 'Inactive' }}</td>
                         <!-- <td>
-                                <a href="{{ route('ad.details', ['property_id' => $propertyManage->property_id, 'category_name' => $propertyManage->category_name]) }}"
-                                   class="btn btn-info">View Details</a>
-                            </td> -->
+                            <a href="{{ route('ad.details', ['property_id' => $propertyManage->property_id, 'category_name' => $propertyManage->category_name]) }}"
+                               class="btn btn-info">View Details</a>
+                        </td> -->
                         <td><button class="btn btn-info view-details-btn" data-id="{{ $propertyManage->property_id }}"
                                 data-category="{{ $propertyManage->category_name }}">View Details</button></td>
 
@@ -176,38 +168,6 @@
             });
         });
 
-
-
-
-
-        $(document).on('click', '.btn-status-toggle', function() {
-    var button = $(this);
-    var propertyId = button.data('id');
-    var newStatus = button.data('status') === 'pending' ? 'active' : 'pending';
-
-    $.ajax({
-        url: '{{ route("property.status.update") }}',
-        method: 'POST',
-        data: {
-            _token: '{{ csrf_token() }}',
-            id: propertyId,
-            status: newStatus
-        },
-        success: function(response) {
-            // Update button text and color based on new status
-            if (response.status === 'active') {
-                button.removeClass('btn-warning').addClass('btn-success').text('Active');
-                button.data('status', 'active');
-            } else {
-                button.removeClass('btn-success').addClass('btn-warning').text('Pending');
-                button.data('status', 'pending');
-            }
-        },
-        error: function(xhr) {
-            alert('Failed to update status');
-        }
-    });
-});
     </script>
 
 
