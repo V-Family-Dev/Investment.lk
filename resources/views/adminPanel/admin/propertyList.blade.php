@@ -46,14 +46,14 @@
                                             <a href="{{ route('ad.details', ['property_id' => $propertyManage->property_id, 'category_name' => $propertyManage->category_name]) }}"
                                             class="btn btn-info">View Details</a>
                                         </td> -->
+                                        
+                                        <td>{{ $propertyManage->created_at->format('F j, Y, g:i a') }}</td>
+                                        <td>{{ $propertyManage->updated_at->format('F j, Y, g:i a') }}</td>
                                         <td>
                                             <button class="btn btn-info view-details-btn" onclick="showDetails({{ $propertyManage->property_id }}, '{{ $propertyManage->category_name }}')"  data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                 <i class="fa-solid fa-eye"></i>
                                             </button>
                                         </td>
-
-                                        <td>{{ $propertyManage->created_at->format('F j, Y, g:i a') }}</td>
-                                        <td>{{ $propertyManage->updated_at->format('F j, Y, g:i a') }}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>
@@ -67,10 +67,6 @@
         </div>
     </div>
 
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary">
-        Launch demo modal
-    </button>
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
