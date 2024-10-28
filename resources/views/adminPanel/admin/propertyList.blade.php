@@ -25,14 +25,14 @@
                                         <th class="min-width-150">Payment ID</th>
                                         <th class="min-width-200">Payment status</th>
                                         <th class="min-width-100">Details</th>
-                                        <th class="min-width-100">Status</th>
-                                        <th class="min-width-100">Actions</th>
                                         <th class="min-width-250">Created at</th>
                                         <th class="min-width-250">Updated at</th>
+                                        <th class="min-width-150">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($propertyManages as $propertyManage)
+                                    @if($propertyManage->active_or_not == 1)
                                     <tr>
                                         <td>{{ $propertyManage->id }}</td>
                                         <td>{{ $propertyManage->property_id }}</td>
@@ -41,7 +41,6 @@
                                         <td>{{ $propertyManage->ads_payment_id }}</td>
                                         <td><span class="badge text-bg-{{ $propertyManage->status == 'pending' ? 'danger' : 'success' }}">{{ $propertyManage->status == 'pending' ? 'Pending' : 'Active' }}</span></td>
                                         <td>{{ $propertyManage->ads_payment_status }}</td>
-                                        <td>{{ $propertyManage->active_or_not ? 'Active' : 'Inactive' }}</td>
                                         <!-- <td>
                                             <a href="{{ route('ad.details', ['property_id' => $propertyManage->property_id, 'category_name' => $propertyManage->category_name]) }}"
                                             class="btn btn-info">View Details</a>
@@ -50,11 +49,15 @@
                                         <td>{{ $propertyManage->created_at->format('F j, Y, g:i a') }}</td>
                                         <td>{{ $propertyManage->updated_at->format('F j, Y, g:i a') }}</td>
                                         <td>
-                                            <button class="btn btn-info view-details-btn" onclick="showDetails({{ $propertyManage->property_id }}, '{{ $propertyManage->category_name }}')"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <button class="btn btn-primary btn-icon view-details-btn" onclick="showDetails({{ $propertyManage->property_id }}, '{{ $propertyManage->category_name }}')"  data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                 <i class="fa-solid fa-eye"></i>
+                                            </button>
+                                            <button class="btn btn-danger btn-icon view-details-btn ms-2" onclick="deleteItem({{ $propertyManage->id }}, this)">
+                                                <i class="fa-solid fa-trash"></i>
                                             </button>
                                         </td>
                                     </tr>
+                                    @endif
                                 @endforeach
                                 </tbody>
                             </table>
@@ -134,6 +137,58 @@
                         console.error('Error:', error);
                     }
                 });
+        }
+
+        function deleteItem(propertyId, element) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You want to delete this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                console.log("🚀 ~ deleteItem ~ result:", result)
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: '{{ route("property.active.update") }}',
+                        method: 'POST',
+                        data: {
+                            _token: '{{ csrf_token() }}',
+                            id: propertyId,
+                            active_or_not: 0
+                        },
+                        success: function (response) {
+                        console.log("🚀 ~ deleteItem ~ response:", response);
+
+                            if(response.active_or_not == 0){
+                                $(element).parent().closest('tr').remove();
+                                Swal.fire(
+                                    'Deleted!',
+                                    'Property has been deleted.',
+                                    'success'
+                                )
+                            }else{
+                                Swal.fire(
+                                    'Failed!',
+                                    response.message,
+                                    'error'
+                                )
+                            }
+                        },
+                        error: function (error) {
+                            console.error('Error:', error);
+                            Swal.fire(
+                                'Error!',
+                                'Something went wrong!',
+                                'error'
+                            )
+                        }
+                    });
+                }
+            })
+
         }
     </script>
 </body>

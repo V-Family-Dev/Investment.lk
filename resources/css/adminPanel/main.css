@@ -78,6 +78,10 @@
     --bs-btn-font-weight:400;
     box-shadow: var(--bs-box-shadow)!important;
 }
+.btn-icon{
+    --bs-btn-padding-x:0.5rem !important;
+    --bs-btn-padding-y:0.3rem !important;
+}
 table.table.dataTable.table-striped > tbody > tr:nth-of-type(2n+1) > * {
     --dt-row-stripe:#ffffff;
 }
