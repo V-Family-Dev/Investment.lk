@@ -53,7 +53,20 @@
         <x-title-area title="Sign Up" subtitle="Home - Sign Up"
             image="{{ asset('images/property/anju/ImagepropertyDetailheaderphoto.png') }}" />
     </header>
-
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    @if (session('msg'))
+        <div class="alert alert-success">
+            {{ session('msg') }}
+        </div>
+    @endif
     <!-- Sign Up Form -->
     <div class="container">
 
@@ -72,28 +85,35 @@
                     <th>View Property Details</th>
                     <th>Created At</th>
                     <th>Updated At</th>
+                    <th>payment </th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($propertyManages as $propertyManage)
                     <tr>
                         <td>{{ $propertyManage->id }}</td>
-                        <td>{{ $propertyManage->category_name }}</td>
-                        <td>{{ $propertyManage->property_id }}</td>
+                        <td class="category_name">{{ $propertyManage->category_name }}</td>
+                        <td class="property_id">{{ $propertyManage->property_id }}</td>
                         <td>{{ $propertyManage->user->firstname }} {{ $propertyManage->user->lastname }}</td>
                         <td>{{ $propertyManage->status == 'pending' ? 'Pending' : 'Active' }}</td>
                         <td>{{ $propertyManage->ads_payment_id }}</td>
                         <td>{{ $propertyManage->ads_payment_status }}</td>
                         <td>{{ $propertyManage->active_or_not ? 'Active' : 'Inactive' }}</td>
                         <!-- <td>
-                                <a href="{{ route('ad.details', ['property_id' => $propertyManage->property_id, 'category_name' => $propertyManage->category_name]) }}"
-                                   class="btn btn-info">View Details</a>
-                            </td> -->
+                                                            <a href="{{ route('ad.details', ['property_id' => $propertyManage->property_id, 'category_name' => $propertyManage->category_name]) }}"
+                                                               class="btn btn-info">View Details</a>
+                                                        </td> -->
                         <td><button class="btn btn-info view-details-btn" data-id="{{ $propertyManage->property_id }}"
                                 data-category="{{ $propertyManage->category_name }}">View Details</button></td>
 
                         <td>{{ $propertyManage->created_at }}</td>
                         <td>{{ $propertyManage->updated_at }}</td>
+                        <td>
+                            <button type="button" class="btn btn-primary open-payment-modal" data-toggle="modal"
+                                data-target="#paymentModal">
+                                Make Payment
+                            </button>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
@@ -117,6 +137,43 @@
             </div>
         </div>
     </div>
+
+    <!-- Payment Modal -->
+    <div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="paymentModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <form action="{{ route('payments.store') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="paymentModalLabel">Make Payment</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Hidden Inputs to Capture Property ID and Category Name -->
+                        <input type="hidden" name="property_id" id="propertyIdInput">
+                        <input type="hidden" name="category_name" id="categoryNameInput">
+
+                        <div class="form-group">
+                            <label for="amount">Amount</label>
+                            <input type="number" name="amount" id="amount" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="slip_image">Payment Slip Image</label>
+                            <input type="file" name="slip_image" id="slip_image" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Submit Payment</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
 
     <!-- Footer -->
     <footer class="mt-[119px]">
@@ -168,9 +225,23 @@
             });
         });
 
+
+        // When "Make Payment" button is clicked
+        document.querySelectorAll('.open-payment-modal').forEach(button => {
+            button.addEventListener('click', function () {
+                // Find the row of the clicked button
+                const row = this.closest('tr');
+
+                // Fetch property_id and category_name from the row
+                const propertyId = row.querySelector('.property_id').textContent.trim();
+                const categoryName = row.querySelector('.category_name').textContent.trim();
+
+                // Populate modal fields with fetched data
+                document.getElementById('propertyIdInput').value = propertyId;
+                document.getElementById('categoryNameInput').value = categoryName;
+            });
+        });
     </script>
-
-
 
 </body>
 
