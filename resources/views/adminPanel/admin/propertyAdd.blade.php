@@ -67,7 +67,7 @@
                             <div class="mb-3">
                                 <label for="" class="form-label">Image</label>
                                 <div class="form-file-input d-flex align-items-center">
-                                    <input type="file" id="img" name="image[]" placeholder="" class="d-none">
+                                    <input type="file" multiple id="img" name="image[]" placeholder="" class="d-none">
                                     <i class="fa fa-folder-open" aria-hidden="true"></i>
                                     <span class="ps-3 flex-fill text-truncate d-block">Select file</span>
                                 </div>
@@ -120,7 +120,7 @@
                             <div class="mb-3">
                                 <label for="" class="form-label">Image</label>
                                 <div class="form-file-input d-flex align-items-center">
-                                    <input type="file" id="img" name="image[]" placeholder="" class="d-none" multiple>
+                                    <input type="file" multiple id="img" name="image[]" placeholder="" class="d-none">
                                     <i class="fa fa-folder-open" aria-hidden="true"></i>
                                     <span class="ps-3 flex-fill text-truncate d-block">Select file</span>
                                 </div>
@@ -176,7 +176,7 @@
                             <div class="mb-3">
                                 <label for="" class="form-label">Image</label>
                                 <div class="form-file-input d-flex align-items-center">
-                                    <input type="file" id="img" name="image[]" placeholder="" class="d-none" multiple>
+                                    <input type="file" multiple id="img" name="image[]" placeholder="" class="d-none" multiple>
                                     <i class="fa fa-folder-open" aria-hidden="true"></i>
                                     <span class="ps-3 flex-fill text-truncate d-block">Select file</span>
                                 </div>
@@ -232,7 +232,7 @@
                             <div class="mb-3">
                                 <label for="" class="form-label">Image</label>
                                 <div class="form-file-input d-flex align-items-center">
-                                    <input type="file" id="img" name="image[]" placeholder="" class="d-none" multiple>
+                                    <input type="file" multiple id="img" name="image[]" placeholder="" class="d-none" multiple>
                                     <i class="fa fa-folder-open" aria-hidden="true"></i>
                                     <span class="ps-3 flex-fill text-truncate d-block">Select file</span>
                                 </div>
@@ -284,7 +284,7 @@
                             <div class="mb-3">
                                 <label for="" class="form-label">Image</label>
                                 <div class="form-file-input d-flex align-items-center">
-                                    <input type="file" id="img" name="image[]" placeholder="" class="d-none" multiple>
+                                    <input type="file" multiple id="img" name="image[]" placeholder="" class="d-none" multiple>
                                     <i class="fa fa-folder-open" aria-hidden="true"></i>
                                     <span class="ps-3 flex-fill text-truncate d-block">Select file</span>
                                 </div>
@@ -332,7 +332,7 @@
                             <div class="mb-3">
                                 <label for="" class="form-label">Image</label>
                                 <div class="form-file-input d-flex align-items-center">
-                                    <input type="file" id="img" name="image[]" placeholder="" class="d-none" multiple>
+                                    <input type="file" multiple id="img" name="image[]" placeholder="" class="d-none" multiple>
                                     <i class="fa fa-folder-open" aria-hidden="true"></i>
                                     <span class="ps-3 flex-fill text-truncate d-block">Select file</span>
                                 </div>
@@ -420,7 +420,7 @@
                             <div class="mb-3">
                                 <label for="" class="form-label">Image</label>
                                 <div class="form-file-input d-flex align-items-center">
-                                    <input type="file" id="img" name="image[]" placeholder="" class="d-none" multiple>
+                                    <input type="file" multiple id="img" name="image[]" placeholder="" class="d-none" multiple>
                                     <i class="fa fa-folder-open" aria-hidden="true"></i>
                                     <span class="ps-3 flex-fill text-truncate d-block">Select file</span>
                                 </div>
@@ -466,7 +466,7 @@
                             <div class="mb-3">
                                 <label for="" class="form-label">Image</label>
                                 <div class="form-file-input d-flex align-items-center">
-                                    <input type="file" id="img" name="image[]" placeholder="" class="d-none" multiple>
+                                    <input type="file" multiple id="img" name="image[]" placeholder="" class="d-none" multiple>
                                     <i class="fa fa-folder-open" aria-hidden="true"></i>
                                     <span class="ps-3 flex-fill text-truncate d-block">Select file</span>
                                 </div>
@@ -509,7 +509,7 @@
                             <div class="mb-3">
                                 <label for="" class="form-label">Image</label>
                                 <div class="form-file-input d-flex align-items-center">
-                                    <input type="file" id="img" name="image[]" placeholder="" class="d-none" multiple>
+                                    <input type="file" multiple id="img" name="image[]" placeholder="" class="d-none" multiple>
                                     <i class="fa fa-folder-open" aria-hidden="true"></i>
                                     <span class="ps-3 flex-fill text-truncate d-block">Select file</span>
                                 </div>
@@ -555,7 +555,7 @@
                             <div class="mb-3">
                                 <label for="" class="form-label">Image</label>
                                 <div class="form-file-input d-flex align-items-center">
-                                    <input type="file" id="img" name="image[]" placeholder="" class="d-none" multiple>
+                                    <input type="file" multiple id="img" name="image[]" placeholder="" class="d-none" multiple>
                                     <i class="fa fa-folder-open" aria-hidden="true"></i>
                                     <span class="ps-3 flex-fill text-truncate d-block">Select file</span>
                                 </div>
@@ -601,7 +601,7 @@
                             <div class="mb-3">
                                 <label for="" class="form-label">Image</label>
                                 <div class="form-file-input d-flex align-items-center">
-                                    <input type="file" id="img" name="image[]" placeholder="" class="d-none" multiple>
+                                    <input type="file" multiple id="img" name="image[]" placeholder="" class="d-none" multiple>
                                     <i class="fa fa-folder-open" aria-hidden="true"></i>
                                     <span class="ps-3 flex-fill text-truncate d-block">Select file</span>
                                 </div>
@@ -648,7 +648,7 @@
                             <div class="mb-3">
                                 <label for="" class="form-label">Image</label>
                                 <div class="form-file-input d-flex align-items-center">
-                                    <input type="file" id="img" name="image[]" placeholder="" class="d-none" multiple>
+                                    <input type="file" multiple id="img" name="image[]" placeholder="" class="d-none" multiple>
                                     <i class="fa fa-folder-open" aria-hidden="true"></i>
                                     <span class="ps-3 flex-fill text-truncate d-block">Select file</span>
                                 </div>
