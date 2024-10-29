@@ -176,4 +176,60 @@ class PropertyManageController extends Controller
         // return $ads;
     }
 
+
+
+
+    public function showuniqads($id)
+    {
+        // Define the mapping of category codes to table names
+        $categoryTables = [
+            'apren' => 'apartment_rentals',
+            'apts' => 'apartment_sales',
+            'csbuns' => 'colonia__style__bungalow__sales',
+            'eqts' => 'equipment_sales',
+            'hots' => 'hotel_sales',
+            'fcs' => 'factory_sales',
+            'houren' => 'house_rentals',
+            'vehs' => 'industrial_vehicals',
+            'lans' => 'land_sales',
+            'luxhs' => 'luxury__house__sales',
+            'roomr' => 'room_rentals',
+            'plas' => 'plantation_sales',
+        ];
+
+        // Step 1: Find the ad in property_manages by ID
+        $ad = DB::table('property_manages')->where('id', $id)->first();
+
+        if (!$ad) {
+            abort(404, 'Property not found in property_manages');
+        }
+
+        // Step 2: Use the category_name to identify the specific table
+        $category = $ad->category_name;
+        $propertyTable = $categoryTables[$category] ?? null;
+
+        if (!$propertyTable) {
+            abort(404, 'Property category table not found');
+        }
+
+        // Step 3: Fetch the property details from the identified table
+        $propertyDetails = DB::table($propertyTable)
+            ->where('id', $ad->property_id) // property_id is used to join with the specific table
+            ->first();
+
+        if (!$propertyDetails) {
+            abort(404, 'Property details not found in ' . $propertyTable);
+        }
+
+        // Merge the main ad data with the specific property details
+        $ad = (object) array_merge((array) $ad, (array) $propertyDetails);
+
+        // Return the view with all property details
+        // return view('details', compact('ad'));
+
+        return $ad;
+    }
+
+
+
 }

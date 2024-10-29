@@ -323,4 +323,5 @@ Route::post('/payments', [PaymentController::class, 'store'])->name('payments.st
 Route::get('/payment-details', [PaymentController::class, 'show'])->name('payment.details');
 Route::post('/property/payment-update', [PropertyManageController::class, 'updatePaymentStatus'])->name('property.payment.update');
 Route::get('/property-listings', [PropertyManageController::class, 'showPropertyListings'])->name('property.listings');
-    
+
+Route::get('/property/{id}', [PropertyManageController::class, 'showuniqads'])->name('property.details');
