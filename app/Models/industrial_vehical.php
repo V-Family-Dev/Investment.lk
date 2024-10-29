@@ -12,7 +12,7 @@ class industrial_vehical extends Model
 
     protected $fillable = [
         'category_name',
-        'vehical_name',
+        'title',
         'brand',
         'location',
         'condtion',

@@ -29,7 +29,7 @@ class IndustrialVehicalController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'vehical_name' => 'required|string|max:255',
+            'title' => 'required|string|max:255',
             'brand' => 'required|string|max:255',
             'location' => 'required|string|max:255',
             'condtion' => 'required|string|max:255',
@@ -108,7 +108,7 @@ class IndustrialVehicalController extends Controller
 
         // Validate the request, allowing for image uploads
         $request->validate([
-            'vehical_name' => 'required|string|max:255',
+            'title' => 'required|string|max:255',
             'brand' => 'required|string|max:255',
             'location' => 'required|string|max:255',
             'condtion' => 'required|string|max:255',
@@ -118,7 +118,7 @@ class IndustrialVehicalController extends Controller
             'model' => 'required|string|max:255',
             'year' => 'required|integer',
             'fual_type' => 'required|string|max:255',
-            'mileage' => 'required|numeric',
+            'mileage' => 'required|string|min:0|max:1000000',
             'color' => 'required|string|max:255',
             'engine_capacity' => 'required|string|max:255',
             'bodytype' => 'required|string|max:255',
@@ -155,7 +155,7 @@ class IndustrialVehicalController extends Controller
 
         // Update other industrial vehicle details
         $industrial_vehicle->update([
-            'vehical_name' => $request->vehical_name,
+            'title' => $request->title,
             'brand' => $request->brand,
             'location' => $request->location,
             'condtion' => $request->condtion,

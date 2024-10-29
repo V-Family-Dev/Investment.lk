@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Property_manage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Schema;
 
 class PropertyManageController extends Controller
 {
@@ -111,33 +112,68 @@ class PropertyManageController extends Controller
             'roomr' => 'room_rentals',
             'plas' => 'plantation_sales',
         ];
+        $categoryType = [
+            'apren' => 'Apartment for Rent',
+            'apts' => 'Apartment for sales',
+            'csbuns' => 'Colonia style bungalow sales',
+            'eqts' => 'Equipment Sales',
+            'hots' => 'Hotel sales',
+            'fcs' => 'factory_sales',
+            'houren' => 'house_rentals',
+            'vehs' => 'industrial_vehicals',
+            'lans' => 'land_sales',
+            'luxhs' => 'luxury__house__sales',
+            'roomr' => 'room_rentals',
+            'plas' => 'plantation_sales',
+        ];
 
         $ads = [];
+        $errors = [];  // Array to store error messages
 
         foreach ($categoryTables as $category => $table) {
-            $results = DB::table('property_manages')
-                ->join($table, 'property_manages.property_id', '=', "{$table}.id")
-                ->select(
+            try {
+                $selectFields = [
                     'property_manages.id',
                     'property_manages.ads_payment_status',
-                    DB::raw("COALESCE({$table}.title, {$table}.vehical_name, {$table}.equipment_name) AS title"),
-                    DB::raw("COALESCE({$table}.price, {$table}.rent_price) AS price"),
-                    DB::raw("COALESCE({$table}.address, {$table}.location) AS address"),
-                    DB::raw("COALESCE({$table}.size, {$table}.land_size, {$table}.brand) AS size"), // Fixed line
-                    "{$table}.image_path"
-                )
-                ->where('property_manages.ads_payment_status', 'Paid')
-                ->where('property_manages.category_name', $category)
-                ->get();
+                    "{$table}.title",
+                    "{$table}.price",
+                    "{$table}.location",
+                ];
 
-            foreach ($results as $result) {
-                $result->first_image = json_decode($result->image_path, true)[0] ?? 'default-image.jpg';
-                $ads[] = $result;
+                if (Schema::hasColumn($table, 'image_path')) {
+                    $selectFields[] = "{$table}.image_path";
+                }
+
+                $results = DB::table('property_manages')
+                    ->join($table, 'property_manages.property_id', '=', "{$table}.id")
+                    ->select($selectFields)
+                    ->where('property_manages.ads_payment_status', 'not paid')
+                    ->where('property_manages.category_name', $category)
+                    ->get();
+
+                foreach ($results as $result) {
+                    $result->category_name = $categoryType[$category];
+                    // Check if image_path is present before attempting to split
+                    if (isset($result->image_path)) {
+                        $images = explode(',', $result->image_path);
+                        $result->first_image = $images[0] ?? 'default-image.jpg'; // Fallback if empty
+                    } else {
+                        $result->first_image = 'default-image.jpg';
+                    }
+
+                    $ads[] = $result;
+                }
+
+            } catch (\Exception $e) {
+                // Log the error and add a message to the $errors array
+                \Log::error("Error fetching data for table {$table}: " . $e->getMessage());
+                $errors[] = "There was an issue fetching data for {$table}. Please check if the table structure or configuration is correct.";
             }
         }
 
-        return view('property-listing', compact('ads'));
-
+        // Pass both $ads and $errors to the view
+        return view('propertyList', compact('ads', 'errors'));
+        // return $ads;
     }
 
 }

@@ -26,7 +26,7 @@ class EquipmentSaleController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'equipment_name' => 'required|string',
+            'title' => 'required|string',
             'brand' => 'required|string',
             'location' => 'required|string',
             'price' => 'required|numeric',
@@ -94,7 +94,7 @@ class EquipmentSaleController extends Controller
 
     // Validate the incoming request
     $validated = $request->validate([
-        'equipment_name' => 'required|string|max:255',
+        'title' => 'required|string|max:255',
         'brand' => 'required|string|max:255',
         'location' => 'required|string|max:255',
         'price' => 'required|numeric',
@@ -130,7 +130,7 @@ class EquipmentSaleController extends Controller
 
     // Update other equipment sale details
     $equipment_sale->update([
-        'equipment_name' => $request->equipment_name,
+        'title' => $request->title,
         'brand' => $request->brand,
         'location' => $request->location,
         'price' => $request->price,
