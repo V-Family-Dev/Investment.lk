@@ -190,10 +190,8 @@ Route::get('/admin/propertyAdd', function () {
 //     return view('adminPanel.admin.propertyList');
 // });
 Route::get('/admin/propertyList', [PropertyManageController::class, 'index'])->name('adminPanel.admin.propertyList');
+Route::get('/admin/userList', [RegisteredUserController::class, 'getRegistoruser'])->name('adminPanel.admin.userList');
 
-Route::get('/admin/user-list', function () {
-    return view('adminPanel.admin.userList');
-});
 
 Route::get('/admin/profile', function () {
     return view('adminPanel.profile');

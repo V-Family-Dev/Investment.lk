@@ -7,7 +7,7 @@
     <div class="vh-100 vw-100 bg-light d-flex overflow-hidden">
         <x-adminpanelcomponents.sidebar />
         <div class="overflow-x-hidden vh-100 flex-fill position-relative main-container d-flex flex-column">
-            <x-adminpanelcomponents.header-bar path="User management / User list" />
+            <x-adminpanelcomponents.header-bar path="Property management / Property list" />
             <div class="overflow-y-scroll overflow-x-hidden flex-fill py-5">
                 <div class="bg-white p-5 rounded-4 shadow  main-content">
                     <div class="fs-6 text-secondary">Property manage</div>
@@ -125,15 +125,13 @@
                             let valueHtml = value ? value : 'N/A';
 
                             if (key === 'image_path' && value.includes(',')) {
-                                // Handle multiple images
                                 const images = value.split(',');
-                                content+=`<p><strong>Images:</strong></p>`;
+                                content+=`<p class="text-secondary"><strong>Images:</strong></p>`;
                                 $.each(images, function (index, image) {
-                                    content+=`<img src="/storage/${image.trim()}" alt="Image" class="img-fluid mb-2" style="max-width: 100%; height: auto;">`;
+                                    content+=`<img src="/storage/${image.trim()}" alt="Image" class="my-2 w-100 h-auto rounded-3 shadow" >`;
                                 });
                             } else if (key === 'image_path') {
-                                // Single image case
-                                content+=`<p><strong>Image:</strong> <img src="/storage/${value}" alt="Image" class="img-fluid" style="max-width: 100%; height: auto;"></p>`;
+                                content+=`<p class="text-secondary"><strong>Image:</strong> <img src="/storage/${value}" alt="Image" class="my-2 w-100 h-auto rounded-3 shadow"></p>`;
                             } else {
                                 content+= `<div class="d-flex mb-3"><div class="col-4 text-secondary"><strong>${key.replace('_', ' ')}</strong></div><div class="fw-bold me-1">:</div><div class="flex-fill"> ${valueHtml}</div></div>`;
                             }

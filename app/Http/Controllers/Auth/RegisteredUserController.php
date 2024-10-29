@@ -98,7 +98,7 @@ class RegisteredUserController extends Controller
             'email_verified_at', 'status', 'created_at', 'updated_at'
         )->get();
     
-        return view('adminPanel.admin.seller_manage', compact('users'));
+        return view('adminPanel.admin.userList', compact('users'));
     }
     
 
