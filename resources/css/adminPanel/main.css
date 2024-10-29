@@ -107,6 +107,23 @@ table.table.dataTable.table-striped > tbody > tr:nth-of-type(2n+1) > * {
 .form-label{
     margin-bottom: 0.25rem;
 }
+/*badge*/
+.text-bg-success{
+    color: #31c925 !important;
+    background-color: #ccffda !important;
+}
+.text-bg-danger{
+    color: #f47777 !important;
+    background-color: #ffe3e3 !important;
+}
+.text-bg-warning{
+    color: #efe321 !important;
+    background-color: #fffae4 !important;
+}
+.text-bg-primary{
+    color: #66a4ff !important;
+    background-color: #deebff !important;
+}
 
 /*table*/
 .dt-layout-table{

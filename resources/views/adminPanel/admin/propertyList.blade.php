@@ -18,16 +18,15 @@
                             <table id="example" class="table table-striped"  >
                                 <thead>
                                     <tr>
-                                        <th class="min-width-100">ID</th>
-                                        <th class="min-width-150">Property ID</th>
-                                        <th class="min-width-180">Category Name</th>
+                                        <th class="min-width-100">#</th>
+                                        <th class="min-width-150">Category Name</th>
                                         <th class="min-width-200">Added by</th>
                                         <th class="min-width-150">Payment ID</th>
-                                        <th class="min-width-200">Payment status</th>
-                                        <th class="min-width-100">Details</th>
+                                        <th class="min-width-150">Add payment status</th>
+                                        <th class="min-width-100">Status</th>
                                         <th class="min-width-250">Created at</th>
                                         <th class="min-width-250">Updated at</th>
-                                        <th class="min-width-150">Actions</th>
+                                        <th class="min-width-180">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -35,26 +34,35 @@
                                     @if($propertyManage->active_or_not == 1)
                                     <tr>
                                         <td>{{ $propertyManage->id }}</td>
-                                        <td>{{ $propertyManage->property_id }}</td>
                                         <td>{{ $propertyManage->category_name }}</td>
                                         <td>{{ $propertyManage->user->firstname ?? 'unknown' }} {{ $propertyManage->user->lastname ?? 'unknown' }}</td>
                                         <td>{{ $propertyManage->ads_payment_id }}</td>
-                                        <td><span class="badge text-bg-{{ $propertyManage->status == 'pending' ? 'danger' : 'success' }}">{{ $propertyManage->status == 'pending' ? 'Pending' : 'Active' }}</span></td>
-                                        <td>{{ $propertyManage->ads_payment_status }}</td>
+                                        <td><span class="badge text-bg-primary">{{ $propertyManage->ads_payment_status }}</span></td>
                                         <!-- <td>
                                             <a href="{{ route('ad.details', ['property_id' => $propertyManage->property_id, 'category_name' => $propertyManage->category_name]) }}"
                                             class="btn btn-info">View Details</a>
                                         </td> -->
                                         
+                                        <td><span class="badge text-bg-{{ $propertyManage->status == 'pending' ? 'danger' : 'success' }}">{{ $propertyManage->status == 'pending' ? 'Pending' : 'Active' }}</span></td>
                                         <td>{{ $propertyManage->created_at->format('F j, Y, g:i a') }}</td>
                                         <td>{{ $propertyManage->updated_at->format('F j, Y, g:i a') }}</td>
                                         <td>
-                                            <button class="btn btn-primary btn-icon view-details-btn" onclick="showDetails({{ $propertyManage->property_id }}, '{{ $propertyManage->category_name }}')"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <button class="btn btn-primary btn-icon view-details-btn">
+                                                <i class="fa-solid fa-pen"></i>
+                                            </button>
+                                            <button class="btn btn-info btn-icon view-details-btn ms-2" onclick="showDetails({{ $propertyManage->property_id }}, '{{ $propertyManage->category_name }}')"  data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                 <i class="fa-solid fa-eye"></i>
                                             </button>
+                                            @auth
+                                            @if(Auth::user()->usertype == "admin")
                                             <button class="btn btn-danger btn-icon view-details-btn ms-2" onclick="deleteItem({{ $propertyManage->id }}, this)">
                                                 <i class="fa-solid fa-trash"></i>
                                             </button>
+                                            <button class="btn btn-{{ $propertyManage->status == 'pending' ? 'success' : 'danger' }} btn-icon view-details-btn ms-2" onclick="changeStatus({{ $propertyManage->id }}, '{{ $propertyManage->status == 'pending' ? 'active' : 'pending' }}')">
+                                                <i class="fa-solid fa-{{ $propertyManage->status == 'pending' ? 'check' : 'x' }}"></i>
+                                            </button>
+                                            @endif
+                                            @endauth
                                         </td>
                                     </tr>
                                     @endif
@@ -189,6 +197,49 @@
                 }
             })
 
+        }
+
+        function changeStatus(propertyId, newStatus) {
+        console.log("🚀 ~ changeStatus ~ propertyId:", propertyId)
+
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You want to change status of this property!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, change it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: '{{ route("property.status.update") }}',
+                        method: 'POST',
+                        data: {
+                            _token: '{{ csrf_token() }}',
+                            id: propertyId,
+                            status: newStatus
+                        },
+                        success: function (response) {
+                            // Update button text and color based on new status
+                            Swal.fire(
+                                'Changed!',
+                                'Status has been changed.',
+                                'success'
+                            )
+                            location.reload();
+                        },
+                        error: function (xhr) {
+                            console.error('Error:', xhr);
+                            Swal.fire(
+                                'Error!',
+                                'Something went wrong!',
+                                'error'
+                            )
+                        }
+                    });
+                }
+            });
         }
     </script>
 </body>
