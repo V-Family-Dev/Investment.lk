@@ -7,7 +7,7 @@
     <div class="vh-100 vw-100 bg-light d-flex overflow-hidden">
         <x-adminpanelcomponents.sidebar />
         <div class="overflow-x-hidden vh-100 flex-fill position-relative main-container d-flex flex-column">
-            <x-adminpanelcomponents.header-bar path="Admin / Property manage / Property add" />
+            <x-adminpanelcomponents.header-bar path="Property manage / Property add" />
             <div class="overflow-y-scroll overflow-x-hidden flex-fill main-content-container py-5">
                 <div class="bg-white p-5 rounded-4 shadow  main-content">
                     <div class="fs-6 text-secondary">Property manage</div>
@@ -30,11 +30,10 @@
                                     <option value="10">Apartment rental</option>
                                     <option value="11">House rentals</option>
                                     <option value="12">Room rental</option>
-                                    
                                 </select>
                             </div>
                         <!-- factory add -->
-                        <form data-form-id="1" style="display:none" action="{{ url('factorysale') }}" method="POST" enctype="multipart/form-data">
+                        <form id="form1" data-form-id="1" style="display:none" action="{{ url('factorysale') }}" method="POST" enctype="multipart/form-data">
                             @csrf 
                             <div class="row">
                                 <div class="mb-3 col">
@@ -683,6 +682,36 @@
                 $('[data-form-id]').hide();
                 console.log("🚀 ~ $ ~ $('[data-form-id]').hide();:", $('[data-form-id]').hide())
                 $('[data-form-id="'+type+'"]').show();
+            });
+        });
+
+        $("form").submit(function(e){
+            e.preventDefault();
+            var formData = new FormData(this);
+            $.ajax({
+                url: $(this).attr('action'),
+                type: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(data){
+                    console.log("🚀 ~ data:", data)
+                    Swal.fire(
+                        'Success!',
+                        'Successfully created',
+                        'success'
+                    ).then(function(){
+                        window.location.href = "/admin/propertyList";
+                    });
+                },
+                error: function(data){
+                    console.log("🚀 ~ error:", data)
+                    Swal.fire(
+                        'Error!',
+                        'Something went wrong',
+                        'error'
+                    );
+                }
             });
         });
     </script>

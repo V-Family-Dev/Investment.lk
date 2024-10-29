@@ -10,8 +10,8 @@
             <x-adminpanelcomponents.header-bar path="User management / User list" />
             <div class="overflow-y-scroll overflow-x-hidden flex-fill py-5">
                 <div class="bg-white p-5 rounded-4 shadow  main-content">
-                    <div class="fs-6 text-secondary">Property manage</div>
-                    <div class="fs-3 fw-semibold mb-5">Property list</div>
+                    <div class="fs-6 text-secondary">User management</div>
+                    <div class="fs-3 fw-semibold mb-5">User list</div>
 
                     <div >
                         <div class="mb-3">
@@ -26,12 +26,10 @@
                                     <th class="min-width-200">Address</th>
                                     <th class="min-width-130">Phone number</th>
                                     <th class="min-width-150">Email</th>
-                                    <th class="min-width-140">Email verified at</th>
+                                    <th class="min-width-220">Email verified at</th>
+                                    <th class="min-width-220">Created at</th>
+                                    <th class="min-width-220">Updated at</th>
                                     <th class="min-width-100">Status</th>
-                                    <th class="min-width-100">Front of NIC</th>
-                                    <th class="min-width-160">Back of NIC</th>
-                                    <th class="min-width-200">Created at</th>
-                                    <th class="min-width-200">Updated at</th>
                                     <th class="min-width-180">Action</th>
                                     </tr>
                                 </thead>
@@ -46,43 +44,15 @@
                                 <td>{{ $user->address }}</td>
                                 <td>{{ $user->phonenumber }}</td>
                                 <td>{{ $user->email }}</td>
-                                <td>{{ $user->email_verified_at }}</td>
-                                <td><span class="badge text-bg-{{ $user->status ? 'success' : 'danger' }}">{{ $user->status ? 'Active':'Inactive' }}</span></td>
-
-                                {{-- Display NIC images only if usertype is 'seller' --}}
-                                @if($user->usertype === 'seller')
-                                    <td>
-                                        @if($user->front_fide_if_card)
-                                            <img src="{{ asset('storage/' . $user->front_fide_if_card) }}" alt="Front of NIC"
-                                                style="width: 100px; cursor: pointer;" data-bs-toggle="modal"
-                                                data-bs-target="#imageModal"
-                                                onclick="showImage('{{ asset('storage/' . $user->front_fide_if_card) }}')">
-                                        @else
-                                            Not Available
-                                        @endif
-                                    </td>
-                                    <td>
-                                        @if($user->back_fide_if_card)
-                                            <img src="{{ asset('storage/' . $user->back_fide_if_card) }}" alt="Back of NIC"
-                                                style="width: 100px; cursor: pointer;" data-bs-toggle="modal"
-                                                data-bs-target="#imageModal"
-                                                onclick="showImage('{{ asset('storage/' . $user->back_fide_if_card) }}')">
-                                        @else
-                                            Not Available
-                                        @endif
-                                    </td>
-                                @else
-                                    <td colspan="2">Not Applicable</td>
-                                @endif
-
-
+                                <td>{{ $user->email_verified_at->format('F j, Y, g:i a') }}</td>
                                 <td>{{ $user->created_at->format('F j, Y, g:i a') }}</td>
                                 <td>{{ $user->updated_at->format('F j, Y, g:i a') }}</td>
+                                <td><span class="badge text-bg-{{ $user->status ? 'success' : 'danger' }}">{{ $user->status ? 'Active':'Inactive' }}</span></td>
                                 <td>
                                     <button class="btn btn-primary btn-icon view-details-btn">
                                         <i class="fa-solid fa-pen"></i>
                                     </button>
-                                    <button class="btn btn-info btn-icon view-details-btn ms-2" onclick="showDetails({{ $user->id }})"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <button class="btn btn-info btn-icon view-details-btn ms-2" onclick="showDetails({{ $user->id }}, '{{ asset('storage/' . $user->front_fide_if_card) }}', '{{ asset('storage/' . $user->back_fide_if_card) }}')"  data-bs-toggle="modal" data-bs-target="#exampleModal">
                                         <i class="fa-solid fa-eye"></i>
                                     </button>
                                     <button class="btn btn-danger btn-icon view-details-btn ms-2" onclick="deleteItem({{ $user->id }}, this)">
@@ -111,11 +81,14 @@
     <div class="modal-dialog  modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
         <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Property details</h1>
+            <h1 class="modal-title fs-5" id="exampleModalLabel">User details</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" id="property-modal-body">
-            ...
+            <p><strong>ID front side:</strong></p>
+            <img src="" alt="Image" class="w-100 h-auto d-block my-2 rounded-3 shadow" id="id_front_side">
+            <p><strong>ID back side:</strong></p>
+            <img src="" alt="Image" class="w-100 h-auto d-block my-2 rounded-3 shadow" id="id_front_back">
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -131,47 +104,9 @@
             $('#example').DataTable();
         });
 
-        function showDetails(propertyId, categoryName) {
-
-                $.ajax({
-                    url: `/ad-details/${propertyId}/${categoryName}`,
-                    type: 'GET',
-                    success: function (data) {
-                        console.log("🚀 ~ showDetails ~ data:", data)
-
-                        if (data.error) {
-                            alert('Error fetching ad details');
-                            return;
-                        }
-
-                        $("#property-modal-body").html("");
-                        let content = "";
-
-                        // Loop through each property
-                        $.each(data, function (key, value) {
-                            let valueHtml = value ? value : 'N/A';
-
-                            if (key === 'image_path' && value.includes(',')) {
-                                // Handle multiple images
-                                const images = value.split(',');
-                                content+=`<p><strong>Images:</strong></p>`;
-                                $.each(images, function (index, image) {
-                                    content+=`<img src="/storage/${image.trim()}" alt="Image" class="img-fluid mb-2" style="max-width: 100%; height: auto;">`;
-                                });
-                            } else if (key === 'image_path') {
-                                // Single image case
-                                content+=`<p><strong>Image:</strong> <img src="/storage/${value}" alt="Image" class="img-fluid" style="max-width: 100%; height: auto;"></p>`;
-                            } else {
-                                content+= `<div class="d-flex mb-3"><div class="col-4 text-secondary"><strong>${key.replace('_', ' ')}</strong></div><div class="fw-bold me-1">:</div><div class="flex-fill"> ${valueHtml}</div></div>`;
-                            }
-                        });
-
-                        $("#property-modal-body").html(content);
-                    },
-                    error: function (error) {
-                        console.error('Error:', error);
-                    }
-                });
+        function showDetails(id, idFront, idBack) {
+            $("#id_front_side").attr("src", idFront);
+            $("#id_front_back").attr("src", idBack);
         }
 
         function deleteItem(propertyId, element) {
@@ -227,7 +162,7 @@
         }
 
         function changeStatus(propertyId, newStatus) {
-        console.log("🚀 ~ changeStatus ~ propertyId:", propertyId)
+            console.log("🚀 ~ changeStatus ~ propertyId:", propertyId)
 
             Swal.fire({
                 title: 'Are you sure?',
