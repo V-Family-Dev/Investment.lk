@@ -70,6 +70,8 @@
                     <th>Ads Payment Status</th>
                     <th>Active / Delete</th>
                     <th>View Property Details</th>
+                    <th>View Payment details</th>
+
                     <th>Created At</th>
                     <th>Updated At</th>
                 </tr>
@@ -91,7 +93,15 @@
                         </td>
 
                         <td>{{ $propertyManage->ads_payment_id }}</td>
-                        <td>{{ $propertyManage->ads_payment_status }}</td>
+                        <td>
+                            <button
+                                class="btn btn-payment-toggle {{ $propertyManage->ads_payment_status == 'Paid' ? 'btn-success' : 'btn-danger' }}"
+                                data-id="{{ $propertyManage->id }}"
+                                data-status="{{ $propertyManage->ads_payment_status == 'Paid' ? 'Paid' : 'Not Paid' }}">
+                                {{ $propertyManage->ads_payment_status == 'Paid' ? 'Paid' : 'Not Paid' }}
+                            </button>
+                        </td>
+
                         <!-- <td>{{ $propertyManage->active_or_not ? 'Active' : 'Inactive' }}</td> -->
                         <td>
                             <button
@@ -102,11 +112,17 @@
                         </td>
 
                         <!-- <td>
-                                        <a href="{{ route('ad.details', ['property_id' => $propertyManage->property_id, 'category_name' => $propertyManage->category_name]) }}"
-                                           class="btn btn-info">View Details</a>
-                                    </td> -->
+                                                            <a href="{{ route('ad.details', ['property_id' => $propertyManage->property_id, 'category_name' => $propertyManage->category_name]) }}"
+                                                               class="btn btn-info">View Details</a>
+                                                        </td> -->
                         <td><button class="btn btn-info view-details-btn" data-id="{{ $propertyManage->property_id }}"
                                 data-category="{{ $propertyManage->category_name }}">View Details</button></td>
+                        <td>
+                            <button class="btn btn-primary view-payment-btn" data-property-id="{{ $propertyManage->id }}"
+                                data-category-name="{{ $propertyManage->category_name }}">
+                                View Payment Details
+                            </button>
+                        </td>
 
                         <td>{{ $propertyManage->created_at }}</td>
                         <td>{{ $propertyManage->updated_at }}</td>
@@ -129,6 +145,26 @@
                     <div class="modal-body" id="adDetailsContent">
                         <!-- Ad details will be loaded here -->
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Payment Details Modal -->
+    <div class="modal fade" id="paymentDetailsModal" tabindex="-1" role="dialog" aria-labelledby="paymentDetailsLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="paymentDetailsLabel">Payment Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="paymentDetailsContent">
+                    <!-- Payment details will load here -->
+                    <p><strong>Amount:</strong> <span id="paymentAmount"></span></p>
+                    <p><strong>Slip Image:</strong></p>
+                    <img id="paymentSlipImage" src="" alt="Payment Slip" style="max-width: 100%; height: auto;">
                 </div>
             </div>
         </div>
@@ -246,6 +282,76 @@
                 }
             });
         });
+
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.view-payment-btn').forEach(button => {
+                button.addEventListener('click', function () {
+                    const propertyId = this.getAttribute('data-property-id');
+                    const categoryName = this.getAttribute('data-category-name');
+
+                    // Fetch payment details via AJAX
+                    fetch(`/payment-details?property_id=${propertyId}&category_name=${categoryName}`)
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok');
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            if (data.error) {
+                                alert('Error fetching payment details');
+                                return;
+                            }
+
+                            document.getElementById('paymentAmount').textContent = data.amount;
+                            document.getElementById('paymentSlipImage').src = `/storage/${data.slip_image}`;
+
+                            $('#paymentDetailsModal').modal('show');
+                        })
+                        .catch(error => console.error('Error:', error));
+
+                });
+            });
+        });
+
+
+        $(document).on('click', '.btn-payment-toggle', function () {
+    var button = $(this);
+    var propertyId = button.data('id');
+    var newStatus = button.data('status') === 'Paid' ? 'Not Paid' : 'Paid';
+
+    $.ajax({
+        url: '{{ route("property.payment.update") }}', // Define this route in web.php
+        method: 'POST',
+        data: {
+            _token: '{{ csrf_token() }}',
+            id: propertyId,
+            status: newStatus
+        },
+        success: function (response) {
+            // Update button text and color based on new status
+            if (response.status === 'Paid') {
+                button.removeClass('btn-danger').addClass('btn-success').text('Paid');
+                button.data('status', 'Paid');
+            } else {
+                button.removeClass('btn-success').addClass('btn-danger').text('Not Paid');
+                button.data('status', 'Not Paid');
+            }
+        },
+        error: function () {
+            alert('Failed to update payment status');
+        }
+    });
+});
+
+
+
+
+
+
+
     </script>
 
 

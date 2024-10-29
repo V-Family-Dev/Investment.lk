@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ApartmentRentalController;
 use App\Http\Controllers\ApartmentSaleController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\ColoniaStyleBungalowSaleController;
 use App\Http\Controllers\EquipmentSaleController;
 use App\Http\Controllers\HotelSaleController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\HouseRentalController;
 use App\Http\Controllers\IndustrialVehicalController;
 use App\Http\Controllers\LandSaleController;
 use App\Http\Controllers\LuxuryHouseSaleController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PlantationSaleController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoomRentalController;
@@ -313,3 +315,12 @@ Route::get('/ad-details/{property_id}/{category_name}', [PropertyManageControlle
 Route::get('/property-showtoseller', [PropertyManageController::class, 'showpropertytoseller'])->middleware('auth');
 Route::post('/property/status/update', [PropertyManageController::class, 'updateStatus'])->name('property.status.update');
 Route::post('/property/active/update', [PropertyManageController::class, 'updateActiveStatusofad'])->name('property.active.update');
+
+
+Route::get('/admin/users', [RegisteredUserController::class, 'getRegistoruser'])->name('admin.users');
+Route::post('/payments', [PaymentController::class, 'store'])->name('payments.store');
+
+Route::get('/payment-details', [PaymentController::class, 'show'])->name('payment.details');
+Route::post('/property/payment-update', [PropertyManageController::class, 'updatePaymentStatus'])->name('property.payment.update');
+Route::get('/property-listings', [PropertyManageController::class, 'showPropertyListings'])->name('property.listings');
+    
