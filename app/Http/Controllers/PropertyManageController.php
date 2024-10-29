@@ -13,7 +13,7 @@ class PropertyManageController extends Controller
     public function index()
     {
         $propertyManages = Property_manage::with('user')->get();
-        return view('adminPanel.admin.property_manages', compact('propertyManages'));
+        return view('adminPanel.admin.propertyList', compact('propertyManages'));
     }
 
     public function showpropertytoseller()
