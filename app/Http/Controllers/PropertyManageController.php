@@ -225,9 +225,9 @@ class PropertyManageController extends Controller
         $ad = (object) array_merge((array) $ad, (array) $propertyDetails);
 
         // Return the view with all property details
-        // return view('details', compact('ad'));
+        return view('/components/section1', compact('ads'));
 
-        return $ad;
+        // return $ad;
     }
 
 

@@ -48,7 +48,7 @@ require __DIR__.'/auth.php';
 
 
 
-Route::get('/', function () {
+Route::get('/g', function () {
     return view('login');
 });
 
