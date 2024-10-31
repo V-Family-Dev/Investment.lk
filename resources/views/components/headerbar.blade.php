@@ -36,9 +36,9 @@
             </button>
 
             <ul class="nav-list hidden md:flex gap-8">
-                <li class="nav-item"><a href="#" class="nav-link transition-colors font-bold hover:text-accent">Home</a></li>
+                <li class="nav-item"><a href="{{ route('property.listings') }}" class="nav-link transition-colors font-bold hover:text-accent">Home</a></li>
                 <li class="nav-item"><a href="#" class="nav-link transition-colors font-bold hover:text-accent">Discover</a></li>
-                <li class="nav-item"><a href="#" class="nav-link active transition-colors font-bold hover:text-accent">About Us</a></li>
+                <li class="nav-item"><a href="{{ url('AboutUs') }}" class="nav-link active transition-colors font-bold hover:text-accent">About Us</a></li>
                 <li class="nav-item"><a href="#" class="nav-link transition-colors font-bold hover:text-accent">Contact</a></li>
                 <li class="nav-item"><a href="#" class="nav-link transition-colors font-bold hover:text-accent">News</a></li>
             </ul>
