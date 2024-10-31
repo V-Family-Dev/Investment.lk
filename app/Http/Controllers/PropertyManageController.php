@@ -131,7 +131,6 @@ class PropertyManageController extends Controller
         $errors = [];  // Array to store error messages
 
         foreach ($categoryTables as $category => $table) {
-            try {
                 $selectFields = [
                     'property_manages.id',
                     'property_manages.ads_payment_status',
@@ -284,3 +283,5 @@ class PropertyManageController extends Controller
 
 
 }
+
+?>
