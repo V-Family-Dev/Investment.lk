@@ -130,14 +130,137 @@ class PropertyManageController extends Controller
                 ->where('property_manages.category_name', $category)
                 ->get();
 
-            foreach ($results as $result) {
-                $result->first_image = json_decode($result->image_path, true)[0] ?? 'default-image.jpg';
-                $ads[] = $result;
+                foreach ($results as $result) {
+                    $result->category_name = $categoryType[$category];
+                    // Check if image_path is present before attempting to split
+                    if (isset($result->image_path)) {
+                        $images = explode(',', $result->image_path);
+                        $result->first_image = $images[0] ?? 'default-image.jpg'; // Fallback if empty
+                    } else {
+                        $result->first_image = 'default-image.jpg';
+                    }
+
+                    $ads[] = $result;
+                }
+
+            } catch (\Exception $e) {
+                // Log the error and add a message to the $errors array
+                \Log::error("Error fetching data for table {$table}: " . $e->getMessage());
+                $errors[] = "There was an issue fetching data for {$table}. Please check if the table structure or configuration is correct.";
             }
         }
 
-        return view('property-listing', compact('ads'));
-
+        // Pass both $ads and $errors to the view
+        return view('propertyList', compact('ads', 'errors'));
+        // return $ads;
     }
+
+
+
+
+    // public function showuniqads($id)
+    // {
+    //     // Define the mapping of category codes to table names
+    //     $categoryTables = [
+    //         'apren' => 'apartment_rentals',
+    //         'apts' => 'apartment_sales',
+    //         'csbuns' => 'colonia__style__bungalow__sales',
+    //         'eqts' => 'equipment_sales',
+    //         'hots' => 'hotel_sales',
+    //         'fcs' => 'factory_sales',
+    //         'houren' => 'house_rentals',
+    //         'vehs' => 'industrial_vehicals',
+    //         'lans' => 'land_sales',
+    //         'luxhs' => 'luxury__house__sales',
+    //         'roomr' => 'room_rentals',
+    //         'plas' => 'plantation_sales',
+    //     ];
+
+    //     // Step 1: Find the ad in property_manages by ID
+    //     $ad = DB::table('property_manages')->where('id', $id)->first();
+
+    //     if (!$ad) {
+    //         abort(404, 'Property not found in property_manages');
+    //     }
+
+    //     // Step 2: Use the category_name to identify the specific table
+    //     $category = $ad->category_name;
+    //     $propertyTable = $categoryTables[$category] ?? null;
+
+    //     if (!$propertyTable) {
+    //         abort(404, 'Property category table not found');
+    //     }
+
+    //     // Step 3: Fetch the property details from the identified table
+    //     $propertyDetails = DB::table($propertyTable)
+    //         ->where('id', $ad->property_id) // property_id is used to join with the specific table
+    //         ->first();
+
+    //     if (!$propertyDetails) {
+    //         abort(404, 'Property details not found in ' . $propertyTable);
+    //     }
+
+    //     // Merge the main ad data with the specific property details
+    //     $ad = (object) array_merge((array) $ad, (array) $propertyDetails);
+
+    //     // Return the view with all property details
+    //     return view('/components/section1', compact('ad'));
+
+    //     // return $ad;
+    // }
+
+    public function showuniqads($id)
+    {
+        // Define the mapping of category codes to table names
+        $categoryTables = [
+            'apren' => 'apartment_rentals',
+            'apts' => 'apartment_sales',
+            'csbuns' => 'colonia__style__bungalow__sales',
+            'eqts' => 'equipment_sales',
+            'hots' => 'hotel_sales',
+            'fcs' => 'factory_sales',
+            'houren' => 'house_rentals',
+            'vehs' => 'industrial_vehicals',
+            'lans' => 'land_sales',
+            'luxhs' => 'luxury__house__sales',
+            'roomr' => 'room_rentals',
+            'plas' => 'plantation_sales',
+        ];
+
+        // Step 1: Find the ad in property_manages by ID
+        $ad = DB::table('property_manages')->where('id', $id)->first();
+
+        if (!$ad) {
+            abort(404, 'Property not found in property_manages');
+        }
+
+        // Step 2: Identify the specific table
+        $category = $ad->category_name;
+        $propertyTable = $categoryTables[$category] ?? null;
+
+        if (!$propertyTable) {
+            abort(404, 'Property category table not found');
+        }
+
+        // Step 3: Fetch the property details
+        $propertyDetails = DB::table($propertyTable)
+            ->where('id', $ad->property_id)
+            ->first();
+
+        if (!$propertyDetails) {
+            abort(404, 'Property details not found in ' . $propertyTable);
+        }
+        $propertyDetails = (array) $propertyDetails;
+
+        $adDetails = array_diff_key($propertyDetails, array_flip(['image_path','id','status','updated_at','category_name','location', 'contact_details', 'price', 'title', 'description']));
+
+        // Merge main ad data with specific property details
+        $ad = (object) array_merge((array) $ad, (array) $propertyDetails);
+
+        // Return the main view with all property details
+        return view('propertyDetail', compact('ad','adDetails'));
+        // return $propertyDetails;
+    }
+
 
 }
