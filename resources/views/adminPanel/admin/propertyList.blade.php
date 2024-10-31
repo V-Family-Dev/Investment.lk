@@ -40,7 +40,7 @@
                                         <td><span    
                                             data-property-id="{{ $propertyManage->id }}"
                                             data-property-status="{{ $propertyManage->ads_payment_status == 'Paid' ? 'Paid' : 'Not Paid' }}"
-                                            class="badge cursor-pointer payment-status-change-button text-bg-{{ $propertyManage->ads_payment_status == 'Paid'?'primary':'danger' }}">
+                                            class="badge {{Auth::user()->usertype != "admin"?'disabled':''}} cursor-pointer payment-status-change-button text-bg-{{ $propertyManage->ads_payment_status == 'Paid'?'primary':'danger' }}">
                                             {{ $propertyManage->ads_payment_status }}
                                         </span></td>
                                         <!-- <td>
