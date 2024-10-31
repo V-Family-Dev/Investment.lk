@@ -143,11 +143,11 @@ class PropertyManageController extends Controller
                     $ads[] = $result;
                 }
 
-            } catch (\Exception $e) {
-                // Log the error and add a message to the $errors array
-                \Log::error("Error fetching data for table {$table}: " . $e->getMessage());
-                $errors[] = "There was an issue fetching data for {$table}. Please check if the table structure or configuration is correct.";
-            }
+            // } catch (Exception $e) {
+            //     // Log the error and add a message to the $errors array
+            //     \Log::error("Error fetching data for table {$table}: " . $e->getMessage());
+            //     $errors[] = "There was an issue fetching data for {$table}. Please check if the table structure or configuration is correct.";
+            // }
         }
 
         // Pass both $ads and $errors to the view
