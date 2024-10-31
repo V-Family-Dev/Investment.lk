@@ -32,7 +32,7 @@
             <form class="space-y-4" action="{{ route('vehical.update',$vehical_sale->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
             @method('PUT')
-                <input type="text" value="{{ old('vehical_name', $vehical_sale->vehical_name) }}" name="vehical_name" placeholder="Vehicle Name" class="w-full p-3 border border-gray-300 rounded" required>
+                <input type="text" value="{{ old('title', $vehical_sale->title) }}" name="title" placeholder="Vehicle Name" class="w-full p-3 border border-gray-300 rounded" required>
                 <input type="text" value="{{ old('brand', $vehical_sale->brand) }}" name="brand" placeholder="Brand" class="w-full p-3 border border-gray-300 rounded" required>
                 <input type="text" value="{{ old('location', $vehical_sale->location) }}" name="location" placeholder="Location" class="w-full p-3 border border-gray-300 rounded" required>
                 <input type="text" value="{{ old('condtion', $vehical_sale->condtion) }}" name="condtion" placeholder="Condition" class="w-full p-3 border border-gray-300 rounded" required>
