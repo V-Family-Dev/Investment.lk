@@ -14,7 +14,7 @@ class Room_rental extends Model
         'category_name',
         'title',
         'location',
-        'rent_price',
+        'price',
         'size',
         'features',
         'description',

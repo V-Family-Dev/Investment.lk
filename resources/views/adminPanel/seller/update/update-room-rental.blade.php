@@ -50,7 +50,7 @@
                 required>
             <input type="text" name="location"  value="{{old('location',$roomRental->location)}}" placeholder="Location" class="w-full p-3 border border-gray-300 rounded"
                 required>
-            <input type="number" name="rent_price"  value="{{old('rent_price',$roomRental->rent_price)}}" placeholder="Rent Price"
+            <input type="number" name="price"  value="{{old('price',$roomRental->price)}}" placeholder="Rent Price"
                 class="w-full p-3 border border-gray-300 rounded" required>
             <input type="text" name="size"  value="{{old('size',$roomRental->size)}}" placeholder="Size" class="w-full p-3 border border-gray-300 rounded"
                 required>

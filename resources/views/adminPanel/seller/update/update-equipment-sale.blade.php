@@ -45,7 +45,7 @@
         <form class="space-y-4" action="{{ route('equipment_sales.update',$equipment_sale->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
-            <input type="text" name="equipment_name" value="{{old('equipment_name',$equipment_sale->equipment_name)}}" placeholder="Equipment Name"
+            <input type="text" name="title" value="{{old('title',$equipment_sale->title)}}" placeholder="Equipment Name"
                 class="w-full p-3 border border-gray-300 rounded" required>
             <input type="text" name="brand" value="{{old('brand',$equipment_sale->brand)}}" placeholder="Brand" class="w-full p-3 border border-gray-300 rounded"
                 required>
