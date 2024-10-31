@@ -60,7 +60,7 @@
                 <li class="nav-item hover:bg-slate-900"><a href="#" class="nav-link transition-colors hover:text-accent">News</a></li>
                 <li class="login flex items-center hover:bg-slate-900">
                     <i class="fa fa-sign-in text-accent" aria-hidden="true"></i>
-                    <a href="#" class="ml-2 login-link">Login/Register</a>
+                    <a href="/login" class="ml-2 login-link">Login/Register</a>
                 </li>
             </ul>
         </div>

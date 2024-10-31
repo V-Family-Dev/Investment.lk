@@ -37,13 +37,18 @@
                                         <td>{{ $propertyManage->category_name }}</td>
                                         <td>{{ $propertyManage->user->firstname ?? 'unknown' }} {{ $propertyManage->user->lastname ?? 'unknown' }}</td>
                                         <td>{{ $propertyManage->ads_payment_id }}</td>
-                                        <td><span class="badge text-bg-primary">{{ $propertyManage->ads_payment_status }}</span></td>
+                                        <td><span    
+                                            data-property-id="{{ $propertyManage->id }}"
+                                            data-property-status="{{ $propertyManage->ads_payment_status == 'Paid' ? 'Paid' : 'Not Paid' }}"
+                                            class="badge payment-status-change-button text-bg-{{ $propertyManage->ads_payment_status == 'Paid'?'primary':'danger' }}">
+                                            {{ $propertyManage->ads_payment_status }}
+                                        </span></td>
                                         <!-- <td>
                                             <a href="{{ route('ad.details', ['property_id' => $propertyManage->property_id, 'category_name' => $propertyManage->category_name]) }}"
                                             class="btn btn-info">View Details</a>
                                         </td> -->
                                         
-                                        <td><span class="badge text-bg-{{ $propertyManage->status == 'pending' ? 'danger' : 'success' }}">{{ $propertyManage->status == 'pending' ? 'Pending' : 'Active' }}</span></td>
+                                        <td><span class="badge status-change-button text-bg-{{ $propertyManage->status == 'pending' ? 'danger' : 'success' }}"  data-property-id='{{ $propertyManage->id }}' data-property-status='{{ $propertyManage->status }}'>{{ $propertyManage->status == 'pending' ? 'Pending' : 'Active' }}</span></td>
                                         <td>{{ $propertyManage->created_at->format('F j, Y, g:i a') }}</td>
                                         <td>{{ $propertyManage->updated_at->format('F j, Y, g:i a') }}</td>
                                         <td>
@@ -58,9 +63,9 @@
                                             <button class="btn btn-danger btn-icon view-details-btn ms-2" onclick="deleteItem({{ $propertyManage->id }}, this)">
                                                 <i class="fa-solid fa-trash"></i>
                                             </button>
-                                            <button class="btn btn-{{ $propertyManage->status == 'pending' ? 'success' : 'danger' }} btn-icon view-details-btn ms-2" onclick="changeStatus({{ $propertyManage->id }}, '{{ $propertyManage->status == 'pending' ? 'active' : 'pending' }}')">
+                                            <!-- <button class="btn btn-{{ $propertyManage->status == 'pending' ? 'success' : 'danger' }} btn-icon view-details-btn ms-2">
                                                 <i class="fa-solid fa-{{ $propertyManage->status == 'pending' ? 'check' : 'x' }}"></i>
-                                            </button>
+                                            </button> -->
                                             @endif
                                             @endauth
                                         </td>
@@ -197,8 +202,10 @@
 
         }
 
-        function changeStatus(propertyId, newStatus) {
-        console.log("🚀 ~ changeStatus ~ propertyId:", propertyId)
+        $('.status-change-button').on('click', function(){
+            console.log("🚀 ~ $ ~ $(this).data('property-status'):", $(this).data('property-status'))
+            console.log("🚀 ~ $ ~ $(this).data('property-id'):", $(this).data('property-id'))
+            let element = this;
 
             Swal.fire({
                 title: 'Are you sure?',
@@ -215,17 +222,21 @@
                         method: 'POST',
                         data: {
                             _token: '{{ csrf_token() }}',
-                            id: propertyId,
-                            status: newStatus
+                            id: $(this).data('property-id'),
+                            status: $(this).data('property-status') == 'pending'?'Active':'pending'
                         },
                         success: function (response) {
                             // Update button text and color based on new status
+                            $(element).removeClass($(element).data('property-status') == 'pending'? 'text-bg-danger' : 'text-bg-success');
+                            $(element).addClass($(element).data('property-status') == 'pending'? 'text-bg-success' : 'text-bg-danger');
+                            $(element).text($(element).data('property-status') == 'pending'? 'Active' : 'pending');
+                            $(element).data('property-status', $(element).data('property-status') == 'pending'?'Active':'pending');
                             Swal.fire(
                                 'Changed!',
                                 'Status has been changed.',
                                 'success'
                             )
-                            location.reload();
+
                         },
                         error: function (xhr) {
                             console.error('Error:', xhr);
@@ -238,7 +249,55 @@
                     });
                 }
             });
-        }
+        });
+        $('.payment-status-change-button').on('click', function(){
+            console.log("🚀 ~ $ ~ $(this).data('property-status'):", $(this).data('property-status'))
+            console.log("🚀 ~ $ ~ $(this).data('property-id'):", $(this).data('property-id'))
+            let element = this;
+
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You want to change payment status of this property!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, change it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: '{{ route("property.status.update") }}',
+                        method: 'POST',
+                        data: {
+                            _token: '{{ csrf_token() }}',
+                            id: $(this).data('property-id'),
+                            status: $(this).data('property-status') == 'Paid'?'Not Paid':'Paid'
+                        },
+                        success: function (response) {
+                            // Update button text and color based on new status
+                            $(element).removeClass($(element).data('property-status') == 'Paid'? 'text-bg-primary' : 'text-bg-danger');
+                            $(element).addClass($(element).data('property-status') == 'Paid'? 'text-bg-danger' : 'text-bg-primary');
+                            $(element).text($(element).data('property-status') == 'Paid'? 'Not paid' : 'Paid');
+                            $(element).data('property-status', $(element).data('property-status') == 'Paid'?'Not Paid':'Paid');
+                            Swal.fire(
+                                'Changed!',
+                                'Status has been changed.',
+                                'success'
+                            )
+
+                        },
+                        error: function (xhr) {
+                            console.error('Error:', xhr);
+                            Swal.fire(
+                                'Error!',
+                                'Something went wrong!',
+                                'error'
+                            )
+                        }
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>

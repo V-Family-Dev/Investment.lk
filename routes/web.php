@@ -49,7 +49,7 @@ require __DIR__.'/auth.php';
 
 
 Route::get('/', function () {
-    return view('login');
+    return view('home2');
 });
 
 Route::get('/Home2', function () {
