@@ -55,11 +55,8 @@
                                     <button class="btn btn-info btn-icon view-details-btn ms-2" onclick="showDetails({{ $user->id }}, '{{ asset('storage/' . $user->front_fide_if_card) }}', '{{ asset('storage/' . $user->back_fide_if_card) }}')"  data-bs-toggle="modal" data-bs-target="#exampleModal">
                                         <i class="fa-solid fa-eye"></i>
                                     </button>
-                                    <button class="btn btn-danger btn-icon view-details-btn ms-2" onclick="deleteItem({{ $user->id }}, this)">
+                                    <button class="btn btn-danger btn-icon view-details-btn ms-2" onclick="">
                                         <i class="fa-solid fa-trash"></i>
-                                    </button>
-                                    <button class="btn btn-{{ $user->status ? 'danger' : 'success' }} btn-icon view-details-btn ms-2" onclick="changeStatus({{ $user->id }}, '{{ $user->status ? 0 : 1 }}')">
-                                        <i class="fa-solid fa-{{ $user->status ? 'x' : 'check' }}"></i>
                                     </button>
                                 </td>
                             </tr>
@@ -85,10 +82,10 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" id="property-modal-body">
-            <p><strong>ID front side:</strong></p>
-            <img src="" alt="Image" class="w-100 h-auto d-block my-2 rounded-3 shadow" id="id_front_side">
-            <p><strong>ID back side:</strong></p>
-            <img src="" alt="Image" class="w-100 h-auto d-block my-2 rounded-3 shadow" id="id_front_back">
+            <div><strong>ID front side:</strong></div>
+            <img src="" alt="Image" class="w-100 h-auto d-block  mt-1 mb-4 rounded-3 shadow" id="id_front_side">
+            <div><strong>ID back side:</strong></div>
+            <img src="" alt="Image" class="w-100 h-auto d-block mt-1  mb-4 rounded-3 shadow" id="id_front_back">
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
