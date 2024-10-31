@@ -27,7 +27,7 @@ class RoomRentalController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'location' => 'required|string|max:255',
-            'price' => 'required|numeric',
+            'rent_price' => 'required|numeric',
             'size' => 'required|string|max:255',
             'features' => 'required|string|max:255',
             'description' => 'required|string',
@@ -78,7 +78,7 @@ class RoomRentalController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'location' => 'required|string|max:255',
-            'price' => 'required|numeric|min:0|max:9999999999', // Added range validation for rent_price
+            'rent_price' => 'required|numeric|min:0|max:9999999999', // Added range validation for rent_price
             'size' => 'required|string|max:255',
             'features' => 'required|string|max:255',
             'description' => 'required|string',

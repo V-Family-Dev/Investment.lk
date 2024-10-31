@@ -45,7 +45,7 @@
                         class="w-full p-3 border border-gray-300 rounded" required>
                     <input type="text" name="location" placeholder="Location" value="{{ old('location', $apartmentRental->location) }}"
                         class="w-full p-3 border border-gray-300 rounded" required>
-                    <input type="number" name="price" placeholder="Rent Price"value="{{ old('price', $apartmentRental->price) }}"
+                    <input type="number" name="rent_price" placeholder="Rent Price"value="{{ old('rent_price', $apartmentRental->rent_price) }}"
                         class="w-full p-3 border border-gray-300 rounded" required>
                     <input type="text" name="size" placeholder="Size" value="{{ old('size', $apartmentRental->size) }}" class="w-full p-3 border border-gray-300 rounded"
                         required>

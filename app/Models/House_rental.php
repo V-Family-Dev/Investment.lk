@@ -15,7 +15,7 @@ class House_rental extends Model
         'category_name',
         'title',
         'location',
-        'price',
+        'rent_price',
         'size',
         'features',
         'description',

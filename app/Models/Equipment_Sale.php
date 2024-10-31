@@ -11,7 +11,7 @@ class Equipment_Sale extends Model
     protected $table = 'equipment_sales';
     protected $fillable = [
         'category_name',
-        'title',
+        'equipment_name',
         'brand',
         'location',
         'price',

@@ -143,7 +143,7 @@
                     class="w-full p-3 bg-accent text-white rounded-lg font-semibold hover-bg-darkaccent transition duration-300">Create
                     Account</button>
             </form>
-            <p class="mt-6 text-center text-sm text-gray-600">Already have an account? <a href="{{ route('login') }}"
+            <p class="mt-6 text-center text-sm text-gray-600">Already have an account? <a href="#"
                     class="text-accent hover:underline">Sign in</a></p>
         </div>
     </div>

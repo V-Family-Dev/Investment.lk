@@ -27,7 +27,7 @@ class ApartmentRentalController extends Controller
         $validated = $request->validate([
             'title' => 'required|string',
             'location' => 'required|string',
-            'price' => 'required|numeric',
+            'rent_price' => 'required|numeric',
             'size' => 'required|string',
             'features' => 'required|string',
             'description' => 'required|string',
@@ -88,7 +88,7 @@ class ApartmentRentalController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'location' => 'required|string|max:255',
-            'price' => 'required|numeric',
+            'rent_price' => 'required|numeric',
             'size' => 'required|string|max:255',
             'features' => 'required|string',
             'description' => 'required|string',
@@ -126,7 +126,7 @@ class ApartmentRentalController extends Controller
         $apartmentRental->update([
             'title' => $request->title,
             'location' => $request->location,
-            'price' => $request->price,
+            'rent_price' => $request->rent_price,
             'size' => $request->size,
             'features' => $request->features,
             'description' => $request->description,

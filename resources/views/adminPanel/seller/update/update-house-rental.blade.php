@@ -43,7 +43,7 @@
                     @method('PUT')                    
                     <input type="text" name="title" value="{{old('title',$houseRental->title)}}"  placeholder="Title" class="w-full p-3 border border-gray-300 rounded" required>
                     <input type="text" name="location" value="{{old('location',$houseRental->location)}}" placeholder="Location" class="w-full p-3 border border-gray-300 rounded" required>
-                    <input type="number" name="price" value="{{old('price',$houseRental->price)}}" placeholder="Rent Price" class="w-full p-3 border border-gray-300 rounded" required>
+                    <input type="number" name="rent_price" value="{{old('rent_price',$houseRental->rent_price)}}" placeholder="Rent Price" class="w-full p-3 border border-gray-300 rounded" required>
                     <input type="text" name="size" value="{{old('size',$houseRental->size)}}" placeholder="Size" class="w-full p-3 border border-gray-300 rounded" required>
                     <textarea name="features" placeholder="Features" class="w-full p-3 border border-gray-300 rounded">{{old('features',$houseRental->features)}}</textarea>
                     <textarea name="description" placeholder="Description" class="w-full p-3 border border-gray-300 rounded" required>{{old('description',$houseRental->description)}}</textarea>

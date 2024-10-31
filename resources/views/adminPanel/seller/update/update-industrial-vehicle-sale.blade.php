@@ -25,27 +25,14 @@
         image="{{ asset('images/property/anju/industrial.png') }}"
         />
     </header>
-    @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-        @if (session('msg'))
-            <div class="alert alert-success">
-                {{ session('msg') }}
-            </div>
-        @endif
+
     <main class="flex-grow flex flex-col items-center justify-center p-[105px]">
         <div class="container mx-auto my-8 p-8 bg-white rounded-lg shadow-lg">
             <h2 class="text-2xl font-bold text-black mb-4"> update Industrial Vehicle / Machine Sale Form</h2>
             <form class="space-y-4" action="{{ route('vehical.update',$vehical_sale->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
             @method('PUT')
-                <input type="text" value="{{ old('title', $vehical_sale->title) }}" name="title" placeholder="Vehicle Name" class="w-full p-3 border border-gray-300 rounded" required>
+                <input type="text" value="{{ old('vehical_name', $vehical_sale->vehical_name) }}" name="vehical_name" placeholder="Vehicle Name" class="w-full p-3 border border-gray-300 rounded" required>
                 <input type="text" value="{{ old('brand', $vehical_sale->brand) }}" name="brand" placeholder="Brand" class="w-full p-3 border border-gray-300 rounded" required>
                 <input type="text" value="{{ old('location', $vehical_sale->location) }}" name="location" placeholder="Location" class="w-full p-3 border border-gray-300 rounded" required>
                 <input type="text" value="{{ old('condtion', $vehical_sale->condtion) }}" name="condtion" placeholder="Condition" class="w-full p-3 border border-gray-300 rounded" required>

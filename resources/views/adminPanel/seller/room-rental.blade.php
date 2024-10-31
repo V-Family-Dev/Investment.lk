@@ -49,7 +49,7 @@
                 required>
             <input type="text" name="location" placeholder="Location" class="w-full p-3 border border-gray-300 rounded"
                 required>
-            <input type="number" name="price" placeholder="Rent Price"
+            <input type="number" name="rent_price" placeholder="Rent Price"
                 class="w-full p-3 border border-gray-300 rounded" required>
             <input type="text" name="size" placeholder="Size" class="w-full p-3 border border-gray-300 rounded"
                 required>

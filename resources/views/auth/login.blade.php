@@ -60,7 +60,7 @@
                     class="w-full bg-accent text-darkblue py-2 rounded-lg hover:bg-yellow-400 transition duration-200">Login</button>
             </form>
 
-            <!-- <div class="mt-6 text-center text-gray-500">Or login with</div>
+            <div class="mt-6 text-center text-gray-500">Or login with</div>
             <div class="mt-4 flex justify-center space-x-4">
                 <button
                     class="bg-gray-200 py-2 px-4 rounded-lg flex items-center space-x-2 hover:bg-gray-300 transition duration-200 border-[1px]">
@@ -76,9 +76,9 @@
                     <img src="{{ asset('images/icons/facebook-round-color-icon.svg') }}" class="h-4 w-4"><span
                         class="text-xs">Facebook</span>
                 </button>
-            </div> -->
+            </div>
 
-            <p class="mt-6 text-center text-gray-600">Don’t have an account ? <a href="{{ route('register') }}"
+            <p class="mt-6 text-center text-gray-600">Don’t have an account ? <a href="#"
                     class="text-accent">Create an account</a></p>
         </div>
     </div>

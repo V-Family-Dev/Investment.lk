@@ -44,7 +44,7 @@
             <h2 class="text-2xl font-bold text-black mb-4">Industrial Vehicle / Machine Sale Form</h2>
             <form class="space-y-4" action="{{ route('vehical.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <input type="text" name="title" placeholder="Vehicle Name"
+                <input type="text" name="vehical_name" placeholder="Vehicle Name"
                     class="w-full p-3 border border-gray-300 rounded" required>
                 <input type="text" name="brand" placeholder="Brand" class="w-full p-3 border border-gray-300 rounded"
                     required>
