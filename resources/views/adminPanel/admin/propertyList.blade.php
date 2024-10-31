@@ -174,6 +174,7 @@
                         console.log("🚀 ~ deleteItem ~ response:", response);
 
                             if(response.active_or_not == 0){
+
                                 $(element).parent().closest('tr').remove();
                                 Swal.fire(
                                     'Deleted!',
@@ -266,7 +267,7 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     $.ajax({
-                        url: '{{ route("property.status.update") }}',
+                        url: '{{ route("property.payment.update") }}',
                         method: 'POST',
                         data: {
                             _token: '{{ csrf_token() }}',

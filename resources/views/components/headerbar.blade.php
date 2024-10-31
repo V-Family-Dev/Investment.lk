@@ -36,28 +36,28 @@
             </button>
 
             <ul class="nav-list hidden md:flex gap-8">
-                <li class="nav-item"><a href="#" class="nav-link transition-colors font-bold hover:text-accent">Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link transition-colors font-bold hover:text-accent">Discover</a></li>
-                <li class="nav-item"><a href="#" class="nav-link active transition-colors font-bold hover:text-accent">About Us</a></li>
-                <li class="nav-item"><a href="#" class="nav-link transition-colors font-bold hover:text-accent">Contact</a></li>
-                <li class="nav-item"><a href="#" class="nav-link transition-colors font-bold hover:text-accent">News</a></li>
+                <li class="nav-item"><a href="/Home2" class="nav-link transition-colors font-bold hover:text-accent">Home</a></li>
+                <li class="nav-item"><a href="/Home3" class="nav-link transition-colors font-bold hover:text-accent">Discover</a></li>
+                <li class="nav-item"><a href="/AboutUs" class="nav-link active transition-colors font-bold hover:text-accent">About Us</a></li>
+                <li class="nav-item"><a href="/ContactUs" class="nav-link transition-colors font-bold hover:text-accent">Contact</a></li>
+                <li class="nav-item"><a href="/FAQ" class="nav-link transition-colors font-bold hover:text-accent">F & Q</a></li>
             </ul>
 
             <div class="login hidden md:flex items-center">
                 {{-- <i class="fa fa-sign-in text-accent" aria-hidden="true"></i> --}}
                 <img src="{{ asset('images/icons/loginicon.png') }}" alt="" class="h-4 w-4">
-                <a href="#" class="ml-2 login-link">Login/Register</a>
+                <a href="/login" class="ml-2 login-link">Login/Register</a>
             </div>
         </div>
 
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-black p-4">
             <ul class="flex flex-col gap-4">
-                <li class="nav-item hover:bg-slate-900"><a href="#" class="nav-link transition-colors hover:text-accent">Home</a></li>
-                <li class="nav-item hover:bg-slate-900"><a href="#" class="nav-link transition-colors hover:text-accent">Discover</a></li>
-                <li class="nav-item hover:bg-slate-900"><a href="#" class="nav-link active transition-colors hover:text-accent">About Us</a></li>
-                <li class="nav-item hover:bg-slate-900"><a href="#" class="nav-link transition-colors hover:text-accent">Contact</a></li>
-                <li class="nav-item hover:bg-slate-900"><a href="#" class="nav-link transition-colors hover:text-accent">News</a></li>
+                <li class="nav-item hover:bg-slate-900"><a href="/Home2" class="nav-link transition-colors hover:text-accent">Home</a></li>
+                <li class="nav-item hover:bg-slate-900"><a href="/Home3" class="nav-link transition-colors hover:text-accent">Discover</a></li>
+                <li class="nav-item hover:bg-slate-900"><a href="/AboutUs" class="nav-link active transition-colors hover:text-accent">About Us</a></li>
+                <li class="nav-item hover:bg-slate-900"><a href="/ContactUs" class="nav-link transition-colors hover:text-accent">Contact</a></li>
+                <li class="nav-item hover:bg-slate-900"><a href="/FAQ" class="nav-link transition-colors hover:text-accent">F & Q</a></li>
                 <li class="login flex items-center hover:bg-slate-900">
                     <i class="fa fa-sign-in text-accent" aria-hidden="true"></i>
                     <a href="/login" class="ml-2 login-link">Login/Register</a>
