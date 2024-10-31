@@ -40,7 +40,7 @@
                                         <td><span    
                                             data-property-id="{{ $propertyManage->id }}"
                                             data-property-status="{{ $propertyManage->ads_payment_status == 'Paid' ? 'Paid' : 'Not Paid' }}"
-                                            class="badge payment-status-change-button text-bg-{{ $propertyManage->ads_payment_status == 'Paid'?'primary':'danger' }}">
+                                            class="badge cursor-pointer payment-status-change-button text-bg-{{ $propertyManage->ads_payment_status == 'Paid'?'primary':'danger' }}">
                                             {{ $propertyManage->ads_payment_status }}
                                         </span></td>
                                         <!-- <td>
@@ -48,7 +48,7 @@
                                             class="btn btn-info">View Details</a>
                                         </td> -->
                                         
-                                        <td><span class="badge status-change-button text-bg-{{ $propertyManage->status == 'pending' ? 'danger' : 'success' }}"  data-property-id='{{ $propertyManage->id }}' data-property-status='{{ $propertyManage->status }}'>{{ $propertyManage->status == 'pending' ? 'Pending' : 'Active' }}</span></td>
+                                        <td><span class="badge cursor-pointer status-change-button text-bg-{{ $propertyManage->status == 'pending' ? 'danger' : 'success' }}"  data-property-id='{{ $propertyManage->id }}' data-property-status='{{ $propertyManage->status }}'>{{ $propertyManage->status == 'pending' ? 'Pending' : 'Active' }}</span></td>
                                         <td>{{ $propertyManage->created_at->format('F j, Y, g:i a') }}</td>
                                         <td>{{ $propertyManage->updated_at->format('F j, Y, g:i a') }}</td>
                                         <td>

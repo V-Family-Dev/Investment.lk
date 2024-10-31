@@ -124,6 +124,9 @@ table.table.dataTable.table-striped > tbody > tr:nth-of-type(2n+1) > * {
     color: #66a4ff !important;
     background-color: #deebff !important;
 }
+.cursor-pointer {
+    cursor: pointer;
+}
 
 /*table*/
 .dt-layout-table{
