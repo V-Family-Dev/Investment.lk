@@ -29,7 +29,7 @@ class HouseRentalController extends Controller
         $validated = $request->validate([
             'title' => 'required',
             'location' => 'required',
-            'rent_price' => 'required|numeric|min:0|max:9999999999',
+            'price' => 'required|numeric|min:0|max:9999999999',
             'size' => 'required',
             'features' => 'required',
             'description' => 'required',
@@ -88,7 +88,7 @@ class HouseRentalController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'location' => 'required|string|max:255',
-            'rent_price' => 'required|numeric|min:0|max:9999999999',
+            'price' => 'required|numeric|min:0|max:9999999999',
             'size' => 'required|string|max:255',
             'features' => 'required|string',
             'description' => 'required|string',
@@ -122,7 +122,7 @@ class HouseRentalController extends Controller
         $houseRental->update([
             'title' => $request->title,
             'location' => $request->location,
-            'rent_price' => $request->rent_price,
+            'price' => $request->price,
             'size' => $request->size,
             'features' => $request->features,
             'description' => $request->description,
