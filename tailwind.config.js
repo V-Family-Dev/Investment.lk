@@ -1,12 +1,19 @@
+import defaultTheme from 'tailwindcss/defaultTheme';
+import forms from '@tailwindcss/forms';
+
 /** @type {import('tailwindcss').Config} */
 export default {
     content: [
-        "./resources/**/*.blade.php",
-        "./resources/**/*.js",
-        "./resources/**/*.vue",
+        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+        './storage/framework/views/*.php',
+        './resources/views/**/*.blade.php',
     ],
+
     theme: {
         extend: {
+            fontFamily: {
+                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+            },
             colors: {
                 primary: "rgba(249, 252, 255, 1)",
                 secondary: "rgba(234, 240, 245, 1)",
@@ -31,8 +38,8 @@ export default {
                     to: { transform: "translateX(-100%)" },
                 },
             },
-
         },
     },
-    plugins: [],
+
+    plugins: [forms],
 };
