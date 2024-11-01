@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('equipment_sales', function (Blueprint $table) {
             $table->id();
             $table->string('category_name')->default('eqts');
-            $table->string('equipment_name');
+            $table->string('title');
             $table->string('brand');
             $table->string('location');
             $table->decimal('price', 10, 2);

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('category_name')->default('apren');
             $table->string('title');
             $table->string('location');
-            $table->decimal('rent_price', 10, 2);
+            $table->decimal('price', 10, 2);
             $table->string('size');
             $table->string('features');
             $table->text('description');

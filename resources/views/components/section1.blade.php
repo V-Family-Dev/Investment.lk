@@ -30,7 +30,7 @@
     </div>
 
     <!-- Container for horizontal layout -->
-<div class="bg-transparent py-6 mb-4 rounded-lg  flex flex-col md:flex-row gap-4" style="">
+    <div class="bg-transparent py-6 mb-4 rounded-lg  flex flex-col md:flex-row gap-4" style="">
 
         <!-- Sub-component 1 -->
         <div class="flex-1 p-6 rounded-lg bg-gradient-to-r from-yellow-400 to-yellow-700">
@@ -48,18 +48,25 @@
         </div>
 
     </div>
- <!-- Display additional fields -->
- <div class="extra-details">
-        @foreach($adDetails as $key => $value)
-            @if($value) <!-- Check if value exists -->
-                <p><strong>{{ ucfirst(str_replace('_', ' ', $key)) }}:</strong> {{ $value }}</p>
-            @endif
-        @endforeach
-    </div>
+    <!-- Display additional fields -->
 
     <!-- Sub-component 4 -->
     <div class="bg-transparent py-6 rounded-lg  w-full" style="">
         <h1 class="text-5xl font-semibold leading-tight text-left" style="font-family: Jost;">{{ $ad->title }}</h1>
         <p class="mt-4 text-gray-700">{{ $ad->description }}</p>
     </div>
+    <div>
+                <p class=" text-[20px] font-bold ml-1">Other details</p>
+            </div>
+    <div class="extra-details">
+    @foreach($adDetails as $key => $value)
+        @if($value) <!-- Check if value exists -->
+            <div class="flex justify-between py-2 border-b border-gray-200">
+                <span class="font-semibold text-gray-800">{{ ucfirst(str_replace('_', ' ', $key)) }}</span>
+                <span class="text-gray-600">{{ $value }}</span>
+            </div>
+        @endif
+    @endforeach
+</div>
+
 </div>

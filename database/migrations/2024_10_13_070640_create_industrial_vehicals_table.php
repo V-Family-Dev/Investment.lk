@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('industrial_vehicals', function (Blueprint $table) {
             $table->id();
             $table->string('category_name')->default('vehs');
-            $table->string('vehical_name');
+            $table->string('title');
             $table->string('brand');
             $table->string('location');
             $table->string('condtion');
