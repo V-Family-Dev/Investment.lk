@@ -34,7 +34,7 @@
                     </div>
                 </div>
 
-                
+
                 <div class="accordion-item">
                     <h2 class="accordion-header">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
@@ -61,7 +61,7 @@
                         <div id="collapse2" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             <a href="/admin/propertyAdd">Property add</a>
-                            <a href="/admin/propertyList">Property list</a>
+                            <a href="/seller/propertyList">Property list</a>
                         </div>
                         </div>
                     </div>

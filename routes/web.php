@@ -93,6 +93,7 @@ Route::get('/property/{id}', [PropertyManageController::class, 'showuniqads'])->
 
 // Admin panel routes
 Route::get('/admin/propertyList', [PropertyManageController::class, 'index'])->name('adminPanel.admin.propertyList');
+Route::get('/seller/propertyList', [PropertyManageController::class, 'showpropertytoseller'])->name('adminPanel.seller.propertyListSeller');
 
 
 Route::middleware([AdminMiddleware::class])->group(function () {

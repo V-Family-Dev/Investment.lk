@@ -22,7 +22,8 @@
                                         <th class="min-width-150">Category Name</th>
                                         <th class="min-width-200">Added by</th>
                                         <th class="min-width-150">Payment ID</th>
-                                        <th class="min-width-150">Add payment status</th>
+                                        <th class="min-width-150">Payment Details</th>
+                                        <th class="min-width-150">payment status</th>
                                         <th class="min-width-100">Status</th>
                                         <th class="min-width-250">Created at</th>
                                         <th class="min-width-250">Updated at</th>
@@ -37,7 +38,12 @@
                                         <td>{{ $propertyManage->category_name }}</td>
                                         <td>{{ $propertyManage->user->firstname ?? 'unknown' }} {{ $propertyManage->user->lastname ?? 'unknown' }}</td>
                                         <td>{{ $propertyManage->ads_payment_id }}</td>
-                                        <td><span    
+                                        <td>
+                                            <button class="btn btn-info btn-icon view-payment-btn ms-2" data-property-id="{{ $propertyManage->property_id }}" data-category-name="{{ $propertyManage->category_name }}"  data-bs-toggle="modal" data-bs-target="#paymentDetailModal">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </button>
+                                        </td>
+                                        <td><span
                                             data-property-id="{{ $propertyManage->id }}"
                                             data-property-status="{{ $propertyManage->ads_payment_status == 'Paid' ? 'Paid' : 'Not Paid' }}"
                                             class="badge {{Auth::user()->usertype != "admin"?'disabled':''}} cursor-pointer payment-status-change-button text-bg-{{ $propertyManage->ads_payment_status == 'Paid'?'primary':'danger' }}">
@@ -47,7 +53,7 @@
                                             <a href="{{ route('ad.details', ['property_id' => $propertyManage->property_id, 'category_name' => $propertyManage->category_name]) }}"
                                             class="btn btn-info">View Details</a>
                                         </td> -->
-                                        
+
                                         <td><span class="badge cursor-pointer status-change-button text-bg-{{ $propertyManage->status == 'pending' ? 'danger' : 'success' }}"  data-property-id='{{ $propertyManage->id }}' data-property-status='{{ $propertyManage->status }}'>{{ $propertyManage->status == 'pending' ? 'Pending' : 'Active' }}</span></td>
                                         <td>{{ $propertyManage->created_at->format('F j, Y, g:i a') }}</td>
                                         <td>{{ $propertyManage->updated_at->format('F j, Y, g:i a') }}</td>
@@ -75,7 +81,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -93,6 +99,23 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" id="property-modal-body">
+            ...
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="modal fade" id="paymentDetailModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Payment details</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="payment-details-modal-body">
             ...
         </div>
         <div class="modal-footer">
@@ -299,6 +322,36 @@
                 }
             });
         });
+
+
+        $('.view-payment-btn').on('click', function () {
+            $('#payment-details-modal-body').html(`<div class="py-3 fw-semibold fs-5 text-secondary">No data available ...<div>`);
+            var propertyId = $(this).data('property-id');
+            var categoryName = $(this).data('category-name');
+
+            $.ajax({
+                url: `/payment-details?property_id=${propertyId}&category_name=${categoryName}`,
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    if (data.error) {
+                        alert('Error fetching payment details');
+                        return;
+                    }
+
+                    let content = `
+                    <div class="d-flex mb-3"><div class="col-4 text-secondary"><strong>Amount</strong></div><div class="fw-bold me-1">:</div><div class="flex-fill"> ${data.amount}</div></div>
+                    <p class="text-secondary"><strong>Payment slip:</strong> <img src="/storage/${data.slip_image}" alt="Image" class="my-2 w-100 h-auto rounded-3 shadow"></p>
+                    `;
+                    $('#payment-details-modal-body').html(content);
+                },
+                error: function (xhr) {
+                    console.error('Error:', xhr);
+                }
+            });
+
+        });
+
     </script>
 </body>
 </html>
