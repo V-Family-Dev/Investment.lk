@@ -190,6 +190,7 @@ Route::get('/admin/propertyAdd', function () {
 //     return view('adminPanel.admin.propertyList');
 // });
 Route::get('/admin/propertyList', [PropertyManageController::class, 'index'])->name('adminPanel.admin.propertyList');
+Route::get('/admin/propertyList', [PropertyManageController::class, 'index'])->name('adminPanel.admin.propertyListSeller');
 Route::get('/admin/userList', [RegisteredUserController::class, 'getRegistoruser'])->name('adminPanel.admin.userList');
 
 
@@ -209,7 +210,7 @@ Route::get('/factory-sales/{id}/edit', [FactorySaleController::class, 'edit'])->
 Route::put('/factory-sales/{factorySale}', [FactorySaleController::class, 'update'])->name('factory-sales.update');
 Route::delete('/factory-sales-delete/{id}', [FactorySaleController::class, 'destroy'])->name('factory-sales.destroy');
 
-// Routes for apartment sales 
+// Routes for apartment sales
 Route::get('/apartment', [ApartmentSaleController::class, 'index'])->name('apartment-sales.index');
 Route::get('/apartment-sales/create', [ApartmentSaleController::class, 'create'])->name('apartment-sales.create');
 Route::post('/apartment-sales', [ApartmentSaleController::class, 'store'])->name('apartment-sales.store');
@@ -218,8 +219,8 @@ Route::get('/apartment-sales/{id}/edit', [ApartmentSaleController::class, 'edit'
 Route::put('/apartment-sales/{apartment_sale}', [ApartmentSaleController::class, 'update'])->name('apartment-sales.update');
 Route::delete('/apartment-sales/{id}', [ApartmentSaleController::class, 'destroy'])->name('apartment-sales.destroy');
 
-//Routes for luxury_houses sales 
-Route::get('/luxury-house', [LuxuryHouseSaleController::class, 'index'])->name('luxury-houses.index'); 
+//Routes for luxury_houses sales
+Route::get('/luxury-house', [LuxuryHouseSaleController::class, 'index'])->name('luxury-houses.index');
 Route::get('/luxury-houses/create', [LuxuryHouseSaleController::class, 'create'])->name('luxury-houses.create'); // Create: Show form
 Route::post('/luxury-houses', [LuxuryHouseSaleController::class, 'store'])->name('luxury-houses.store'); // Create: Store new house
 Route::get('/luxury-houses/{id}/edit', [LuxuryHouseSaleController::class, 'edit'])->name('luxury-houses.edit'); // Update: Show edit form
@@ -252,13 +253,13 @@ Route::get('land-sales/{id}/edit', [LandSaleController::class, 'edit'])->name('l
 Route::put('land-sales/{land_sale}', [LandSaleController::class, 'update'])->name('land_sales.update'); // Update sale
 Route::delete('land-sales/{id}', [LandSaleController::class, 'destroy'])->name('land_sales.destroy'); // Delete sale
 
-Route::get('industrial_vehicles', [IndustrialVehicalController::class, 'index'])->name('vehical.index'); 
-Route::get('industrial_vehicles/create', [IndustrialVehicalController::class, 'create'])->name('vehical.create'); 
-Route::post('industrial_vehicles/store', [IndustrialVehicalController::class, 'store'])->name('vehical.store'); 
-Route::get('industrial_vehicles/{id}', [IndustrialVehicalController::class, 'show'])->name('vehical.show'); 
-Route::get('industrial_vehicles/{id}/edit', [IndustrialVehicalController::class, 'edit'])->name('vehical.edit'); 
-Route::put('industrial_vehicles/{industrial_vehicle}', [IndustrialVehicalController::class, 'update'])->name('vehical.update'); 
-Route::delete('industrial_vehicles/{id}', [IndustrialVehicalController::class, 'destroy'])->name('vehical.destroy'); 
+Route::get('industrial_vehicles', [IndustrialVehicalController::class, 'index'])->name('vehical.index');
+Route::get('industrial_vehicles/create', [IndustrialVehicalController::class, 'create'])->name('vehical.create');
+Route::post('industrial_vehicles/store', [IndustrialVehicalController::class, 'store'])->name('vehical.store');
+Route::get('industrial_vehicles/{id}', [IndustrialVehicalController::class, 'show'])->name('vehical.show');
+Route::get('industrial_vehicles/{id}/edit', [IndustrialVehicalController::class, 'edit'])->name('vehical.edit');
+Route::put('industrial_vehicles/{industrial_vehicle}', [IndustrialVehicalController::class, 'update'])->name('vehical.update');
+Route::delete('industrial_vehicles/{id}', [IndustrialVehicalController::class, 'destroy'])->name('vehical.destroy');
 
 
 Route::get('/plantation_sales', [PlantationSaleController::class, 'index'])->name('plantation_sales.index'); // Read all
@@ -284,7 +285,7 @@ Route::post('apartment_rentals_store', [ApartmentRentalController::class, 'store
 Route::get('apartment-rentals/{apartmentRental}', [ApartmentRentalController::class, 'show'])->name('apartment-rentals.show');
 Route::get('apartment-rentals/{apartmentRental}/edit', [ApartmentRentalController::class, 'edit'])->name('apartment-rentals.edit');
 Route::put('apartment-rentals/{apartmentRental}', [ApartmentRentalController::class, 'update'])->name('apartment-rentals.update');
-Route::delete('apartment/{apartmentRental}', [ApartmentRentalController::class, 'destroy'])->name('apartment-rentals.destroy'); 
+Route::delete('apartment/{apartmentRental}', [ApartmentRentalController::class, 'destroy'])->name('apartment-rentals.destroy');
 
 Route::get('house_rentals', [HouseRentalController::class, 'index'])->name('house-rentals.index');
 Route::get('house_rentals_create', [HouseRentalController::class, 'create'])->name('house-rentals.create');
@@ -321,4 +322,4 @@ Route::post('/payments', [PaymentController::class, 'store'])->name('payments.st
 Route::get('/payment-details', [PaymentController::class, 'show'])->name('payment.details');
 Route::post('/property/payment-update', [PropertyManageController::class, 'updatePaymentStatus'])->name('property.payment.update');
 Route::get('/property-listings', [PropertyManageController::class, 'showPropertyListings'])->name('property.listings');
-Route::get('/property/{id}', [PropertyManageController::class, 'showuniqads'])->name('property.details');    
+Route::get('/property/{id}', [PropertyManageController::class, 'showuniqads'])->name('property.details');

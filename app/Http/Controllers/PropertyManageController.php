@@ -20,7 +20,7 @@ class PropertyManageController extends Controller
     {
         $userId = Auth::id(); // Get the current signed-in user's ID
         $propertyManages = Property_manage::where('user_id', $userId)->get(); // Filter properties by user ID
-        return view('adminPanel.seller.property_show', compact('propertyManages'));
+        return view('adminPanel.seller.propertyListSeller', compact('propertyManages'));
     }
 
 
