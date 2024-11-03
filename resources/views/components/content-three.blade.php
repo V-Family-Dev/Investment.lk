@@ -133,9 +133,9 @@
         });
     </script>
 
-    <x-meet-agents />
+    {{-- <x-meet-agents /> --}}
 
-    <div class="flex flex-col items-center py-8 md:px-20 px-2 bg-secondary">
+    {{-- <div class="flex flex-col items-center py-8 md:px-20 px-2 bg-secondary">
         <span class="text-accent capitalize text-sm">Urban Updates</span>
         <span class="text-4xl font-bold">Updated with the Latest Trends!</span>
 
@@ -183,6 +183,6 @@
 
             </div>
         </div>
-    </div>
+    </div> --}}
     <x-logo-marquee />
 </div>

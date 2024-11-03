@@ -4,7 +4,7 @@
 <div style="">
     <div class="relative bg-transparent shadow-md">
         <!-- Full-size photo -->
-        <img src="{{ asset('images/property/anju/Section01.png') }}" alt="Full-size photo" class="w-full h-auto">
+        <img src="{{ asset('storage/' . explode(',', $ad->image_path)[0]) }}" alt="Full-size photo" class="w-full aspect-video object-cover">
 
         <!-- Play button image centered over the photo -->
         <a href="URL_TO_LINK" class=" inset-0 flex items-center justify-center absolute top-0 left-0">
@@ -34,17 +34,17 @@
 
         <!-- Sub-component 1 -->
         <div class="flex-1 p-6 rounded-lg bg-gradient-to-r from-yellow-400 to-yellow-700">
-            <h2 class="text-white">{{ $ad->location }}</h2>
+            <h2 class="text-black font-bold text-lg">{{ $ad->location }}</h2>
         </div>
 
         <!-- Sub-component 2 -->
         <div class="flex-1 p-6 rounded-lg bg-gradient-to-r from-yellow-400 to-yellow-700">
-            <h2 class="text-white">{{ $ad->contact_details }}</h2>
+            <h2 class="text-black font-bold text-lg">{{ $ad->contact_details }}</h2>
         </div>
 
         <!-- Sub-component 3 -->
         <div class="flex-1 p-6 rounded-lg bg-gradient-to-r from-yellow-400 to-yellow-700">
-            <h2 class="text-white text-center">{{ number_format($ad->price, 2) }} LKR</h2>
+            <h2 class="text-black font-bold text-lg text-center">{{ number_format($ad->price, 2) }} LKR</h2>
         </div>
 
     </div>

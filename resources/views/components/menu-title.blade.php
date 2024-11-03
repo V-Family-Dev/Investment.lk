@@ -20,9 +20,9 @@
 
     <div class="px-20 custom-470:px-2 py-10 flex flex-col w-full bg-center bg-cover"
         style="background-image: url('{{ asset($bgimage) }}')">
-        <span class="text-accent text-sm custom-470:ml-4">Seamless Living</span>
+        {{-- <span class="text-accent text-sm custom-470:ml-4">Seamless Living</span>
         <span class="text-primary text-4xl md:text-6xl font-bold custom-470:ml-4">Make Future With Investment </span>
-        <span class="text-primary text-4xl md:text-6xl font-bold custom-470:ml-4"> Be a Top Grade Investor </span>
+        <span class="text-primary text-4xl md:text-6xl font-bold custom-470:ml-4"> Be a Top Grade Investor </span> --}}
         <form action="#" class="w-full mt-4">
             <div class="flex justify-center gap-4 bg-primary max-w-80 p-2 rounded-tl-3xl rounded-tr-3xl relative pb-4">
                 <div>
@@ -40,15 +40,29 @@
             </div>
             <div
                 class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 bg-primary px-6 py-5 gap-4 rounded-2xl relative -top-4 custom-470:w-full">
-                <input type="text" class="p-2 focus:outline-accent w-full bg-secondary rounded-lg shadow-sm"
+                <select type="text" class="p-2 focus:outline-accent w-full bg-secondary rounded-lg shadow-sm"
                     placeholder="Enter Keyword">
+                    <option selected disabled>Select type</option>
+                    <option value="1">Factory sale</option>
+                    <option value="2">Apartment sale</option>
+                    <option value="3">Luxury house sale</option>
+                    <option value="4">Colonial style bungalow sale</option>
+                    <option value="5">Hotel sale</option>
+                    <option value="6">Land sale</option>
+                    <option value="7">Industrial vehicles/ Machine sale</option>
+                    <option value="8">Plantation sales</option>
+                    <option value="9">Equipment sales</option>
+                    <option value="10">Apartment rental</option>
+                    <option value="11">House rentals</option>
+                    <option value="12">Room rental</option>
+                </select>
 
 
                 <div class="relative inline-block text-left">
                     <button id="dropdown-button"
                         class="inline-flex items-center w-full px-4 py-2 bg-secondary border-2 border-transparent focus:border-accent rounded-lg shadow-sm">
                         <i class="fa fa-map-marker w-5 h-5 mr-1 text-accent" aria-hidden="true"></i>
-                        Location
+                        City
                         <i class="fa fa-chevron-down w-5 h-5 ml-auto" aria-hidden="true"></i>
                     </button>
                     <div id="dropdown-menu"
@@ -66,7 +80,7 @@
                     <button id="dropdown-button2"
                         class="inline-flex items-center w-full px-4 py-2 bg-secondary border-2 border-transparent focus:border-accent rounded-lg shadow-sm">
                         <i class="fa fa-map-marker w-5 h-5 mr-1 text-accent" aria-hidden="true"></i>
-                        Location
+                        District
                         <i class="fa fa-chevron-down w-5 h-5 ml-auto" aria-hidden="true"></i>
                     </button>
                     <div id="dropdown-menu2"
@@ -81,7 +95,7 @@
                 </div>
 
 
-                <button type="submit" class="bg-accent hover:bg-yellow-400 p-2 text-darkblue w-full rounded-lg">Search
+                <button type="submit" class="bg-accent hover:bg-yellow-200 p-2 text-darkblue w-full rounded-lg">Search
                     property</button>
             </div>
         </form>

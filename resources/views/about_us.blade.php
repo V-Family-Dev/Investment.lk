@@ -70,10 +70,10 @@
                     </div>
                     <div class="flex flex-wrap gap-2 mt-2">
                         <button
-                            class="px-3 py-2 rounded-lg text-darkblue bg-accent active:translate-y-[1px] active:bg-yellow-400">Search
+                            class="px-3 py-2 rounded-lg text-darkblue bg-accent active:translate-y-[1px] active:bg-yellow-200">Search
                             property</button>
                         <button
-                            class="px-3 py-2 rounded-lg text-darkblue bg-accent active:translate-y-[1px] active:bg-yellow-400">Contact
+                            class="px-3 py-2 rounded-lg text-darkblue bg-accent active:translate-y-[1px] active:bg-yellow-200">Contact
                             Us</button>
                     </div>
                 </div>
@@ -81,7 +81,7 @@
 
         </div>
     </div>
-
+{{--
 
     <x-signature-feature />
 
@@ -98,7 +98,7 @@
                     <span class="text-base text-primary">Ut felis sem, placerat vel sollicitudin ut, mollis non dui.
                         Donec vehicula scelerisque mauris facilis</span>
                     <button
-                        class="bg-accent py-2 px-5 rounded-lg active:translate-y-[1px] active:bg-yellow-400 max-w-40">View
+                        class="bg-accent py-2 px-5 rounded-lg active:translate-y-[1px] active:bg-yellow-200 max-w-40">View
                         all photos</button>
                 </div>
 
@@ -119,7 +119,7 @@
             </div>
 
             {{-- Feedback Area --}}
-            <div class="relative w-full max-w-4xl py-10">
+            {{-- <div class="relative w-full max-w-4xl py-10">
                 <div class="carousel-item p-4 bg-primary shadow-lg flex flex-wrap sm:flex-nowrap items-center justify-center rounded-md">
                     <div class="flex flex-col gap-3 p-4 relative max-w-[1000px]">
                         <span class="capitalize text-sm text-accent">Hear It from</span>
@@ -147,7 +147,7 @@
             <x-meet-agents  />
 
         </div>
-    </div>
+    </div> --}}
 
     <x-footer bgimage='images/building/build8.png' />
 
