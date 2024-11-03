@@ -22,8 +22,7 @@
                                         <th class="min-width-150">Category Name</th>
                                         <th class="min-width-200">Added by</th>
                                         <th class="min-width-150">Payment ID</th>
-                                        <th class="min-width-150">Payment Details</th>
-                                        <th class="min-width-150">payment status</th>
+                                        <th class="min-width-150">Payment status</th>
                                         <th class="min-width-100">Status</th>
                                         <th class="min-width-250">Created at</th>
                                         <th class="min-width-250">Updated at</th>
@@ -38,15 +37,8 @@
                                         <td>{{ $propertyManage->category_name }}</td>
                                         <td>{{ $propertyManage->user->firstname ?? 'unknown' }} {{ $propertyManage->user->lastname ?? 'unknown' }}</td>
                                         <td>{{ $propertyManage->ads_payment_id }}</td>
-                                        <td>
-                                            <button class="btn btn-info btn-icon view-payment-btn ms-2" data-property-id="{{ $propertyManage->property_id }}" data-category-name="{{ $propertyManage->category_name }}"  data-bs-toggle="modal" data-bs-target="#paymentDetailModal">
-                                                <i class="fa-solid fa-eye"></i>
-                                            </button>
-                                        </td>
                                         <td><span
-                                            data-property-id="{{ $propertyManage->id }}"
-                                            data-property-status="{{ $propertyManage->ads_payment_status == 'Paid' ? 'Paid' : 'Not Paid' }}"
-                                            class="badge {{Auth::user()->usertype != "admin"?'disabled':''}} cursor-pointer payment-status-change-button text-bg-{{ $propertyManage->ads_payment_status == 'Paid'?'primary':'danger' }}">
+                                            class="badge {{Auth::user()->usertype != "admin"?'disabled':''}} cursor-pointer text-bg-{{ $propertyManage->ads_payment_status == 'Paid'?'primary':'danger' }}">
                                             {{ $propertyManage->ads_payment_status }}
                                         </span></td>
                                         <!-- <td>
@@ -54,26 +46,35 @@
                                             class="btn btn-info">View Details</a>
                                         </td> -->
 
-                                        <td><span class="badge cursor-pointer status-change-button text-bg-{{ $propertyManage->status == 'pending' ? 'danger' : 'success' }}"  data-property-id='{{ $propertyManage->id }}' data-property-status='{{ $propertyManage->status }}'>{{ $propertyManage->status == 'pending' ? 'Pending' : 'Active' }}</span></td>
+                                        <td><span class="badge cursor-pointer  text-bg-{{ $propertyManage->status == 'pending' ? 'danger' : 'success' }}"  >{{ $propertyManage->status == 'pending' ? 'Pending' : 'Active' }}</span></td>
                                         <td>{{ $propertyManage->created_at->format('F j, Y, g:i a') }}</td>
                                         <td>{{ $propertyManage->updated_at->format('F j, Y, g:i a') }}</td>
                                         <td>
-                                            <button class="btn btn-primary btn-icon view-details-btn">
+                                            <button
+                                                class="btn btn-primary btn-icon view-details-btn"
+                                                data-bs-toggle="tooltip"
+                                                data-bs-placement="top"
+                                                data-bs-title="Edit Proprty">
                                                 <i class="fa-solid fa-pen"></i>
                                             </button>
-                                            <button class="btn btn-info btn-icon view-details-btn ms-2" onclick="showDetails({{ $propertyManage->property_id }}, '{{ $propertyManage->category_name }}')"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <button
+                                                class="btn btn-info btn-icon view-details-btn ms-2"
+                                                onclick="showDetails({{ $propertyManage->property_id }}, '{{ $propertyManage->category_name }}')"
+                                                data-bs-toggle="tooltip"
+                                                data-bs-placement="top"
+                                                data-bs-title="View Details">
                                                 <i class="fa-solid fa-eye"></i>
                                             </button>
-                                            @auth
-                                            @if(Auth::user()->usertype == "admin")
-                                            <button class="btn btn-danger btn-icon view-details-btn ms-2" onclick="deleteItem({{ $propertyManage->id }}, this)">
-                                                <i class="fa-solid fa-trash"></i>
+                                            <button
+                                                type="button"
+                                                class="btn btn-success btn-icon add-payment-btn ms-2"
+                                                data-property-id="{{ $propertyManage->property_id }}"
+                                                data-category-name="{{ $propertyManage->category_name }}"
+                                                data-bs-toggle="tooltip"
+                                                data-bs-placement="top"
+                                                data-bs-title="Add payment">
+                                                <i class="fa-solid fa-plus"></i>
                                             </button>
-                                            <!-- <button class="btn btn-{{ $propertyManage->status == 'pending' ? 'success' : 'danger' }} btn-icon view-details-btn ms-2">
-                                                <i class="fa-solid fa-{{ $propertyManage->status == 'pending' ? 'check' : 'x' }}"></i>
-                                            </button> -->
-                                            @endif
-                                            @endauth
                                         </td>
                                     </tr>
                                     @endif
@@ -108,18 +109,36 @@
     </div>
     </div>
 
-    <div class="modal fade" id="paymentDetailModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- Payment add Modal -->
+    <div class="modal fade" id="paymentAddModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog  modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
         <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Payment details</h1>
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Add Payment details</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body" id="payment-details-modal-body">
-            ...
+        <div class="modal-body" id="property-modal-body">
+            <form id="payment-add-form" action="{{ route('payments.store') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <input type="hidden" name="property_id" id="propertyIdInput">
+                <input type="hidden" name="category_name" id="categoryNameInput">
+                <div class="mb-3">
+                    <label for="" class="form-label">Amount</label>
+                    <input type="number" name="amount" placeholder="Amount" class="form-control" required="">
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Payment slip image</label>
+                    <div class="form-file-input d-flex align-items-center">
+                        <input type="file" multiple id="slip_image" name="slip_image" placeholder="" class="d-none">
+                        <i class="fa fa-folder-open" aria-hidden="true"></i>
+                        <span id="payment-file-select" class="ps-3 flex-fill text-truncate d-block">Select file</span>
+                    </div>
+                </div>
+            </form>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary add-payment-submit-button">Save changes</button>
         </div>
         </div>
     </div>
@@ -129,11 +148,13 @@
     <x-adminpanelcomponents.script-tags />
     <script>
         $(document).ready(function(){
+            const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+            const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
             $('#example').DataTable();
         });
 
         function showDetails(propertyId, categoryName) {
-
+                $('#exampleModal').modal('show');
                 $.ajax({
                     url: `/ad-details/${propertyId}/${categoryName}`,
                     type: 'GET',
@@ -323,35 +344,52 @@
             });
         });
 
+        $('.add-payment-btn').on('click', function(){
+            $('#paymentAddModal').modal('show');
+            console.log("clicken gh");
+            $('#categoryNameInput').val($(this).data('category-name'));
+            $('#propertyIdInput').val($(this).data('property-id'));
+        });
+        $('.add-payment-submit-button').on('click', function(){
+            console.log("clicken submit");
 
-        $('.view-payment-btn').on('click', function () {
-            $('#payment-details-modal-body').html(`<div class="py-3 fw-semibold fs-5 text-secondary">No data available ...<div>`);
-            var propertyId = $(this).data('property-id');
-            var categoryName = $(this).data('category-name');
+            // Manually submit the form
+            var form = document.getElementById('payment-add-form');
+            var formData = new FormData(form);
 
             $.ajax({
-                url: `/payment-details?property_id=${propertyId}&category_name=${categoryName}`,
-                type: 'GET',
-                dataType: 'json',
-                success: function (data) {
-                    if (data.error) {
-                        alert('Error fetching payment details');
-                        return;
-                    }
+                url: form.action,
+                type: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(data) {
+                console.log("🚀 ~ $ ~ data:", data)
 
-                    let content = `
-                    <div class="d-flex mb-3"><div class="col-4 text-secondary"><strong>Amount</strong></div><div class="fw-bold me-1">:</div><div class="flex-fill"> ${data.amount}</div></div>
-                    <p class="text-secondary"><strong>Payment slip:</strong> <img src="/storage/${data.slip_image}" alt="Image" class="my-2 w-100 h-auto rounded-3 shadow"></p>
-                    `;
-                    $('#payment-details-modal-body').html(content);
+                    Swal.fire(
+                        'Success!',
+                        'Payment successfully added.',
+                        'success'
+                    ).then((result)=>{
+                        $('#paymentAddModal').modal('hide');
+                        $('[name="amount"]').val('');
+                        $('#payment-file-select').html('Select file');
+                    });
                 },
-                error: function (xhr) {
+                error: function(xhr) {
                     console.error('Error:', xhr);
+                    Swal.fire(
+                        'Error!',
+                        'Something went wrong!',
+                        'error'
+                    ).then((result)=>{
+                        $('#paymentAddModal').modal('hide');
+                        $('[name="amount"]').val('');
+                        $('#payment-file-select').html('Select file');
+                    });
                 }
             });
-
         });
-
     </script>
 </body>
 </html>

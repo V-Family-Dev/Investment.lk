@@ -8,12 +8,14 @@ use Illuminate\View\Component;
 
 class Headerbar extends Component
 {
+
+    public $pageName;
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct($pageName="")
     {
-        //
+        $this->pageName = $pageName;
     }
 
     /**

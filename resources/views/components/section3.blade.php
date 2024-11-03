@@ -1,4 +1,4 @@
-<div class=" w-[90%] lg:w-[75%]"> 
+<div class=" w-[90%] lg:w-[75%]">
 
 
     <div class=" flex flex-col items-center">
@@ -10,11 +10,11 @@
 
 
         <div class=" mt-[1.17%]">
-            <p class=" text-[39px] font-bold">Dive into the Floor Plans.</p>
+            <p class=" text-[39px] font-bold">Other Details</p>
         </div>
 
 
-        <div class=" mt-[3.24%]">
+        {{-- <div class=" mt-[3.24%]">
             <div class="w-full  md:w-[791px] gap-6 flex flex-wrap justify-center">
 
                 <div class=" flex w-[174px] h-[70px] bg-white rounded-[24px] ">
@@ -43,7 +43,7 @@
                 </div>
 
             </div>
-        </div>
+        </div> --}}
 
 
     </div>
