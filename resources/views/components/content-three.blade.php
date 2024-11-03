@@ -24,7 +24,7 @@
                         class="carousel-item p-4 bg-primary shadow-lg flex flex-wrap sm:flex-nowrap items-center justify-center">
                         <div class="flex flex-col gap-3 pl-0 p-4 relative max-w-[1000px]">
                             <span class="capitalize text-sm text-accent">Hear It from</span>
-                            <span class="text-4xl font-bold">Our Happy Homeowners!</span>
+                            <span class="text-4xl font-bold">Client Feedback!</span>
                             <div class="flex flex-col pr-4">
                                 <span>⭐⭐⭐⭐⭐</span>
                                 <span class="text-sm italic mb-10">InvestmentLanka.com has truly transformed the way I view investment properties. It’s a one-stop platform that combines elegance with functionality, offering an unparalleled browsing experience for those seeking high-value properties. The site’s design is intuitive and sophisticated, making it easy to find and explore exclusive listings that suit my investment goals. The seamless navigation, detailed property insights, and direct inquiry feature make it an invaluable resource for serious investors like myself. I’m confident that InvestmentLanka.com will be my go-to platform for future property investments. Highly recommended for anyone looking to make smart, impactful investments in real estate!"
@@ -40,11 +40,12 @@
                         </div>
                         <img src="images/building/build10.png" alt="" class="h-56 w-48 object-cover">
                     </div>
+
                     <div
                         class="carousel-item p-4 bg-primary shadow-lg flex flex-wrap sm:flex-nowrap items-center justify-center">
                         <div class="flex flex-col gap-3 pl-0 p-4 relative max-w-[1000px]">
                             <span class="capitalize text-sm text-accent">Hear It from</span>
-                            <span class="text-4xl font-bold">Our Happy Homeowners!</span>
+                            <span class="text-4xl font-bold">Client Feedback!</span>
                             <div class="flex flex-col pr-4">
                                 <span>⭐⭐⭐⭐⭐</span>
                                 <span class="text-sm italic mb-10">InvestmentLanka.com has truly transformed the way I view investment properties. It’s a one-stop platform that combines elegance with functionality, offering an unparalleled browsing experience for those seeking high-value properties. The site’s design is intuitive and sophisticated, making it easy to find and explore exclusive listings that suit my investment goals. The seamless navigation, detailed property insights, and direct inquiry feature make it an invaluable resource for serious investors like myself. I’m confident that InvestmentLanka.com will be my go-to platform for future property investments. Highly recommended for anyone looking to make smart, impactful investments in real estate!"
@@ -60,11 +61,12 @@
                         </div>
                         <img src="images/building/build10.png" alt="" class="h-56 w-48 object-cover">
                     </div>
+
                     <div
                         class="carousel-item p-4 bg-primary shadow-lg flex flex-wrap sm:flex-nowrap items-center justify-center">
                         <div class="flex flex-col gap-3 pl-0 p-4 relative max-w-[1000px]">
                             <span class="capitalize text-sm text-accent">Hear It from</span>
-                            <span class="text-4xl font-bold">Our Happy Homeowners!</span>
+                            <span class="text-4xl font-bold">Client Feedback!</span>
                             <div class="flex flex-col pr-4">
                                 <span>⭐⭐⭐⭐⭐</span>
                                 <span class="text-sm italic mb-10">InvestmentLanka.com has truly transformed the way I view investment properties. It’s a one-stop platform that combines elegance with functionality, offering an unparalleled browsing experience for those seeking high-value properties. The site’s design is intuitive and sophisticated, making it easy to find and explore exclusive listings that suit my investment goals. The seamless navigation, detailed property insights, and direct inquiry feature make it an invaluable resource for serious investors like myself. I’m confident that InvestmentLanka.com will be my go-to platform for future property investments. Highly recommended for anyone looking to make smart, impactful investments in real estate!"
@@ -80,11 +82,12 @@
                         </div>
                         <img src="images/building/build10.png" alt="" class="h-56 w-48 object-cover">
                     </div>
+
                     <div
                         class="carousel-item p-4 bg-primary shadow-lg flex flex-wrap sm:flex-nowrap items-center justify-center">
                         <div class="flex flex-col gap-3 pl-0 p-4 relative max-w-[1000px]">
                             <span class="capitalize text-sm text-accent">Hear It from</span>
-                            <span class="text-4xl font-bold">Our Happy Homeowners!</span>
+                            <span class="text-4xl font-bold">Client Feedback!</span>
                             <div class="flex flex-col pr-4">
                                 <span>⭐⭐⭐⭐⭐</span>
                                 <span class="text-sm italic mb-10">InvestmentLanka.com has truly transformed the way I view investment properties. It’s a one-stop platform that combines elegance with functionality, offering an unparalleled browsing experience for those seeking high-value properties. The site’s design is intuitive and sophisticated, making it easy to find and explore exclusive listings that suit my investment goals. The seamless navigation, detailed property insights, and direct inquiry feature make it an invaluable resource for serious investors like myself. I’m confident that InvestmentLanka.com will be my go-to platform for future property investments. Highly recommended for anyone looking to make smart, impactful investments in real estate!"
@@ -100,6 +103,28 @@
                         </div>
                         <img src="images/building/build10.png" alt="" class="h-56 w-48 object-cover">
                     </div>
+
+                    <div
+                        class="carousel-item p-4 bg-primary shadow-lg flex flex-wrap sm:flex-nowrap items-center justify-center">
+                        <div class="flex flex-col gap-3 pl-0 p-4 relative max-w-[1000px]">
+                            <span class="capitalize text-sm text-accent">Hear It from</span>
+                            <span class="text-4xl font-bold">Client Feedback!</span>
+                            <div class="flex flex-col pr-4">
+                                <span>⭐⭐⭐⭐⭐</span>
+                                <span class="text-sm italic mb-10">InvestmentLanka.com has truly transformed the way I view investment properties. It’s a one-stop platform that combines elegance with functionality, offering an unparalleled browsing experience for those seeking high-value properties. The site’s design is intuitive and sophisticated, making it easy to find and explore exclusive listings that suit my investment goals. The seamless navigation, detailed property insights, and direct inquiry feature make it an invaluable resource for serious investors like myself. I’m confident that InvestmentLanka.com will be my go-to platform for future property investments. Highly recommended for anyone looking to make smart, impactful investments in real estate!"
+                                </span>
+                            </div>
+                            <div class="flex justify-center items-center gap-2 absolute bottom-4 left-0">
+                                <img src="images/building/build1.jpg" alt="" class="h-5 w-5 rounded-full">
+                                <div class="flex flex-col">
+                                    <span class="text-xs font-bold">Hailey Mccray</span>
+                                    <span class="text-[10px]">Los angles</span>
+                                </div>
+                            </div>
+                        </div>
+                        <img src="images/building/build10.png" alt="" class="h-56 w-48 object-cover">
+                    </div>
+
 
                 </div>
             </div>
