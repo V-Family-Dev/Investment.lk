@@ -70,7 +70,7 @@
 
                                 <br>
 
-                                Whether you're a first-time homebuyer or a seasoned investor, we are
+                                Whether you're a first-time home buyer or a seasoned investor, we are
                                 dedicated to helping you make investments that align with your goals.
                                 Discover a new standard in property investment with Investment Lanka—
                                 where your dreams meet solid opportunities.

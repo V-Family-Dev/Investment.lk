@@ -217,8 +217,8 @@ require __DIR__ . '/auth.php';
 
 
 Route::get('/', function () {
-    return view('auth.login');
-})->name('log');
+    return view('home2');
+})->name('home2');
 
 Route::get('/Home2', function () {
     return view('home2');

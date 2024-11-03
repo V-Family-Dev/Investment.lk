@@ -34,7 +34,7 @@
                             </div>
                         <!-- factory add -->
                         <form id="form1" data-form-id="1" style="display:none" action="{{ url('factorysale') }}" method="POST" enctype="multipart/form-data">
-                            @csrf 
+                            @csrf
                             <div class="row">
                                 <div class="mb-3 col">
                                     <label for="" class="form-label">Title</label>
@@ -44,7 +44,7 @@
                                     <label for="" class="form-label">Property Type</label>
                                     <input type="text" name="property_type" placeholder="Property Type" class="form-control" required="">
                                 </div>
-                            </div>             
+                            </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">Location</label>
                                 <input type="text" name="location" placeholder="Location" class="form-control" required="">
@@ -83,7 +83,7 @@
 
                         <!-- apartment add -->
                         <form data-form-id="2" style="display:none" action="{{ url('apartment-sales') }}" method="POST" enctype="multipart/form-data">
-                            @csrf 
+                            @csrf
                             <div class="mb-3">
                                 <label for="" class="form-label">Title</label>
                                 <input type="text" name="title" placeholder="Title" class="form-control" required="">
@@ -408,7 +408,7 @@
                                     <input type="text" name="edition" placeholder="Edition" class="form-control" required="">
                                 </div>
                                 <div class="mb-3 col">
-                                    <label for="" class="form-label">Transmisson</label>
+                                    <label for="" class="form-label">Transmission</label>
                                     <input type="text" name="transmisson" placeholder="Transmisson" class="form-control" required="">
                                 </div>
                             </div>
@@ -661,10 +661,10 @@
                             </div>
                         </form>
 
-                        
 
 
-                        
+
+
                     </div>
                 </div>
             </div>
