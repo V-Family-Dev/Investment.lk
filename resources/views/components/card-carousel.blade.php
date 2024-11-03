@@ -16,7 +16,6 @@
         text-align: center;
         width: 100%;
         max-width: 15rem;
-        height: 12rem;
         display: flex;
         flex-direction: column;
         align-items: center;

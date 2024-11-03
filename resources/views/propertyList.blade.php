@@ -14,9 +14,9 @@
     style="background-image: url('{{ asset('images/property/anju/propertylistBackground.png') }}');">
     <div class="flex flex-col min-h-screen">
         <!-- Header Section -->
+        <x-headerbar />
         <header>
-            <x-headerbar />
-            <x-title-area title="Property Listing" subtitle="Home - Property Listing"
+            <x-title-area showform="1" title="Property Listing" subtitle="Home - Property Listing"
                 image="{{ asset('images/property/anju/propertyHeader.png') }}" />
         </header>
         @if (!empty($errors))
@@ -28,6 +28,8 @@
                 </ul>
             </div>
         @endif
+
+
         <!-- Details Section -->
         <main class="flex flex-1 items-center justify-center p-4">
             <!-- Property Grid -->

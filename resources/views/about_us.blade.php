@@ -41,39 +41,41 @@
                 </div>
 
 
+                <div class="pe-10">
+                    <div class=" font-semibold px-10 p-6 max-w-[750px] bg-[#FFFFFFAA] rounded-lg">
+                        <h2 class="text-[50px] text-center ">Investment Lanka</h2>
+                            <p class="text-center text-lg">
+                                Welcome to Investment Lanka, your premier destination for property
+                                investments in Sri Lanka! Whether you're searching for your dream home,
+                                an ideal commercial space, or lucrative investment opportunities, we’re
+                                here to make your property journey smooth, secure, and successful.
 
-                <div class="text-center text-lg font-semibold px-10 p-6 max-w-[750px]">
-                        <p>
-                            Welcome to Investment Lanka, your premier destination for property
-                            investments in Sri Lanka! Whether you're searching for your dream home,
-                            an ideal commercial space, or lucrative investment opportunities, we’re
-                            here to make your property journey smooth, secure, and successful.
+                                <br>
 
-                            <br>
+                                At Investment Lanka, we combine local expertise with global standards to
+                                deliver a curated selection of properties across Sri Lanka’s most desirable
+                                locations. From lush beachfront villas and city apartments to thriving
+                                commercial spaces and development-ready land, we cater to a diverse
+                                clientele with unique needs and visions.
 
-                            At Investment Lanka, we combine local expertise with global standards to
-                            deliver a curated selection of properties across Sri Lanka’s most desirable
-                            locations. From lush beachfront villas and city apartments to thriving
-                            commercial spaces and development-ready land, we cater to a diverse
-                            clientele with unique needs and visions.
+                                <br>
 
-                            <br>
+                                Our team of property experts brings a deep understanding of Sri Lanka’s
+                                real estate landscape, helping you make informed decisions backed by
+                                industry insights and market trends. With a commitment to integrity,
+                                transparency, and personalized service, we go beyond the typical property
+                                listings. We strive to provide a seamless experience for buyers, sellers, and
+                                investors, offering end-to-end support that takes the stress out of property
+                                transactions.
 
-                            Our team of property experts brings a deep understanding of Sri Lanka’s
-                            real estate landscape, helping you make informed decisions backed by
-                            industry insights and market trends. With a commitment to integrity,
-                            transparency, and personalized service, we go beyond the typical property
-                            listings. We strive to provide a seamless experience for buyers, sellers, and
-                            investors, offering end-to-end support that takes the stress out of property
-                            transactions.
+                                <br>
 
-                            <br>
-
-                            Whether you're a first-time homebuyer or a seasoned investor, we are
-                            dedicated to helping you make investments that align with your goals.
-                            Discover a new standard in property investment with Investment Lanka—
-                            where your dreams meet solid opportunities.
-                        </p>
+                                Whether you're a first-time homebuyer or a seasoned investor, we are
+                                dedicated to helping you make investments that align with your goals.
+                                Discover a new standard in property investment with Investment Lanka—
+                                where your dreams meet solid opportunities.
+                            </p>
+                    </div>
                 </div>
             </div>
 

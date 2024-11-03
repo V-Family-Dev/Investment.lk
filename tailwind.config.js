@@ -17,7 +17,7 @@ export default {
             colors: {
                 primary: "rgba(249, 252, 255, 1)",
                 secondary: "rgba(234, 240, 245, 1)",
-                accent: "rgba(255, 223, 0, 1)",
+                accent: "rgb(223, 181, 0)",
                 bcolor: "rgba(255, 255, 255, 1)",
                 darkblue: "rgba(9, 34, 56, 1)",
                 darkblue2: "rgba(29, 58, 83, 1)",

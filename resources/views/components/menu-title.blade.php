@@ -59,39 +59,42 @@
 
 
                 <div class="relative inline-block text-left">
-                    <button id="dropdown-button"
-                        class="inline-flex items-center w-full px-4 py-2 bg-secondary border-2 border-transparent focus:border-accent rounded-lg shadow-sm">
-                        <i class="fa fa-map-marker w-5 h-5 mr-1 text-accent" aria-hidden="true"></i>
-                        City
-                        <i class="fa fa-chevron-down w-5 h-5 ml-auto" aria-hidden="true"></i>
-                    </button>
-                    <div id="dropdown-menu"
-                        class="origin-top-right absolute z-10 right-0 mt-2 w-full rounded-md shadow-lg bg-white">
-                        <div class="py-2 p-2" role="menu" aria-orientation="vertical"
-                            aria-labelledby="dropdown-button">
-                            <a href="#"
-                                class="item1 flex rounded-md px-4 py-2 text-sm text-gray-700 hover:bg-secondary active:bg-yellow-200 focus:bg-yellow-200 cursor-pointer">
-                                Item 1</a>
-                        </div>
-                    </div>
+                    <select type="text" class="p-2 focus:outline-accent w-full bg-secondary rounded-lg shadow-sm"
+                    placeholder="Enter Keyword">
+                    <option selected disabled>City</option>
+
+                </select>
                 </div>
 
                 <div class="relative inline-block text-left">
-                    <button id="dropdown-button2"
-                        class="inline-flex items-center w-full px-4 py-2 bg-secondary border-2 border-transparent focus:border-accent rounded-lg shadow-sm">
-                        <i class="fa fa-map-marker w-5 h-5 mr-1 text-accent" aria-hidden="true"></i>
-                        District
-                        <i class="fa fa-chevron-down w-5 h-5 ml-auto" aria-hidden="true"></i>
-                    </button>
-                    <div id="dropdown-menu2"
-                        class="origin-top-right absolute z-10 right-0 mt-2 w-full rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
-                        <div class="py-2 p-2" role="menu" aria-orientation="vertical"
-                            aria-labelledby="dropdown-button2">
-                            <a href="#"
-                                class="item2 flex rounded-md px-4 py-2 text-sm text-gray-700 hover:bg-secondary active:bg-yellow-200 focus:bg-yellow-200 cursor-pointer">
-                                Item 1</a>
-                        </div>
-                    </div>
+                    <select type="text" class="p-2 focus:outline-accent w-full bg-secondary rounded-lg shadow-sm"
+                    placeholder="Enter Keyword">
+                    <option selected disabled>District</option>
+                    <option value="1">Colombo</option>
+                    <option value="2">Gampaha</option>
+                    <option value="3">Kalutara</option>
+                    <option value="4">Kandy</option>
+                    <option value="5">Matale</option>
+                    <option value="6">Nuwara Eliya</option>
+                    <option value="7">Galle</option>
+                    <option value="8">Matara</option>
+                    <option value="9">Hambantota</option>
+                    <option value="10">Jaffna</option>
+                    <option value="11">Kilinochchi</option>
+                    <option value="12">Mannar</option>
+                    <option value="13">Mullaitivu</option>
+                    <option value="14">Vavuniya</option>
+                    <option value="15">Batticaloa</option>
+                    <option value="16">Ampara</option>
+                    <option value="17">Trincomalee</option>
+                    <option value="18">Kurunegala</option>
+                    <option value="19">Puttalam</option>
+                    <option value="20">Anuradhapura</option>
+                    <option value="21">Polonnaruwa</option>
+                    <option value="22">Badulla</option>
+                    <option value="23">Monaragala</option>
+                    <option value="24">Ratnapura</option>
+                </select>
                 </div>
 
 
@@ -99,14 +102,14 @@
                     property</button>
             </div>
         </form>
-        <div class="grid grid-cols-1 md:grid-cols-3 max-w-[700px] gap-2 text-white text-xs">
+        {{-- <div class="grid grid-cols-1 md:grid-cols-3 max-w-[700px] gap-2 text-white text-xs">
             <div class="flex items-center gap-1 py-1 px-2 bg-[#0000008a] rounded-2xl"><i class="fa fa-home text-accent"
                     aria-hidden="true"></i><span>Over 2M properties.</span></div>
             <div class="flex items-center gap-1 py-1 px-2 bg-[#0000008a] rounded-2xl">😃<span>46,789 peoples
                     happy</span></div>
             <div class="flex items-center gap-1 py-1 px-2 bg-[#0000008a] rounded-2xl">⭐⭐⭐⭐⭐<span>4.8 Top rated by
                     People</span></div>
-        </div>
+        </div> --}}
     </div>
 
     <script>
