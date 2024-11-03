@@ -28,7 +28,7 @@
 <div class="flex items-center justify-center overflow-x-hidden">
     <div class="max-w-4xl w-full px-4">
         <h1 class="text-center text-accent mb-2 text-sm"></h1>
-        <h2 class="text-center mb-6 text-4xl font-bold">Our trusted partners kiyala dnna</h2>
+        <h2 class="text-center mb-6 text-4xl font-bold">Our trusted partners</h2>
         <div class="swiper-container mySwiperCard">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">

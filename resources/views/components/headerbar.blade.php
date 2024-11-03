@@ -28,7 +28,9 @@
 
     <nav class="nav bg-black py-6 text-white">
         <div class="container mx-auto flex justify-between items-center px-4">
-            <div class="text-xl font-semibold">Investment Lanka</div>
+            <a href="/Home2">
+                <div class="text-xl font-semibold">Investment Lanka</div>
+            </a>
 
             <!-- Mobile menu button -->
             <button id="menu-toggle" class="block md:hidden text-accent">
@@ -54,10 +56,10 @@
         <div id="mobile-menu" class="hidden md:hidden bg-black p-4">
             <ul class="flex flex-col gap-4">
                 <li class="nav-item hover:bg-slate-900"><a href="/Home2" class="nav-link transition-colors hover:text-accent">Home</a></li>
-                <li class="nav-item hover:bg-slate-900"><a href="/Home3" class="nav-link transition-colors hover:text-accent">Discover</a></li>
+                <li class="nav-item hover:bg-slate-900"><a href="{{ route('property.listings') }}" class="nav-link transition-colors hover:text-accent">Discover</a></li>
                 <li class="nav-item hover:bg-slate-900"><a href="/AboutUs" class="nav-link active transition-colors hover:text-accent">About Us</a></li>
                 <li class="nav-item hover:bg-slate-900"><a href="/ContactUs" class="nav-link transition-colors hover:text-accent">Contact</a></li>
-                <li class="nav-item hover:bg-slate-900"><a href="/FAQ" class="nav-link transition-colors hover:text-accent">F & Q</a></li>
+                <li class="nav-item hover:bg-slate-900"><a href="/FAQ" class="nav-link transition-colors hover:text-accent hidden">F & Q</a></li>
                 <li class="login flex items-center hover:bg-slate-900">
                     <i class="fa fa-sign-in text-accent" aria-hidden="true"></i>
                     <a href="/login" class="ml-2 login-link">Login/Register</a>

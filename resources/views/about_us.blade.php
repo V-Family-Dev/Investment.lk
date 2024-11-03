@@ -24,7 +24,7 @@
                         class="absolute -top-12 right-10 h-44 w-80 rounded-md">
                     <img src="{{ asset('images/building/build12.png') }}" alt=""
                         class="w-full h-full rounded-md">
-                    <div
+                    {{-- <div
                         class="relative -top-24 left-4 w-44 flex flex-col justify-center items-center p-3 rounded-md bg-black bg-opacity-75">
                         <div class="flex">
                             <div class="absolute left-4 rounded-full h-10 w-10 bg-slate-500 border-2"></div>
@@ -37,45 +37,43 @@
                             </div>
                         </div>
                         <span class="text-primary text-xs">Top Rated around globe</span>
-                    </div>
+                    </div> --}}
                 </div>
 
 
 
-                <div class="flex flex-col justify-center gap-2 px-10 p-6 max-w-[750px]">
-                    <span class="uppercase text-accent text-sm font-bold">Stylish Living</span>
-                    <span class="text-4xl font-bold">Your Sanctuary in the City: Where Urban Convenience Meets
-                        Serenity.</span>
+                <div class="text-center text-lg font-semibold px-10 p-6 max-w-[750px]">
+                        <p>
+                            Welcome to Investment Lanka, your premier destination for property
+                            investments in Sri Lanka! Whether you're searching for your dream home,
+                            an ideal commercial space, or lucrative investment opportunities, we’re
+                            here to make your property journey smooth, secure, and successful.
 
-                    <span>Ut felis sem, placerat vel sollicitudin ut, mollis non dui. Donec vehicula scelerisque mauris
-                        facilisis rutrum. Quisque eu pellentesque erat, eget bibendum ipsum. Cras euismod massa sed
-                        lacus
-                        lacinia, quis porta libero consectetur. In pulvinar lobortis eros vitae dapibus. Vestibu</span>
+                            <br>
 
-                    <div class="grid grid-cols-1 xl:grid-cols-2 mt-2">
-                        <div>
-                            <span class="flex items-center gap-1"><img src="{{ asset('images/icons/check.png') }}"
-                                    class="h-4 w-4">Ut felis sem, placerat vel</span>
-                            <span class="flex items-center gap-1"><img src="{{ asset('images/icons/check.png') }}"
-                                    class="h-4 w-4">Sollicitudin ut, mollis non dui.</span>
-                            <span class="flex items-center gap-1"><img src="{{ asset('images/icons/check.png') }}"
-                                    class="h-4 w-4">Suspendisse vitae lacinia nibh.</span>
-                        </div>
-                        <div>
-                            <span class="flex items-center gap-1"><img src="{{ asset('images/icons/check.png') }}"
-                                    class="h-4 w-4">Ut felis sem, placerat vel</span>
-                            <span class="flex items-center gap-1"><img src="{{ asset('images/icons/check.png') }}"
-                                    class="h-4 w-4">Sollicitudin ut, mollis non dui.</span>
-                        </div>
-                    </div>
-                    <div class="flex flex-wrap gap-2 mt-2">
-                        <button
-                            class="px-3 py-2 rounded-lg text-darkblue bg-accent active:translate-y-[1px] active:bg-yellow-200">Search
-                            property</button>
-                        <button
-                            class="px-3 py-2 rounded-lg text-darkblue bg-accent active:translate-y-[1px] active:bg-yellow-200">Contact
-                            Us</button>
-                    </div>
+                            At Investment Lanka, we combine local expertise with global standards to
+                            deliver a curated selection of properties across Sri Lanka’s most desirable
+                            locations. From lush beachfront villas and city apartments to thriving
+                            commercial spaces and development-ready land, we cater to a diverse
+                            clientele with unique needs and visions.
+
+                            <br>
+
+                            Our team of property experts brings a deep understanding of Sri Lanka’s
+                            real estate landscape, helping you make informed decisions backed by
+                            industry insights and market trends. With a commitment to integrity,
+                            transparency, and personalized service, we go beyond the typical property
+                            listings. We strive to provide a seamless experience for buyers, sellers, and
+                            investors, offering end-to-end support that takes the stress out of property
+                            transactions.
+
+                            <br>
+
+                            Whether you're a first-time homebuyer or a seasoned investor, we are
+                            dedicated to helping you make investments that align with your goals.
+                            Discover a new standard in property investment with Investment Lanka—
+                            where your dreams meet solid opportunities.
+                        </p>
                 </div>
             </div>
 

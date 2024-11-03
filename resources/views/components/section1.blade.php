@@ -7,7 +7,7 @@
         <img src="{{ asset('storage/' . explode(',', $ad->image_path)[0]) }}" alt="Full-size photo" class="w-full aspect-video object-cover">
 
         <!-- Play button image centered over the photo -->
-        <a href="URL_TO_LINK" class=" inset-0 flex items-center justify-center absolute top-0 left-0">
+        <a href="https://www.youtube.com/watch?v=AjWfY7SnMBI" target="_blank" class=" inset-0 flex items-center justify-center absolute top-0 left-0">
             <img src="{{ asset('images/property/anju/playbuttone.png') }}" alt="Play Button">
         </a>
     </div>
