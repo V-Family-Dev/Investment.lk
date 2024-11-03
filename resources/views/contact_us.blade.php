@@ -17,12 +17,12 @@
     <div class="bg-center" style="background-image: url('images/building/build4.jpg')">
         <div class="h-full w-full bg-[#ffffffa1] px-2 md:px-20 py-16 flex flex-col items-center gap-10">
 
-            <div class="bg-primary p-6 h-64 w-full max-w-[1000px]">
+            <div class="bg-primary p-6 h-64 w-full max-w-[1000px] hidden">
                 {{-- map include here --}}
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 w-full max-w-[1000px]">
-                <div class="flex flex-col gap-2">
+            <div class="flex justify-center gap-10 w-full max-w-[1000px]">
+                {{-- <div class="flex flex-col gap-2">
                     <span class="uppercase text-sm text-accent">Contact Us</span>
                     <span class="text-2xl font-bold">Get in Touch and Explore.</span>
                     <div class="flex flex-col pt-2 gap-2">
@@ -67,8 +67,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="max-w-3xl bg-white p-6 rounded-lg shadow-lg">
+                </div> --}}
+                <div class="max-w-3xl w-full bg-white p-6 rounded-lg shadow-lg">
                     <form action="#" method="">
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -115,7 +115,7 @@
 
                         <div class="mt-4">
                             <button type="submit"
-                                class="w-full bg-accent text-black p-2 rounded-md active:bg-yellow-400">Submit</button>
+                                class="w-full bg-accent text-black p-2 rounded-md active:bg-yellow-200">Submit</button>
                         </div>
                     </form>
                 </div>

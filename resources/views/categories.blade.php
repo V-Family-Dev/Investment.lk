@@ -66,7 +66,7 @@
                     <textarea id="description" rows="4" placeholder="Enter property description" class="mt-1 block w-full text-sm text-gray-500 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent" required></textarea>
                 </div>
 
-                <button type="submit" class="w-full p-3 bg-yellow-500 text-white rounded-lg font-semibold hover:bg-yellow-400 transition duration-300">Create Listing</button>
+                <button type="submit" class="w-full p-3 bg-yellow-500 text-white rounded-lg font-semibold hover:bg-yellow-200 transition duration-300">Create Listing</button>
             </form>
         </div>
     </main>

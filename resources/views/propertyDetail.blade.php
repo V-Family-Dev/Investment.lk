@@ -30,30 +30,30 @@
     <main class="flex-grow flex flex-col items-center justify-center">
         <div class="flex flex-col gap-[140px] w-full max-w">
             <!-- Section 1 -->
-            <div class="w-[90%] lg:w-[75%]  mx-auto">
+            <div class="w-[90%] lg:w-[75%]  mx-auto pb-[1rem]">
                 <x-section1  :ad="$ad" :adDetails="$adDetails"/>
             </div>
 
-            <!-- Section 2 -->
+         {{--   <!-- Section 2 -->
             <div class="w-full">
                 <x-section2 />
-            </div>
+            </div>--}}
 
             <!-- Section 3 -->
-            <div class="w-full flex justify-center">
+            <div class="w-full pb-[5rem] flex justify-center">
                 <x-section3 />
             </div>
 
-            <!-- Section 4 -->
+            {{--<!-- Section 4 -->
             <div class="w-full">
                 <x-section4 />
-            </div>
+            </div>--}}
 
         </div>
 
         <div class=" flex flex-col w-full max-w mt-0">
 
-            <!-- Section 5 -->
+       {{--     <!-- Section 5 -->
             <div class="w-full">
                 <x-section5 />
             </div>
@@ -66,7 +66,7 @@
             <!-- Section 7 -->
             <div class="w-full">
                 <x-section7 />
-            </div>
+            </div>--}}
 
             <footer>
                 <x-footer bgimage='images/building/build8.png' />

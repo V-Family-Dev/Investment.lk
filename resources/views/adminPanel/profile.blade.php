@@ -11,9 +11,9 @@
             <div class="overflow-y-scroll overflow-x-hidden flex-fill main-content-container py-5">
                 <div class="bg-white p-5 rounded-4 shadow  main-content">
                     <div class="d-flex">
-                        <img width="180" height="180" class="object-fit-cover rounded-3 d-block shadow" src="{{ asset('images/plant1.png') }}" alt="">
+                        <img width="180" height="180" class="object-fit-cover rounded-3 d-block shadow" src="{{ asset('images/person/profile.png') }}" alt="">
                         <div class="ms-4">
-                            <div class="fw-semibold fs-4">{{ Auth::user()->firstname ?? 'unknown' }} 
+                            <div class="fw-semibold fs-4">{{ Auth::user()->firstname ?? 'unknown' }}
                             {{ Auth::user()->lastname ?? 'unknown' }}</div>
                             <div class="mt-3 text-secondary">
                                 <div class="d-flex align-items-center"><i class="col-1 fa-solid fa-user"></i><span class="ms-3" >{{ Auth::user()->usertype ?? 'unknown' }} </span></div>

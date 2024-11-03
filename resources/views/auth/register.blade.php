@@ -131,16 +131,16 @@
                 <div>
                     <label for="password" class="block text-sm font-medium text-black">Password</label>
                     <input type="password" id="id-number" placeholder="Password" name="password"
-                    required autocomplete="new-password" 
+                    required autocomplete="new-password"
                         class="w-full p-3 rounded-lg border border-accent bg-yellow-100 focus:outline-none focus:ring-2 focus:ring-accent focus-border-darkaccent">
                 </div>
                 <div>
                     <label for="confirm_password" class="block text-sm font-medium text-black">Confirm Password</label>
-                    <input type="password" id="id-number" placeholder="Confirm password"  name="password_confirmation" required autocomplete="new-password" 
+                    <input type="password" id="id-number" placeholder="Confirm password"  name="password_confirmation" required autocomplete="new-password"
                         class="w-full p-3 rounded-lg border border-accent bg-yellow-100 focus:outline-none focus:ring-2 focus:ring-accent focus-border-darkaccent">
                 </div>
                 <button type="submit"
-                    class="w-full p-3 bg-accent text-white rounded-lg font-semibold hover-bg-darkaccent transition duration-300">Create
+                    class="w-full mt-4 p-3 bg-accent text-white rounded-lg font-semibold hover-bg-darkaccent transition duration-300">Create
                     Account</button>
             </form>
             <p class="mt-6 text-center text-sm text-gray-600">Already have an account? <a href="{{ route('login') }}"

@@ -14,11 +14,13 @@ class TitleArea extends Component
     public $title;
     public $subtitle;
     public $image;
-    public function __construct($title,$subtitle,$image)
+    public $showform;
+    public function __construct($title, $subtitle, $image, $showform='0')
     {
         $this->title=$title;
         $this->subtitle=$subtitle;
         $this->image = $image;
+        $this->showform = $showform;;
     }
 
     /**

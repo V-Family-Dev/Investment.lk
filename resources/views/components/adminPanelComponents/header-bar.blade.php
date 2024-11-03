@@ -4,18 +4,18 @@
     </div>
     <div>
         <div class="" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <img width="40" height="40" src="{{ asset('images/person/zak.png') }}" alt=""
+            <img width="40" height="40" src="{{ asset('images/person/profile.png') }}" alt=""
                 class="rounded-circle object-fit-cover">
             <i class="fa-solid fa-caret-down ps-2 text-secondary"></i>
             <div class="dropdown">
                 <ul class="dropdown-menu mt-3">
                     <li class="">
                         <a class="dropdown-item d-flex py-3" href="#">
-                            <img width="60" height="60" src="{{ asset('images/person/zak.png') }}" alt=""
+                            <img width="60" height="60" src="{{ asset('images/person/profile.png') }}" alt=""
                                 class=" rounded-circle object-fit-cover ">
                             <div class="ps-3">
                                 <div>
-                                    {{ Auth::user()->firstname ?? 'unknown' }} 
+                                    {{ Auth::user()->firstname ?? 'unknown' }}
                                     {{ Auth::user()->lastname ?? 'unknown' }}
                                 </div>
                                 <div class="text-secondary">
@@ -26,7 +26,7 @@
                     </li>
                     <li>
                         <a class="dropdown-item d-flex justify-content-between align-items-center py-2"  onclick='logout()'>
-                            <div>Logout</div> 
+                            <div>Logout</div>
                             <i class="fa-solid fa-right-from-bracket"></i>
                         </a>
                     </li>

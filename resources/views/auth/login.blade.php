@@ -45,7 +45,7 @@
                 </div>
                 <div class="mb-4 relative">
                     <input type="password" id="password" placeholder="Password" name="password"
-                    required autocomplete="current-password" 
+                    required autocomplete="current-password"
                         class="w-full bg-secondary px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
                         required>
                 </div>
@@ -57,7 +57,7 @@
                     <a href="#" class="text-sm text-accent">Forgot Password ?</a>
                 </div>
                 <button type="submit"
-                    class="w-full bg-accent text-darkblue py-2 rounded-lg hover:bg-yellow-400 transition duration-200">Login</button>
+                    class="w-full bg-accent text-darkblue py-2 rounded-lg hover:bg-yellow-200 transition duration-200">Login</button>
             </form>
 
             <!-- <div class="mt-6 text-center text-gray-500">Or login with</div>
