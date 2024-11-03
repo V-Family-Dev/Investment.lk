@@ -96,8 +96,8 @@ Route::get('/admin/propertyList', [PropertyManageController::class, 'index'])->n
 Route::get('/seller/propertyList', [PropertyManageController::class, 'showpropertytoseller'])->name('adminPanel.seller.propertyListSeller');
 
 
+Route::get('/admin/userList', [RegisteredUserController::class, 'getRegistoruser'])->name('adminPanel.admin.userList');
 Route::middleware([AdminMiddleware::class])->group(function () {
-    Route::get('/admin/userList', [RegisteredUserController::class, 'getRegistoruser'])->name('adminPanel.admin.userList');
 
 });
 

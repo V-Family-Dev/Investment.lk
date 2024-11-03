@@ -15,7 +15,6 @@
                     </h2>
                     <div id="collapse1" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                       <a href="">User add</a>
                        <a href="/admin/userList">User list</a>
                     </div>
                     </div>
@@ -43,7 +42,6 @@
                     </h2>
                     <div id="collapse3" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        <a href="">User Payment add </a>
                         <a href="">User Payment list</a>
                     </div>
                     </div>

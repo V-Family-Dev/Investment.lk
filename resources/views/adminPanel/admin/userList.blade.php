@@ -44,7 +44,7 @@
                                 <td>{{ $user->address }}</td>
                                 <td>{{ $user->phonenumber }}</td>
                                 <td>{{ $user->email }}</td>
-                                <td>{{ $user->email_verified_at->format('F j, Y, g:i a') }}</td>
+                                <td>{{ $user->email_verified_at ? $user->email_verified_at->format('F j, Y, g:i a') : ''}}</td>
                                 <td>{{ $user->created_at->format('F j, Y, g:i a') }}</td>
                                 <td>{{ $user->updated_at->format('F j, Y, g:i a') }}</td>
                                 <td><span class="badge text-bg-{{ $user->status ? 'success' : 'danger' }}">{{ $user->status ? 'Active':'Inactive' }}</span></td>
@@ -64,7 +64,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
