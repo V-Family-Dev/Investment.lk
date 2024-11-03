@@ -28,7 +28,7 @@
             <div class=" flex ml-[11px] w-[204px] h-[70px] bg-white rounded-[24px]">
                 <div class=" bg-[#868C92] w-[46px] h-[46px] rounded-[18px] mt-[12px] ml-[12px]"></div>
                 <div class=" mt-[24px] ml-[12px] mb-[24px]">
-                    <p class=" font-bold">Commencial</p>
+                    <p class=" font-bold">Commercial</p>
                 </div>
             </div>
 

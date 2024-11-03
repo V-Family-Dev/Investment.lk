@@ -42,7 +42,6 @@
                     <img src="{{ asset('images/property/picon.png') }}" alt="" class="h-16 w-16 rounded-2xl">
                     <div>
                         <h3 class="text-xl font-semibold mb-4">Want to sell your Property?</h3>
-                        <p class="text-sm">Donec in bibendum nulla. Sed rdum</p>
                         <a href="#" class="text-accent text-sm font-bold">Contact Us →</a>
                     </div>
                 </div>
