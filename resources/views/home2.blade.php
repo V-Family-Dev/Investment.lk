@@ -18,7 +18,7 @@
 
     <x-content-one bgimage="images/building/build9.png" bigimage="images/property/prop1.png" smallimage="images/property/prop2.png"/>
 
-    <x-content-two bgimage="images/building/build4.jpg" />
+    {{-- <x-content-two bgimage="images/building/build4.jpg" /> --}}
 
     <x-image-carousel />
 

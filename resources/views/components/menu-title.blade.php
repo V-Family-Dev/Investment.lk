@@ -20,9 +20,9 @@
 
     <div class="px-20 custom-470:px-2 py-10 flex flex-col w-full bg-center bg-cover"
         style="background-image: url('{{ asset($bgimage) }}')">
-        <span class="text-accent text-sm custom-470:ml-4">Seamless Living</span>
+        {{-- <span class="text-accent text-sm custom-470:ml-4">Seamless Living</span>
         <span class="text-primary text-4xl md:text-6xl font-bold custom-470:ml-4">Make Future With Investment </span>
-        <span class="text-primary text-4xl md:text-6xl font-bold custom-470:ml-4"> Be a Top Grade Investor </span>
+        <span class="text-primary text-4xl md:text-6xl font-bold custom-470:ml-4"> Be a Top Grade Investor </span> --}}
         <form action="#" class="w-full mt-4">
             <div class="flex justify-center gap-4 bg-primary max-w-80 p-2 rounded-tl-3xl rounded-tr-3xl relative pb-4">
                 <div>
@@ -40,59 +40,76 @@
             </div>
             <div
                 class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 bg-primary px-6 py-5 gap-4 rounded-2xl relative -top-4 custom-470:w-full">
-                <input type="text" class="p-2 focus:outline-accent w-full bg-secondary rounded-lg shadow-sm"
+                <select type="text" class="p-2 focus:outline-accent w-full bg-secondary rounded-lg shadow-sm"
                     placeholder="Enter Keyword">
+                    <option selected disabled>Select type</option>
+                    <option value="1">Factory sale</option>
+                    <option value="2">Apartment sale</option>
+                    <option value="3">Luxury house sale</option>
+                    <option value="4">Colonial style bungalow sale</option>
+                    <option value="5">Hotel sale</option>
+                    <option value="6">Land sale</option>
+                    <option value="7">Industrial vehicles/ Machine sale</option>
+                    <option value="8">Plantation sales</option>
+                    <option value="9">Equipment sales</option>
+                    <option value="10">Apartment rental</option>
+                    <option value="11">House rentals</option>
+                    <option value="12">Room rental</option>
+                </select>
 
 
                 <div class="relative inline-block text-left">
-                    <button id="dropdown-button"
-                        class="inline-flex items-center w-full px-4 py-2 bg-secondary border-2 border-transparent focus:border-accent rounded-lg shadow-sm">
-                        <i class="fa fa-map-marker w-5 h-5 mr-1 text-accent" aria-hidden="true"></i>
-                        Location
-                        <i class="fa fa-chevron-down w-5 h-5 ml-auto" aria-hidden="true"></i>
-                    </button>
-                    <div id="dropdown-menu"
-                        class="origin-top-right absolute z-10 right-0 mt-2 w-full rounded-md shadow-lg bg-white">
-                        <div class="py-2 p-2" role="menu" aria-orientation="vertical"
-                            aria-labelledby="dropdown-button">
-                            <a href="#"
-                                class="item1 flex rounded-md px-4 py-2 text-sm text-gray-700 hover:bg-secondary active:bg-yellow-200 focus:bg-yellow-200 cursor-pointer">
-                                Item 1</a>
-                        </div>
-                    </div>
+                    <select type="text" class="p-2 focus:outline-accent w-full bg-secondary rounded-lg shadow-sm"
+                    placeholder="Enter Keyword">
+                    <option selected disabled>City</option>
+
+                </select>
                 </div>
 
                 <div class="relative inline-block text-left">
-                    <button id="dropdown-button2"
-                        class="inline-flex items-center w-full px-4 py-2 bg-secondary border-2 border-transparent focus:border-accent rounded-lg shadow-sm">
-                        <i class="fa fa-map-marker w-5 h-5 mr-1 text-accent" aria-hidden="true"></i>
-                        Location
-                        <i class="fa fa-chevron-down w-5 h-5 ml-auto" aria-hidden="true"></i>
-                    </button>
-                    <div id="dropdown-menu2"
-                        class="origin-top-right absolute z-10 right-0 mt-2 w-full rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
-                        <div class="py-2 p-2" role="menu" aria-orientation="vertical"
-                            aria-labelledby="dropdown-button2">
-                            <a href="#"
-                                class="item2 flex rounded-md px-4 py-2 text-sm text-gray-700 hover:bg-secondary active:bg-yellow-200 focus:bg-yellow-200 cursor-pointer">
-                                Item 1</a>
-                        </div>
-                    </div>
+                    <select type="text" class="p-2 focus:outline-accent w-full bg-secondary rounded-lg shadow-sm"
+                    placeholder="Enter Keyword">
+                    <option selected disabled>District</option>
+                    <option value="1">Colombo</option>
+                    <option value="2">Gampaha</option>
+                    <option value="3">Kalutara</option>
+                    <option value="4">Kandy</option>
+                    <option value="5">Matale</option>
+                    <option value="6">Nuwara Eliya</option>
+                    <option value="7">Galle</option>
+                    <option value="8">Matara</option>
+                    <option value="9">Hambantota</option>
+                    <option value="10">Jaffna</option>
+                    <option value="11">Kilinochchi</option>
+                    <option value="12">Mannar</option>
+                    <option value="13">Mullaitivu</option>
+                    <option value="14">Vavuniya</option>
+                    <option value="15">Batticaloa</option>
+                    <option value="16">Ampara</option>
+                    <option value="17">Trincomalee</option>
+                    <option value="18">Kurunegala</option>
+                    <option value="19">Puttalam</option>
+                    <option value="20">Anuradhapura</option>
+                    <option value="21">Polonnaruwa</option>
+                    <option value="22">Badulla</option>
+                    <option value="23">Monaragala</option>
+                    <option value="24">Ratnapura</option>
+                </select>
                 </div>
 
 
-                <button type="submit" class="bg-accent hover:bg-yellow-400 p-2 text-darkblue w-full rounded-lg">Search
+                <button type="submit" class="bg-accent hover:bg-yellow-200 p-2 text-darkblue w-full rounded-lg">Search
                     property</button>
             </div>
         </form>
-        <div class="grid grid-cols-1 md:grid-cols-3 max-w-[700px] gap-2 text-white text-xs">
+        {{-- <div class="grid grid-cols-1 md:grid-cols-3 max-w-[700px] gap-2 text-white text-xs">
             <div class="flex items-center gap-1 py-1 px-2 bg-[#0000008a] rounded-2xl"><i class="fa fa-home text-accent"
                     aria-hidden="true"></i><span>Over 2M properties.</span></div>
             <div class="flex items-center gap-1 py-1 px-2 bg-[#0000008a] rounded-2xl">😃<span>46,789 peoples
                     happy</span></div>
             <div class="flex items-center gap-1 py-1 px-2 bg-[#0000008a] rounded-2xl">⭐⭐⭐⭐⭐<span>4.8 Top rated by
                     People</span></div>
-        </div>
+        </div> --}}
     </div>
 
     <script>

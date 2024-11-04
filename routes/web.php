@@ -92,13 +92,13 @@ Route::get('/property/{id}', [PropertyManageController::class, 'showuniqads'])->
 
 
 // Admin panel routes
-Route::middleware([AdminMiddleware::class])->group(function () {
-    Route::get('/admin/userList', [RegisteredUserController::class, 'getRegistoruser'])->name('adminPanel.admin.userList');
+Route::get('/admin/propertyList', [PropertyManageController::class, 'index'])->name('adminPanel.admin.propertyList');
+Route::get('/seller/propertyList', [PropertyManageController::class, 'showpropertytoseller'])->name('adminPanel.seller.propertyListSeller');
 
-    Route::get('/adminpropertyList', [PropertyManageController::class, 'index'])->name('adminPanel.admin.propertyList');
-    Route::post('/property/status/update', [PropertyManageController::class, 'updateStatus'])->name('property.status.update');
-    Route::post('/property/active/update', [PropertyManageController::class, 'updateActiveStatusofad'])->name('property.active.update');
-    
+
+Route::get('/admin/userList', [RegisteredUserController::class, 'getRegistoruser'])->name('adminPanel.admin.userList');
+Route::middleware([AdminMiddleware::class])->group(function () {
+
 });
 
 
@@ -115,7 +115,7 @@ Route::middleware([SellerMiddleware::class])->group(function () {
     Route::put('/factory-sales/{factorySale}', [FactorySaleController::class, 'update'])->name('factory-sales.update');
     Route::delete('/factory-sales-delete/{id}', [FactorySaleController::class, 'destroy'])->name('factory-sales.destroy');
 
-    // Routes for apartment sales 
+    // Routes for apartment sales
     Route::get('/apartment', [ApartmentSaleController::class, 'index'])->name('apartment-sales.index');
     Route::get('/apartment-sales/create', [ApartmentSaleController::class, 'create'])->name('apartment-sales.create');
     Route::post('/apartment-sales', [ApartmentSaleController::class, 'store'])->name('apartment-sales.store');
@@ -124,7 +124,7 @@ Route::middleware([SellerMiddleware::class])->group(function () {
     Route::put('/apartment-sales/{apartment_sale}', [ApartmentSaleController::class, 'update'])->name('apartment-sales.update');
     Route::delete('/apartment-sales/{id}', [ApartmentSaleController::class, 'destroy'])->name('apartment-sales.destroy');
 
-    //Routes for luxury_houses sales 
+    //Routes for luxury_houses sales
     Route::get('/luxury-house', [LuxuryHouseSaleController::class, 'index'])->name('luxury-houses.index');
     Route::get('/luxury-houses/create', [LuxuryHouseSaleController::class, 'create'])->name('luxury-houses.create'); // Create: Show form
     Route::post('/luxury-houses', [LuxuryHouseSaleController::class, 'store'])->name('luxury-houses.store'); // Create: Store new house
@@ -218,8 +218,8 @@ require __DIR__ . '/auth.php';
 
 
 Route::get('/', function () {
-    return view('auth.login');
-})->name('log');
+    return view('home2');
+})->name('home2');
 
 Route::get('/Home2', function () {
     return view('home2');
@@ -346,7 +346,9 @@ Route::get('/bungalow-sale', function () {
     return view('bungalow-sale');
 });
 
+// admin panel routes
 
+// admin panel routes
 
 
 

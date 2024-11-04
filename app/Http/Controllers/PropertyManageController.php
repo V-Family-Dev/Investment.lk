@@ -146,7 +146,7 @@ class PropertyManageController extends Controller
                 $results = DB::table('property_manages')
                     ->join($table, 'property_manages.property_id', '=', "{$table}.id")
                     ->select($selectFields)
-                    ->where('property_manages.ads_payment_status', 'not paid')
+                    ->where('property_manages.ads_payment_status', 'paid')
                     ->where('property_manages.category_name', $category)
                     ->get();
 

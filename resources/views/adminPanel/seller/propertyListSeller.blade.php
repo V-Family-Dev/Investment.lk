@@ -22,7 +22,7 @@
                                         <th class="min-width-150">Category Name</th>
                                         <th class="min-width-200">Added by</th>
                                         <th class="min-width-150">Payment ID</th>
-                                        <th class="min-width-150">Add payment status</th>
+                                        <th class="min-width-150">Payment status</th>
                                         <th class="min-width-100">Status</th>
                                         <th class="min-width-250">Created at</th>
                                         <th class="min-width-250">Updated at</th>
@@ -123,7 +123,7 @@
                 <input type="hidden" name="property_id" id="propertyIdInput">
                 <input type="hidden" name="category_name" id="categoryNameInput">
                 <div class="mb-3">
-                    <label for="" class="form-label">Location</label>
+                    <label for="" class="form-label">Amount</label>
                     <input type="number" name="amount" placeholder="Amount" class="form-control" required="">
                 </div>
                 <div class="mb-3">
@@ -131,7 +131,7 @@
                     <div class="form-file-input d-flex align-items-center">
                         <input type="file" multiple id="slip_image" name="slip_image" placeholder="" class="d-none">
                         <i class="fa fa-folder-open" aria-hidden="true"></i>
-                        <span class="ps-3 flex-fill text-truncate d-block">Select file</span>
+                        <span id="payment-file-select" class="ps-3 flex-fill text-truncate d-block">Select file</span>
                     </div>
                 </div>
             </form>
@@ -370,7 +370,11 @@
                         'Success!',
                         'Payment successfully added.',
                         'success'
-                    );
+                    ).then((result)=>{
+                        $('#paymentAddModal').modal('hide');
+                        $('[name="amount"]').val('');
+                        $('#payment-file-select').html('Select file');
+                    });
                 },
                 error: function(xhr) {
                     console.error('Error:', xhr);
@@ -378,7 +382,11 @@
                         'Error!',
                         'Something went wrong!',
                         'error'
-                    );
+                    ).then((result)=>{
+                        $('#paymentAddModal').modal('hide');
+                        $('[name="amount"]').val('');
+                        $('#payment-file-select').html('Select file');
+                    });
                 }
             });
         });

@@ -1,9 +1,9 @@
-<footer class="text-white bg-cover bg-center" style="background-image: url({{ asset($bgimage) }})">
-    <div class="bg-black bg-opacity-60  pt-12 pb-4 px-6">
+<footer class="text-white bg-cover bg-center " style="background-image: url({{ asset($bgimage) }})">
+    <div class="bg-black bg-opacity-60   pt-12 pb-4 px-6">
         <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
-            <div class="flex flex-col justify-around">
-                <p class="mb-4">Ut eleifend mattis ligula, porta finibus urna gravida at. Aenean vehiculles arcu non mattis
-                    Integer</p>
+            <div class="flex flex-col gap-3">
+                {{-- <p class="mb-4">Ut eleifend mattis ligula, porta finibus urna gravida at. Aenean vehiculles arcu non mattis
+                    Integer</p> --}}
                 <span>Follow Us on social </span>
                 <div class="flex space-x-4 mb-4">
                     <a href="#" class="border-[1px] rounded-full h-5 w-5 flex items-center justify-center"><i
@@ -15,7 +15,10 @@
                     <a href="#" class="border-[1px] rounded-full h-5 w-5 flex items-center justify-center"><i
                             class="fa fa-youtube-play" aria-hidden="true"></i></a>
                 </div>
-                <span>Download our App</span>
+                <div class="font-medium text-lg">
+                    info@investmentlanka.com
+                </div>
+                {{-- <span>Download our App</span>
                 <div class="flex flex-wrap gap-4">
                     <a href="#" class="flex gap-2 items-center p-2 rounded-2xl bg-darkblue2">
                         <img src="{{ asset('images/icons/google-play-store-icon.svg') }}" class="h-6 w-6">
@@ -31,7 +34,7 @@
                             <span class="font-bold text-[100%]">Google Play</span>
                         </div>
                     </a>
-                </div>
+                </div> --}}
             </div>
 
             <div>
@@ -39,22 +42,20 @@
                     <img src="{{ asset('images/property/picon.png') }}" alt="" class="h-16 w-16 rounded-2xl">
                     <div>
                         <h3 class="text-xl font-semibold mb-4">Want to sell your Property?</h3>
-                        <p class="text-sm">Donec in bibendum nulla. Sed rdum</p>
                         <a href="#" class="text-accent text-sm font-bold">Contact Us →</a>
                     </div>
                 </div>
-                <div class="flex justify-around p-2 pt-7">
+                <div class="flex  p-2 pt-7">
                     <div>
-                        <h3 class="text-lg font-bold mb-4">Pages</h3>
+                        <h3 class="text-lg font-bold mb-4">Quick access</h3>
                         <ul>
-                            <li><a href="#" class="block mb-2 text-sm hover:text-accent">Home 01</a></li>
-                            <li><a href="#" class="block mb-2 text-sm hover:text-accent">Home 02</a></li>
-                            <li><a href="#" class="block mb-2 text-sm hover:text-accent">Home 03</a></li>
-                            <li><a href="#" class="block mb-2 text-sm hover:text-accent">About Us</a></li>
-                            <li><a href="#" class="block mb-2 text-sm hover:text-accent">Contact Us</a></li>
+                            <li><a href="/home2" class="block mb-2 text-sm hover:text-accent">Home</a></li>
+                            <li><a href="{{ route('property.listings') }}" class="block mb-2 text-sm hover:text-accent">Discover</a></li>
+                            <li><a href="/AboutUs" class="block mb-2 text-sm hover:text-accent">About us</a></li>
+                            <li><a href="/ContactUs" class="block mb-2 text-sm hover:text-accent">Contact Us</a></li>
                         </ul>
                     </div>
-                    <div>
+                    {{-- <div>
                         <h3 class="text-lg font-bold mb-4">Inner Pages</h3>
                         <ul>
                             <li><a href="#" class="block mb-2 text-sm hover:text-accent">Property Listing</a></li>
@@ -64,7 +65,7 @@
                             <li><a href="#" class="block mb-2 text-sm hover:text-accent">Agent Profile</a></li>
                             <li><a href="#" class="block mb-2 text-sm hover:text-accent">Property Gallery</a></li>
                         </ul>
-                    </div>
+                    </div> --}}
                 </div>
 
             </div>
@@ -81,7 +82,7 @@
                         <label for="terms">I agree with the terms & conditions</label>
                     </div>
                 </div>
-                <div class="flex justify-around p-2">
+                {{-- <div class="flex justify-around p-2">
                     <div>
                         <h3 class="text-lg font-bold mb-4">Utility Pages</h3>
                         <ul>
@@ -103,13 +104,13 @@
                             <li><a href="#" class="block mb-2 text-sm hover:text-accent">Careers</a></li>
                         </ul>
                     </div>
-                </div>
+                </div> --}}
 
             </div>
 
         </div>
-        <div class="mt-12 text-center text-sm">
+        {{-- <div class="mt-12 text-center text-sm">
             © Designthemes all rights Reserved
-        </div>
+        </div> --}}
     </div>
 </footer>
