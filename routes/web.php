@@ -35,6 +35,7 @@ Route::get('/brz', function () {
     return view('welcome');
 });
 
+Route::delete('/users/{id}', [RegisteredUserController::class, 'deleteUser'])->name('users.delete');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -64,21 +65,25 @@ Route::get('/admin/propertyAdd', function () {
 //     return view('adminPanel.admin.propertyList');
 // });
 
-Route::get('/property_manages', [PropertyManageController::class, 'index'])->name('property_manages.index');
+// Route::get('/property_manages', [PropertyManageController::class, 'index'])->name('property_manages.index');
 Route::delete('/property_manages/{id}', [PropertyManageController::class, 'destroy'])->name('property_manages.destroy');
 
 Route::get('/ad-details/{property_id}/{category_name}', [PropertyManageController::class, 'showpropertyDetails'])->name('ad.details');
 
-Route::get('/property-showtoseller', [PropertyManageController::class, 'showpropertytoseller'])->middleware('auth');
+// Route::get('/property-showtoseller', [PropertyManageController::class, 'showpropertytoseller']);
+Route::get('/admin/users', [RegisteredUserController::class, 'getRegistoruser'])->name('admin.users');
+
+//Admin route
+Route::get('/payment-details', [PaymentController::class, 'show'])->name('payment.details');
 Route::post('/property/status/update', [PropertyManageController::class, 'updateStatus'])->name('property.status.update');
 Route::post('/property/active/update', [PropertyManageController::class, 'updateActiveStatusofad'])->name('property.active.update');
 
 
-Route::get('/admin/users', [RegisteredUserController::class, 'getRegistoruser'])->name('admin.users');
+//seller 
+Route::post('/property/payment-update', [PropertyManageController::class, 'updatePaymentStatus'])->name('property.payment.update');
 Route::post('/payments', [PaymentController::class, 'store'])->name('payments.store');
 
-Route::get('/payment-details', [PaymentController::class, 'show'])->name('payment.details');
-Route::post('/property/payment-update', [PropertyManageController::class, 'updatePaymentStatus'])->name('property.payment.update');
+//Public route
 Route::get('/property-listings', [PropertyManageController::class, 'showPropertyListings'])->name('property.listings');
 Route::get('/property/{id}', [PropertyManageController::class, 'showuniqads'])->name('property.details');
 
@@ -86,23 +91,20 @@ Route::get('/property/{id}', [PropertyManageController::class, 'showuniqads'])->
 
 
 
-
-
-
-
-
 // Admin panel routes
-Route::get('/admin/propertyList', [PropertyManageController::class, 'index'])->name('adminPanel.admin.propertyList');
-
-
 Route::middleware([AdminMiddleware::class])->group(function () {
     Route::get('/admin/userList', [RegisteredUserController::class, 'getRegistoruser'])->name('adminPanel.admin.userList');
 
+    Route::get('/adminpropertyList', [PropertyManageController::class, 'index'])->name('adminPanel.admin.propertyList');
+    Route::post('/property/status/update', [PropertyManageController::class, 'updateStatus'])->name('property.status.update');
+    Route::post('/property/active/update', [PropertyManageController::class, 'updateActiveStatusofad'])->name('property.active.update');
+    
 });
 
 
 // Routes for  sales
 Route::middleware([SellerMiddleware::class])->group(function () {
+    Route::get('/sellerpropertyList', [PropertyManageController::class, 'showpropertytoseller'])->name('adminPanel.admin.propertyListSeller');
 
     // Routes for factory sales
     Route::get('/factory-sale', [FactorySaleController::class, 'index'])->name('factory-sales.index');
@@ -344,9 +346,7 @@ Route::get('/bungalow-sale', function () {
     return view('bungalow-sale');
 });
 
-// admin panel routes
 
-// admin panel routes
 
 
 

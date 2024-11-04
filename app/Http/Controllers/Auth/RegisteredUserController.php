@@ -92,14 +92,35 @@ class RegisteredUserController extends Controller
 
     public function getRegistoruser()
     {
-        $users = User::where('usertype', 'seller')->select(
+        $users = User::where('usertype', 'seller')
+        ->where('status', 1) // Add this condition
+        ->select(
             'id', 'firstname', 'lastname', 'usertype', 'idnumber', 'address', 
             'phonenumber', 'email', 'front_fide_if_card', 'back_fide_if_card', 
             'email_verified_at', 'status', 'created_at', 'updated_at'
-        )->get();
+        )
+        ->get();
     
         return view('adminPanel.admin.userList', compact('users'));
     }
     
+
+    public function deleteUser($id)
+    {
+        // Find the user by ID
+        $user = User::find($id);
+
+        // Check if the user exists
+        if (!$user) {
+            return response()->json(['message' => 'User not found'], 404);
+        }
+
+        // Update the user's status to 0 (deactivated)
+        $user->status = 0;
+        $user->save();
+
+        // Return a success message
+        return response()->json(['message' => 'User deleted successfully'], 200);
+    }
 
 }

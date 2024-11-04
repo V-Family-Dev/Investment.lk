@@ -16,7 +16,7 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
 {
-    if (Auth::check() && Auth::user()->type === 'admin') {
+    if (Auth::check() && Auth::user()->usertype === 'admin') {
         return $next($request);
     }
     return redirect()->route('log'); // Redirect if not admin

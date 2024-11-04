@@ -20,7 +20,7 @@ class PropertyManageController extends Controller
     {
         $userId = Auth::id(); // Get the current signed-in user's ID
         $propertyManages = Property_manage::where('user_id', $userId)->get(); // Filter properties by user ID
-        return view('adminPanel.seller.property_show', compact('propertyManages'));
+        return view('adminPanel.seller.propertyListSeller', compact('propertyManages'));
     }
 
 
@@ -131,7 +131,6 @@ class PropertyManageController extends Controller
         $errors = [];  // Array to store error messages
 
         foreach ($categoryTables as $category => $table) {
-            try {
                 $selectFields = [
                     'property_manages.id',
                     'property_manages.ads_payment_status',
@@ -164,11 +163,6 @@ class PropertyManageController extends Controller
                     $ads[] = $result;
                 }
 
-            } catch (\Exception $e) {
-                // Log the error and add a message to the $errors array
-                \Log::error("Error fetching data for table {$table}: " . $e->getMessage());
-                $errors[] = "There was an issue fetching data for {$table}. Please check if the table structure or configuration is correct.";
-            }
         }
 
         // Pass both $ads and $errors to the view
@@ -232,3 +226,5 @@ class PropertyManageController extends Controller
 
 
 }
+
+?>

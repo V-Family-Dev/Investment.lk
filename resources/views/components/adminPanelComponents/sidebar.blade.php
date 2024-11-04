@@ -16,7 +16,7 @@
                     <div id="collapse1" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                        <a href="">User add</a>
-                       <a href="/admin/userList">User list</a>
+                       <a href="{{route('adminPanel.admin.userList')}}">User list</a>
                     </div>
                     </div>
                 </div>
@@ -29,8 +29,8 @@
                     <div id="collapse2" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                         <a href="/admin/propertyAdd">Property add</a>
-                        <a href="/admin/propertyList">Property list</a>
-                    </div>
+                        <a href="{{ route('adminPanel.admin.propertyList') }}">Property list</a>
+                        </div>
                     </div>
                 </div>
 
@@ -61,7 +61,7 @@
                         <div id="collapse2" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             <a href="/admin/propertyAdd">Property add</a>
-                            <a href="/admin/propertyList">Property list</a>
+                            <a href="{{route('adminPanel.admin.propertyListSeller')}}">Property list</a>
                         </div>
                         </div>
                     </div>

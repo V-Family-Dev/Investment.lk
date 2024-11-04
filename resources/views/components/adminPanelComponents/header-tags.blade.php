@@ -5,6 +5,7 @@
 
 <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.css" />
 <link rel="stylesheet" href="" />
+<meta name="csrf-token" content="{{ csrf_token() }}">
 
 
 <link rel="stylesheet" href="{{ asset('css/app.css') }}">

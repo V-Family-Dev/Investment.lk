@@ -16,7 +16,7 @@ class SellerMiddleware
      */
     public function handle($request, Closure $next)
 {
-    if (Auth::check() && Auth::user()->type === 'seller') {
+    if (Auth::check() && Auth::user()->usertype === 'seller') {
         return $next($request);
     }
     return redirect()->route('log');// Redirect if not seller
